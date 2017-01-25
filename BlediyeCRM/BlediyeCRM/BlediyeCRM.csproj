@@ -62,6 +62,7 @@
     <Content Include="assets\fonts\fontawesome-webfont.woff" />
     <Content Include="assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="MASTER.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -596,6 +597,7 @@
     <Content Include="assets\images\profile.png" />
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\vendor.js" />
+    <Content Include="Default.aspx" />
     <Content Include="index.html" />
     <Content Include="messaging.html" />
     <Content Include="pages\404.html" />
@@ -617,6 +619,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MASTER.Master.cs">
+      <DependentUpon>MASTER.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MASTER.Master.designer.cs">
+      <DependentUpon>MASTER.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <PropertyGroup>

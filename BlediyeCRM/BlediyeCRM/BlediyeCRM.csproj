@@ -64,6 +64,7 @@
     <Content Include="assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="assets\fonts\FontAwesome.otf" />
     <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="MASTER.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -602,8 +603,9 @@
     <Content Include="index.html" />
     <Content Include="messaging.html" />
     <Content Include="pages\404.html" />
+    <Content Include="pages\Belediye_Ekle.aspx" />
     <Content Include="pages\form.html" />
-    <Content Include="pages\Guvenli_Cikis.aspx" />
+    <Content Include="Guvenli_Cikis.aspx" />
     <Content Include="pages\inbox.html" />
     <Content Include="pages\login.html" />
     <Content Include="pages\profile.html" />
@@ -636,6 +638,9 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="MASTER.Master.cs">
       <DependentUpon>MASTER.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -643,11 +648,18 @@
     <Compile Include="MASTER.Master.designer.cs">
       <DependentUpon>MASTER.Master</DependentUpon>
     </Compile>
-    <Compile Include="pages\Guvenli_Cikis.aspx.cs">
+    <Compile Include="pages\Belediye_Ekle.aspx.cs">
+      <DependentUpon>Belediye_Ekle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Belediye_Ekle.aspx.designer.cs">
+      <DependentUpon>Belediye_Ekle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Guvenli_Cikis.aspx.cs">
       <DependentUpon>Guvenli_Cikis.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\Guvenli_Cikis.aspx.designer.cs">
+    <Compile Include="Guvenli_Cikis.aspx.designer.cs">
       <DependentUpon>Guvenli_Cikis.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

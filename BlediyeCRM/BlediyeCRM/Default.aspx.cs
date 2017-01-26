@@ -13,7 +13,9 @@ namespace BlediyeCRM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["YETKI"] = "";
+            Session["ADSOYAD"] = "";
+            Session["KULLANICI_ID"] = "";
         }
 
         protected void txtGiris_Click(object sender, EventArgs e)

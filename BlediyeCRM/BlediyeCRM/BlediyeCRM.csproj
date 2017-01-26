@@ -57,7 +57,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Anasayfa.aspx" />
     <Content Include="assets\fonts\fontawesome-webfont.eot" />
     <Content Include="assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="assets\fonts\fontawesome-webfont.woff" />
@@ -604,6 +603,7 @@
     <Content Include="messaging.html" />
     <Content Include="pages\404.html" />
     <Content Include="pages\form.html" />
+    <Content Include="pages\Guvenli_Cikis.aspx" />
     <Content Include="pages\inbox.html" />
     <Content Include="pages\login.html" />
     <Content Include="pages\profile.html" />
@@ -621,13 +621,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Anasayfa.aspx.cs">
-      <DependentUpon>Anasayfa.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Anasayfa.aspx.designer.cs">
-      <DependentUpon>Anasayfa.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="DB.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -648,6 +642,13 @@
     </Compile>
     <Compile Include="MASTER.Master.designer.cs">
       <DependentUpon>MASTER.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Guvenli_Cikis.aspx.cs">
+      <DependentUpon>Guvenli_Cikis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Guvenli_Cikis.aspx.designer.cs">
+      <DependentUpon>Guvenli_Cikis.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

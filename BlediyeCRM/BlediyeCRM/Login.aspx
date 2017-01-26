@@ -67,7 +67,7 @@
 
 
                                 <div class="text-left">
-                                    <asp:Button ID="txtGiris" CssClass="btn btn-success btn-submit" runat="server" Text="Giriş Yap" /> 
+                                    <asp:Button ID="txtGiris" CssClass="btn btn-success btn-submit" runat="server" Text="Giriş Yap" OnClick="txtGiris_Click" /> 
                                 </div>
 
                                   <div class="text-left"> 

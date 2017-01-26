@@ -79,7 +79,7 @@
                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Admin</li>
                                     <li><a href="pages/Bilgilerimi_Guncelle.aspx">Bilgilerimi Güncelle</a></li>
                                     <li><a href="pages/Sifremi_Guncelle.aspx">Şifremi Güncelle</a></li>
-                                    <li><a href="pages/Gunvenli_Cikis.aspx">Güvenli Çıkış</a></li>
+                                    <li><a href="pages/Guvenli_Cikis.aspx">Güvenli Çıkış</a></li>
 
 
                                 </ul>
@@ -239,25 +239,14 @@
                                     </a>
                                     <div class="dropdown-menu">
                                         <div class="profile-info">
-                                            <h4 class="username">Scott White</h4>
+                                            <h4 class="username">
+                                                <asp:Label ID="lblAdSoyad" runat="server" Text="null"></asp:Label></h4>
                                         </div>
                                         <ul class="action">
+                                            
                                             <li>
-                                                <a href="#">Profile
-                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <span class="badge badge-danger pull-right">5</span>
-                                                    My Inbox
-                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Setting
-                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Logout
+                                                 <i class="fa fa-key" aria-hidden="true"></i>
+                                                <a href="pages/Guvenli_Cikis.aspx">Güvenli Çıkış
                 </a>
                                             </li>
                                         </ul>

@@ -11,7 +11,10 @@ namespace BlediyeCRM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                lblAdSoyad.Text = "" + Session["ADSOYAD"];
+            }
         }
     }
 }

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BlediyeCRM
+namespace BlediyeCRM.pages
 {
 
 
-    public partial class Anasayfa
+    public partial class Guvenli_Cikis
     {
     }
 }

@@ -11,7 +11,8 @@ namespace BlediyeCRM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["YETKI"] == "")
+                Response.Redirect("Login.aspx");
         }
     }
 }

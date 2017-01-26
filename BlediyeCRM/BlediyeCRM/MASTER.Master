@@ -218,13 +218,13 @@
                                                 <a href="#">
                                                     <span class="badge badge-danger pull-right">14</span>
                                                     Inbox
-                </a>
+                                                </a>
                                             </li>
                                             <li>
                                                 <a href="#">
                                                     <span class="badge badge-danger pull-right">5</span>
                                                     Issues Report
-                </a>
+                                                </a>
                                             </li>
                                             <li class="dropdown-footer">
                                                 <a href="#">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
@@ -243,11 +243,10 @@
                                                 <asp:Label ID="lblAdSoyad" runat="server" Text="null"></asp:Label></h4>
                                         </div>
                                         <ul class="action">
-                                            
+
                                             <li>
-                                                 <i class="fa fa-key" aria-hidden="true"></i>
                                                 <a href="pages/Guvenli_Cikis.aspx">Güvenli Çıkış
-                </a>
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>

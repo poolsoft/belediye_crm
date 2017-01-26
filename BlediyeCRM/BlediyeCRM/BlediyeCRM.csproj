@@ -57,12 +57,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Anasayfa.aspx" />
     <Content Include="assets\fonts\fontawesome-webfont.eot" />
     <Content Include="assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="assets\fonts\fontawesome-webfont.woff" />
     <Content Include="assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="assets\fonts\FontAwesome.otf" />
-    <Content Include="Login.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="MASTER.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -598,7 +599,6 @@
     <Content Include="assets\images\profile.png" />
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\vendor.js" />
-    <Content Include="Default.aspx" />
     <Content Include="index.html" />
     <Content Include="messaging.html" />
     <Content Include="pages\404.html" />
@@ -621,6 +621,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Anasayfa.aspx.cs">
+      <DependentUpon>Anasayfa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Anasayfa.aspx.designer.cs">
+      <DependentUpon>Anasayfa.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -628,13 +635,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MASTER.Master.cs">
       <DependentUpon>MASTER.Master</DependentUpon>

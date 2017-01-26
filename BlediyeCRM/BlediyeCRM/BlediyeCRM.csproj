@@ -611,6 +611,10 @@
     <Content Include="pages\profile.html" />
     <Content Include="pages\register.html" />
     <Content Include="pages\search.html" />
+    <Content Include="pages\assets\images\blur.svg" />
+    <Content Include="pages\assets\images\landing\ss.jpg" />
+    <Content Include="pages\assets\images\landing\ss.png" />
+    <Content Include="pages\assets\images\profile.png" />
     <Content Include="uikits\card.html" />
     <Content Include="uikits\chart.html" />
     <Content Include="uikits\components.html" />

@@ -14,6 +14,12 @@ namespace BlediyeCRM
             if (!IsPostBack)
             {
                 lblAdSoyad.Text = "" + Session["ADSOYAD"];
+                if (Session["YETKI"].Equals("1"))
+                    Panel.Visible = true;
+                else
+                    Panel.Visible = false;
+                
+                
             }
         }
     }

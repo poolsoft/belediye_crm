@@ -6,8 +6,8 @@
 <head runat="server">
     <title>Belediye CRM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="assets/css/vendor.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/flat-admin.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/vendor.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/flat-admin.css" />
 
     <!-- Theme -->
     <link rel="stylesheet" type="text/css" href="assets/css/theme/blue-sky.css" />
@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/theme/red.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/theme/yellow.css" />
 
-     
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -64,28 +64,31 @@
 
 
 
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <div class="icon">
-                                    <i class="fa fa-file-o" aria-hidden="true"></i>
+                        <li class="dropdown" id="Panel" runat="server">
+                           
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <div class="icon">
+                                        <i class="fa fa-file-o" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="title">Yönetim Paneli</div>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <ul>
+
+                                        <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Kullanıcı</li>
+                                        <li><a href="pages/Kullanici_Ekle.aspx">Kullanıcı Ekle</a></li>
+                                        <li><a href="pages/Kullanicilari_Goruntule.aspx">Kullanıcıları Görüntüle</a></li>
+                                        <li class="line"></li>
+                                        <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Admin</li>
+                                        <li><a href="pages/Bilgilerimi_Guncelle.aspx">Bilgilerimi Güncelle</a></li>
+                                        <li><a href="pages/Sifremi_Guncelle.aspx">Şifremi Güncelle</a></li>
+                                        <li><a href="/Guvenli_Cikis.aspx">Güvenli Çıkış</a></li>
+
+
+                                    </ul>
                                 </div>
-                                <div class="title">Yönetim Paneli</div>
-                            </a>
-                            <div class="dropdown-menu">
-                                <ul>
+                          
 
-                                    <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Kullanıcı</li>
-                                    <li><a href="pages/Kullanici_Ekle.aspx">Kullanıcı Ekle</a></li>
-                                    <li><a href="pages/Kullanicilari_Goruntule.aspx">Kullanıcıları Görüntüle</a></li>
-                                    <li class="line"></li>
-                                    <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Admin</li>
-                                    <li><a href="pages/Bilgilerimi_Guncelle.aspx">Bilgilerimi Güncelle</a></li>
-                                    <li><a href="pages/Sifremi_Guncelle.aspx">Şifremi Güncelle</a></li>
-                                    <li><a href="/Guvenli_Cikis.aspx">Güvenli Çıkış</a></li>
-
-
-                                </ul>
-                            </div>
                         </li>
                     </ul>
                 </div>
@@ -117,7 +120,7 @@
                                 </li>
                                 <li>
                                     <button type="button" class="navbar-toggle">
-                                        <img class="profile-img" src="assets/images/profile.png">
+                                        <img class="profile-img" src="./assets/images/profile.png">
                                     </button>
                                 </li>
                             </ul>
@@ -263,7 +266,6 @@
 
 
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-
                 </asp:ContentPlaceHolder>
 
 
@@ -289,7 +291,7 @@
     </form>
     <script type="text/javascript" src="assets/js/vendor.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
-      
+
 
 </body>
 </html>

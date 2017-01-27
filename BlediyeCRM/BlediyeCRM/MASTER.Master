@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="./assets/css/vendor.css" />
     <link rel="stylesheet" type="text/css" href="./assets/css/flat-admin.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/ModalCss.css" />
 
     <!-- Theme -->
     <link rel="stylesheet" type="text/css" href="assets/css/theme/blue-sky.css" />
@@ -15,11 +16,18 @@
     <link rel="stylesheet" type="text/css" href="assets/css/theme/red.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/theme/yellow.css" />
 
+    <link rel="stylesheet" type="text/css" href="assets/css/lightbox.css" />
+    
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body style="background-color:#f1f1f1">
 
     <form id="form1" runat="server">
         <div class="app app-default">
@@ -65,29 +73,29 @@
 
 
                         <li class="dropdown" id="Panel" runat="server">
-                           
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <div class="icon">
-                                        <i class="fa fa-file-o" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="title">Yönetim Paneli</div>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <ul>
 
-                                        <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Kullanıcı</li>
-                                        <li><a href="pages/Kullanici_Ekle.aspx">Kullanıcı Ekle</a></li>
-                                        <li><a href="pages/Kullanicilari_Goruntule.aspx">Kullanıcıları Görüntüle</a></li>
-                                        <li class="line"></li>
-                                        <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Admin</li>
-                                        <li><a href="pages/Bilgilerimi_Guncelle.aspx">Bilgilerimi Güncelle</a></li>
-                                        <li><a href="pages/Sifremi_Guncelle.aspx">Şifremi Güncelle</a></li>
-                                        <li><a href="/Guvenli_Cikis.aspx">Güvenli Çıkış</a></li>
-
-
-                                    </ul>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <div class="icon">
+                                    <i class="fa fa-file-o" aria-hidden="true"></i>
                                 </div>
-                          
+                                <div class="title">Yönetim Paneli</div>
+                            </a>
+                            <div class="dropdown-menu">
+                                <ul>
+
+                                    <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Kullanıcı</li>
+                                    <li><a href="pages/Kullanici_Ekle.aspx">Kullanıcı Ekle</a></li>
+                                    <li><a href="pages/Kullanicilari_Goruntule.aspx">Kullanıcıları Görüntüle</a></li>
+                                    <li class="line"></li>
+                                    <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Admin</li>
+                                    <li><a href="pages/Bilgilerimi_Guncelle.aspx">Bilgilerimi Güncelle</a></li>
+                                    <li><a href="pages/Sifremi_Guncelle.aspx">Şifremi Güncelle</a></li>
+                                    <li><a href="/Guvenli_Cikis.aspx">Güvenli Çıkış</a></li>
+
+
+                                </ul>
+                            </div>
+
 
                         </li>
                     </ul>
@@ -292,6 +300,16 @@
     <script type="text/javascript" src="assets/js/vendor.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
 
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!--lightbox-->
+    <script src="assets/js/lightbox-plus-jquery.min.js"></script>
+    <script src="assets/js/lightbox.min.js"></script>
 
 </body>
 </html>

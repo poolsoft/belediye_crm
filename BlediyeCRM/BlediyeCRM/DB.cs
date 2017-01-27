@@ -63,5 +63,18 @@ namespace BlediyeCRM
                 Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
             }
         }
+   
+         
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     }
 }

@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,36 +38,46 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=15.1.4.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Documents\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Anasayfa.aspx" />
+    <Content Include="assets\css\lightbox.css" />
+    <Content Include="assets\css\lightbox.min.css" />
+    <Content Include="assets\css\ModalCss.css" />
     <Content Include="assets\fonts\fontawesome-webfont.eot" />
     <Content Include="assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="assets\fonts\fontawesome-webfont.woff" />
     <Content Include="assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="assets\js\lightbox-plus-jquery.js" />
+    <Content Include="assets\js\lightbox-plus-jquery.min.js" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="MASTER.Master" />
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -604,8 +616,10 @@
     <Content Include="messaging.html" />
     <Content Include="pages\404.html" />
     <Content Include="pages\Belediye_Ekle.aspx" />
+    <Content Include="pages\Birim_Ekle.aspx" />
     <Content Include="pages\form.html" />
     <Content Include="Guvenli_Cikis.aspx" />
+    <Content Include="pages\Gorusme_Ekle.aspx" />
     <Content Include="pages\inbox.html" />
     <Content Include="pages\login.html" />
     <Content Include="pages\profile.html" />
@@ -665,6 +679,20 @@
     </Compile>
     <Compile Include="Guvenli_Cikis.aspx.designer.cs">
       <DependentUpon>Guvenli_Cikis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Birim_Ekle.aspx.cs">
+      <DependentUpon>Birim_Ekle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Birim_Ekle.aspx.designer.cs">
+      <DependentUpon>Birim_Ekle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Gorusme_Ekle.aspx.cs">
+      <DependentUpon>Gorusme_Ekle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Gorusme_Ekle.aspx.designer.cs">
+      <DependentUpon>Gorusme_Ekle.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

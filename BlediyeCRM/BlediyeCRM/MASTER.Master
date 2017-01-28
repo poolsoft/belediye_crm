@@ -6,8 +6,8 @@
 <head runat="server">
     <title>Belediye CRM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/vendor.css" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/flat-admin.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/vendor.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/flat-admin.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/ModalCss.css" />
 
     <!-- Theme -->
@@ -21,11 +21,13 @@
 
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
 
-    <!-- Optional theme -->
+   <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+
 </head>
 <body style="background-color:#f1f1f1">
 
@@ -44,7 +46,7 @@
                 <div class="sidebar-menu">
                     <ul class="sidebar-nav">
                         <li class="">
-                            <a href="Default.aspx">
+                            <a href="../Default.aspx">
                                 <div class="icon">
                                     <i class="fa fa-tasks" aria-hidden="true"></i>
                                 </div>
@@ -53,7 +55,7 @@
                         </li>
 
                         <li class="dropdown ">
-                            <a href="Belediye.aspx" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="../Belediye.aspx" class="dropdown-toggle" data-toggle="dropdown">
                                 <div class="icon">
                                     <i class="fa fa-archive" aria-hidden="true"></i>
                                 </div>
@@ -63,8 +65,8 @@
                             <div class="dropdown-menu">
                                 <ul>
                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Belediye İşlemleri</li>
-                                    <li><a href="pages/Belediyeleri_Goruntule.aspx">Belediyeleri Görüntüle</a></li>
-                                    <li><a href="pages/Belediye_Ekle.aspx">Belediye Ekle</a></li>
+                                    <li><a href="../pages/Belediyeleri_Goruntule.aspx">Belediyeleri Görüntüle</a></li>
+                                    <li><a href="../pages/Belediye_Ekle.aspx">Belediye Ekle</a></li>
                                 </ul>
                             </div>
 
@@ -84,13 +86,13 @@
                                 <ul>
 
                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Kullanıcı</li>
-                                    <li><a href="pages/Kullanici_Ekle.aspx">Kullanıcı Ekle</a></li>
-                                    <li><a href="pages/Kullanicilari_Goruntule.aspx">Kullanıcıları Görüntüle</a></li>
+                                    <li><a href="../pages/Kullanici_Ekle.aspx">Kullanıcı Ekle</a></li>
+                                    <li><a href="../pages/Kullanicilari_Goruntule.aspx">Kullanıcıları Görüntüle</a></li>
                                     <li class="line"></li>
                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Admin</li>
-                                    <li><a href="pages/Bilgilerimi_Guncelle.aspx">Bilgilerimi Güncelle</a></li>
-                                    <li><a href="pages/Sifremi_Guncelle.aspx">Şifremi Güncelle</a></li>
-                                    <li><a href="/Guvenli_Cikis.aspx">Güvenli Çıkış</a></li>
+                                    <li><a href="../pages/Bilgilerimi_Guncelle.aspx">Bilgilerimi Güncelle</a></li>
+                                    <li><a href="../pages/Sifremi_Guncelle.aspx">Şifremi Güncelle</a></li>
+                                    <li><a href="../Guvenli_Cikis.aspx">Güvenli Çıkış</a></li>
 
 
                                 </ul>
@@ -132,13 +134,7 @@
                                     </button>
                                 </li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-left">
-                                <li class="navbar-title">Dashboard</li>
-                                <li class="navbar-search hidden-sm">
-                                    <input id="search" type="text" placeholder="Search..">
-                                    <button class="btn-search"><i class="fa fa-search"></i></button>
-                                </li>
-                            </ul>
+                             
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="dropdown notification">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -269,10 +265,7 @@
                     </div>
                 </nav>
 
-
-
-
-
+                 
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
 
@@ -280,25 +273,15 @@
 
 
 
-
-                <footer class="app-footer">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="footer-copyright">
-                                Copyright © 2017 PARAMETRE LTD.
-     
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+ 
             </div>
 
 
         </div>
 
     </form>
-    <script type="text/javascript" src="assets/js/vendor.js"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor.js"></script>
+    <script type="text/javascript" src="../assets/js/app.js"></script>
 
 
 

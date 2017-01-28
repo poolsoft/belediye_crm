@@ -30207,7 +30207,7 @@ S2.define('jquery.select2',[
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Next",
+				"sNext": "İleri",
 	
 	
 				/**
@@ -30230,7 +30230,7 @@ S2.define('jquery.select2',[
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Previous"
+				"sPrevious": "Geri"
 			},
 	
 			/**
@@ -30253,7 +30253,7 @@ S2.define('jquery.select2',[
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
+			"sEmptyTable": "Hiç veri bulunmamaktadır.",
 	
 	
 			/**
@@ -30285,7 +30285,7 @@ S2.define('jquery.select2',[
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "TOPLAM _TOTAL_ veri mevcuttur.  _START_ ile _END_ of  arasındakiler gösteriliyor.",
 	
 	
 			/**
@@ -30306,7 +30306,7 @@ S2.define('jquery.select2',[
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			"sInfoEmpty": "Gösterilen veri yoktur.",
 	
 	
 			/**

@@ -14,7 +14,7 @@ namespace BlediyeCRM
             if (!IsPostBack)
             {
                 lblAdSoyad.Text = "" + Session["ADSOYAD"];
-                if (Session["YETKI"].Equals("1"))
+                if (Session["YETKI"]!=null)
                     Panel.Visible = true;
                 else
                     Panel.Visible = false;

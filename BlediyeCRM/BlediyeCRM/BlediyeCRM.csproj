@@ -615,6 +615,7 @@
     <Content Include="index.html" />
     <Content Include="messaging.html" />
     <Content Include="pages\404.html" />
+    <Content Include="pages\Belediyeleri_Goruntule.aspx" />
     <Content Include="pages\Belediye_Ekle.aspx" />
     <Content Include="pages\Birim_Ekle.aspx" />
     <Content Include="pages\form.html" />
@@ -665,6 +666,13 @@
     </Compile>
     <Compile Include="MASTER.Master.designer.cs">
       <DependentUpon>MASTER.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Belediyeleri_Goruntule.aspx.cs">
+      <DependentUpon>Belediyeleri_Goruntule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Belediyeleri_Goruntule.aspx.designer.cs">
+      <DependentUpon>Belediyeleri_Goruntule.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\Belediye_Ekle.aspx.cs">
       <DependentUpon>Belediye_Ekle.aspx</DependentUpon>

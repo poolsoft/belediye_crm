@@ -63,9 +63,31 @@ namespace BlediyeCRM
                 Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
             }
         }
+
+
+
+        //Belediye  Getir
+        public SqlDataReader BelediyeGetir()
+        {
+            SqlDataReader sonuc = null;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+                cmd = new SqlCommand("select * from BELEDIYE order by KAYIT_ZAMANI desc ", con);
+                con.Open();
+                sonuc = cmd.ExecuteReader();
+                return sonuc;
+                con.Close();
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
    
-         
-    
     
     
     

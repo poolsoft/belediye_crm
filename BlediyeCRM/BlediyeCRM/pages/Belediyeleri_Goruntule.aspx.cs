@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -16,7 +17,7 @@ namespace BlediyeCRM.pages
             if (!IsPostBack)
             {
                 LOADING();
-               
+                lblMesaj.Text = "";
             }
              
         }
@@ -25,7 +26,7 @@ namespace BlediyeCRM.pages
         {
             if (e.CommandName == "BIRIM")
             {
-                
+                Response.Redirect("Birim_Ekle.aspx?BELEDIYE_ID="+Convert.ToUInt32(e.CommandArgument));
             }
 
             if (e.CommandName == "DETAY")
@@ -35,6 +36,18 @@ namespace BlediyeCRM.pages
 
             if (e.CommandName == "SIL")
             {
+                DB a = new DB();
+                if (a.BelediyeSil(Convert.ToInt32(e.CommandArgument)) == 1)
+                {
+                    lblMesaj.ForeColor = Color.Green;
+                    lblMesaj.Text = "Silindi.";
+                    LOADING();
+                }
+                else
+                {
+                    lblMesaj.ForeColor = Color.Red;
+                    lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz.";
+                }
 
             }
         }

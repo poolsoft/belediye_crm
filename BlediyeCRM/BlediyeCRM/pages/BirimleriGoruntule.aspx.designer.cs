@@ -10,7 +10,7 @@
 namespace BlediyeCRM.pages {
     
     
-    public partial class Belediyeleri_Goruntule {
+    public partial class BirimleriGoruntule {
         
         /// <summary>
         /// btnYeniBelediyeEkle control.
@@ -31,12 +31,21 @@ namespace BlediyeCRM.pages {
         protected global::System.Web.UI.WebControls.Label lblMesaj;
         
         /// <summary>
-        /// rptBELEDIYE control.
+        /// rptBIRIMLER control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptBELEDIYE;
+        protected global::System.Web.UI.WebControls.Repeater rptBIRIMLER;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }

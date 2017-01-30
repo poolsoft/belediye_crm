@@ -1,12 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER.Master" AutoEventWireup="true" CodeBehind="Belediyeleri_Goruntule.aspx.cs" Inherits="BlediyeCRM.pages.Belediyeleri_Goruntule" %>
-
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER.Master" AutoEventWireup="true" CodeBehind="BirimleriGoruntule.aspx.cs" Inherits="BlediyeCRM.pages.BirimleriGoruntule" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -21,7 +19,7 @@
                     <asp:Label ID="lblMesaj" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="card-body no-padding">
-                    <asp:Repeater ID="rptBELEDIYE" runat="server" OnItemCommand="rptYAPI_ItemCommand" Visible="true">
+                    <asp:Repeater ID="rptBIRIMLER" runat="server" OnItemCommand="rptBIRIMLER_ItemCommand" Visible="true">
                         <HeaderTemplate>
                             <table class="datatable table table-striped primary" cellspacing="0" width="100%">
                                 <thead>
@@ -47,7 +45,9 @@
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
                                                     <h4 class="modal-title" id="myModalLabel">Silmek istediğinize emin misiniz?</h4>
                                                 </div>
                                                 <div class="modal-body">
@@ -56,8 +56,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
-
-                                                    <asp:Button ID="btnSIL" CssClass="btn btn-danger" runat="server" CommandName="SIL" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Sil" />
+                                                    <asp:Button ID="btnSIL" CssClass="btn btn-danger" runat="server" CommandName="SIL" CommandArgument='<%# Eval("BIRIM_ID") %>' Text="Sil" />
 
                                                 </div>
                                             </div>
@@ -65,7 +64,6 @@
                                     </div>
 
 
-                                    <%--  <asp:Button ID="btnBirimEkle" CssClass="btn btn-success" runat="server" CommandName="BIRIM" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Birim Ekle" OnClick="btnBirimEkle_Click" /> --%>
 
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
@@ -74,9 +72,9 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <asp:Button ID="btnBirimEkle" runat="server" CssClass="btn btn-default" OnClick="btnBirimEkle_Click" Width="100%" CommandName="BIRIM" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Birim Ekle" /></li>
+                                                <asp:Button ID="btnGorusmeEkle" runat="server" CssClass="btn btn-default" OnClick="btnGorusmeEkle_Click" Width="100%" CommandName="BIRIM" CommandArgument='<%# Eval("BIRIM_ID") %>' Text="Birim Ekle" /></li>
                                             <li>
-                                                <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="DETAY" /></li>
+                                                <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("BIRIM_ID") %>' Text="DETAY" /></li>
                                             <li>
                                                 <button type="button" class="btn btn-default" data-toggle="modal" style="width: 100%" data-target="#myModal">SİL  </button>
                                             </li>
@@ -84,13 +82,12 @@
                                     </div>
 
                                 </td>
-                                <td><%# Eval("IL") %></td>
-                                <td><%# Eval("ILCE") %></td>
-                                <td><%# Eval("BELEDIYE") %></td>
-                                <td><%# Eval("BELEDIYE_TURU") %></td>
-                                <td><%# Eval("NUFUS") %></td>
-                                <td>0<%# Eval("TELEFON") %></td>
-                                <td><%# Eval("NOT_ACIKLAMA") %></td>
+                                <td><asp:Label ID="BELEDIYE_ID" Visible="false" runat="server" Text="<%# Eval("BELEDIYE_ID") %>"></asp:Label><%# Eval("BIRIM_ADI") %></td>
+                                <td><%# Eval("YETKILI_ADI") %></td>
+                                <td><%# Eval("GOREVI") %></td>
+                                <td><%# Eval("TELEFON") %></td>
+                                <td><%# Eval("GSM") %></td>
+                                <td>0<%# Eval("MAIL") %></td> 
                                 <td><%# Eval("KAYIT_ZAMANI") %></td>
                             </tr>
                         </ItemTemplate>
@@ -105,8 +102,7 @@
             </div>
         </div>
     </div>
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 
 
-    <%--<script type="text/javascript" src="../assets/js/vendor.js"></script>
-    <script type="text/javascript" src="../assets/js/app.js"></script>--%>
 </asp:Content>

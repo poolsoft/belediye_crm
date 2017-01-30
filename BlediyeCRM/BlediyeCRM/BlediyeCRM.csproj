@@ -617,6 +617,7 @@
     <Content Include="pages\404.html" />
     <Content Include="pages\Belediyeleri_Goruntule.aspx" />
     <Content Include="pages\Belediye_Ekle.aspx" />
+    <Content Include="pages\BirimleriGoruntule.aspx" />
     <Content Include="pages\Birim_Ekle.aspx" />
     <Content Include="pages\form.html" />
     <Content Include="Guvenli_Cikis.aspx" />
@@ -687,6 +688,13 @@
     </Compile>
     <Compile Include="Guvenli_Cikis.aspx.designer.cs">
       <DependentUpon>Guvenli_Cikis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\BirimleriGoruntule.aspx.cs">
+      <DependentUpon>BirimleriGoruntule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\BirimleriGoruntule.aspx.designer.cs">
+      <DependentUpon>BirimleriGoruntule.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\Birim_Ekle.aspx.cs">
       <DependentUpon>Birim_Ekle.aspx</DependentUpon>

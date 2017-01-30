@@ -25,7 +25,17 @@ namespace BlediyeCRM.pages
         {
             if (e.CommandName == "BIRIM")
             {
-                ModalPopupExtender1.Show();
+                
+            }
+
+            if (e.CommandName == "DETAY")
+            {
+                Response.Redirect("Belediye_Ekle.aspx?BELEDIYE_GUNCELLE=1&BELEDIYE_ID="+e.CommandArgument);
+            }
+
+            if (e.CommandName == "SIL")
+            {
+
             }
         }
 

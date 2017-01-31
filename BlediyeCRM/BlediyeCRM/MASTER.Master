@@ -91,7 +91,7 @@
                                     <li class="line"></li>
                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Admin</li>
                                     <li><a href="../pages/Bilgilerimi_Guncelle.aspx">Bilgilerimi Güncelle</a></li>
-                                    <li><a href="../pages/Sifremi_Guncelle.aspx">Şifremi Güncelle</a></li>
+                                    <li><a href="../pages/SifreGuncelle.aspx">Şifremi Güncelle</a></li>
                                     <li><a href="../Guvenli_Cikis.aspx">Güvenli Çıkış</a></li>
 
 

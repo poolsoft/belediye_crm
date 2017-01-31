@@ -41,6 +41,7 @@ namespace BlediyeCRM
                 {
                     Session["YETKILI"] = "" + dr["YETKI"].ToString();
                     Session["ADSOYAD"] = "" + dr["ADSOYAD"].ToString();
+                    Session["KADI"] = "" + dr["KADI"].ToString();
                     Session["KULLANICI_ID"] = "" + dr["KULLANICI_ID"].ToString();
 
                     if (chkRememberMe.Checked)
@@ -69,8 +70,10 @@ namespace BlediyeCRM
             else
             {
                 lblMesaj.ForeColor = Color.Red;
-                lblMesaj.Text = "Hata. Tüm alanları doldurmalısınız.";
+                lblMesaj.Text = "Hatalı giriş yaptınız.";
             } 
         }
+    
+    
     }
 }

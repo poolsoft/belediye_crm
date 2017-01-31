@@ -26,7 +26,8 @@ namespace BlediyeCRM.pages
         {
             if (e.CommandName == "BIRIM")
             {
-                Response.Redirect("Birim_Ekle.aspx?BELEDIYE_ID="+Convert.ToUInt32(e.CommandArgument));
+                Response.Redirect("BirimleriGoruntule.aspx?BELEDIYE_ID=" + Convert.ToUInt32(e.CommandArgument));
+                
             }
 
             if (e.CommandName == "DETAY")
@@ -88,6 +89,8 @@ namespace BlediyeCRM.pages
         {
 
         }
+
+         
 
         
 

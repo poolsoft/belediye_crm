@@ -621,6 +621,7 @@
     <Content Include="pages\Birim_Ekle.aspx" />
     <Content Include="pages\form.html" />
     <Content Include="Guvenli_Cikis.aspx" />
+    <Content Include="pages\Gorusmeleri_Goruntule.aspx" />
     <Content Include="pages\Gorusme_Ekle.aspx" />
     <Content Include="pages\inbox.html" />
     <Content Include="pages\login.html" />
@@ -702,6 +703,13 @@
     </Compile>
     <Compile Include="pages\Birim_Ekle.aspx.designer.cs">
       <DependentUpon>Birim_Ekle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Gorusmeleri_Goruntule.aspx.cs">
+      <DependentUpon>Gorusmeleri_Goruntule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Gorusmeleri_Goruntule.aspx.designer.cs">
+      <DependentUpon>Gorusmeleri_Goruntule.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\Gorusme_Ekle.aspx.cs">
       <DependentUpon>Gorusme_Ekle.aspx</DependentUpon>

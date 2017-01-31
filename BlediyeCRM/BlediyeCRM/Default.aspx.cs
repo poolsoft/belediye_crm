@@ -17,9 +17,9 @@ namespace BlediyeCRM
 
             if (!IsPostBack)
             {
-                Session["YETKI"] = "";
-                Session["ADSOYAD"] = "";
-                Session["KULLANICI_ID"] = "";
+                //Session["YETKI"] = "";
+                //Session["ADSOYAD"] = "";
+                //Session["KULLANICI_ID"] = "";
 
                 if (Request.Cookies["UserName"] != null && Request.Cookies["Password"] != null)
                 {
@@ -39,7 +39,7 @@ namespace BlediyeCRM
             {
                 try
                 {
-                    Session["YETKI"] = "" + dr["YETKI"].ToString();
+                    Session["YETKILI"] = "" + dr["YETKI"].ToString();
                     Session["ADSOYAD"] = "" + dr["ADSOYAD"].ToString();
                     Session["KULLANICI_ID"] = "" + dr["KULLANICI_ID"].ToString();
 

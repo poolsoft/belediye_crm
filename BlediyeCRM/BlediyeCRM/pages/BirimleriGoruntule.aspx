@@ -1,21 +1,33 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER.Master" AutoEventWireup="true" CodeBehind="BirimleriGoruntule.aspx.cs" Inherits="BlediyeCRM.pages.BirimleriGoruntule" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <div class="row">
+        <div style="right: 0; position: absolute; z-index: 10; bottom: 0; margin-right: 30px; margin-bottom: 30px" class=" btn btn-success">
+            <i class="fa fa-plus"></i>
+            <asp:Button ID="btnYeniBirimEkle" runat="server" CssClass="btn btn-success" Text="YENİ BİRİM EKLE" Visible="True" OnClick="btnYeniBirimEkle_Click" />
+        </div>
         <div class="col-xs-12">
             <div class="card">
                 <div class="card-header">
-                    <asp:Button ID="btnYeniBelediyeEkle" runat="server" CssClass="btn btn-success" Text="YENİ BELEDİYE EKLE" Visible="True" OnClick="btnYeniBelediyeEkle_Click" />
-                    <br />
-                    <br />
+                    <div class="btn btn-primary">
+                        <i class="fa fa-mail-reply"></i>
+                        <a href="Belediyeleri_Goruntule.aspx" style="color: white">Geri Dön  </a>
+
+                    </div>
+                </div>
+                <div class="card-header" style="right: 0; position: absolute; z-index: 10; bottom: 0">
+                    &nbsp;&nbsp;
                     <asp:Label ID="lblMesaj" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="card-body no-padding">
@@ -25,13 +37,12 @@
                                 <thead>
                                     <tr>
                                         <th></th>
-                                        <th>IL</th>
-                                        <th>ILCE</th>
-                                        <th>BELEDIYE </th>
-                                        <th>BELEDIYE_TURU</th>
-                                        <th>NUFUS</th>
-                                        <th>TELEFON</th>
-                                        <th>NOT_ACIKLAMA</th>
+                                        <th>BİRİM ADI</th>
+                                        <th>YETKİLİ ADI</th>
+                                        <th>GÖREVİ</th>
+                                        <th>TELEFON </th>
+                                        <th>GSM</th>
+                                        <th>MAIL</th>
                                         <th>KAYIT_ZAMANI</th>
                                     </tr>
                                 </thead>
@@ -72,22 +83,25 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <asp:Button ID="btnGorusmeEkle" runat="server" CssClass="btn btn-default" OnClick="btnGorusmeEkle_Click" Width="100%" CommandName="BIRIM" CommandArgument='<%# Eval("BIRIM_ID") %>' Text="Birim Ekle" /></li>
+                                                <asp:Button ID="btnGorusmeEkle" runat="server" CssClass="btn btn-default" OnClick="btnGorusmeEkle_Click" Width="100%" CommandName="GORUSME" CommandArgument='<%# Eval("BIRIM_ID") %>' Text="Görüşmeler" /></li>
                                             <li>
-                                                <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("BIRIM_ID") %>' Text="DETAY" /></li>
+                                                <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("BIRIM_ID") %>' Text="Düzenle" /></li>
                                             <li>
-                                                <button type="button" class="btn btn-default" data-toggle="modal" style="width: 100%" data-target="#myModal">SİL  </button>
+                                                <button type="button" class="btn btn-default" data-toggle="modal" style="width: 100%" data-target="#myModal">Sil </button>
                                             </li>
                                         </ul>
                                     </div>
 
                                 </td>
-                                <td><asp:Label ID="BELEDIYE_ID" Visible="false" runat="server" Text="<%# Eval("BELEDIYE_ID") %>"></asp:Label><%# Eval("BIRIM_ADI") %></td>
+                                <td>
+
+
+                                    <asp:Label ID="lblBELEDIYE_ID" runat="server" Text='<%# Eval("BELEDIYE_ID") %>' Visible="false"></asp:Label><%# Eval("BIRIM_ADI") %></td>
                                 <td><%# Eval("YETKILI_ADI") %></td>
                                 <td><%# Eval("GOREVI") %></td>
-                                <td><%# Eval("TELEFON") %></td>
-                                <td><%# Eval("GSM") %></td>
-                                <td>0<%# Eval("MAIL") %></td> 
+                                <td>0<%# Eval("TELEFON") %></td>
+                                <td>0<%# Eval("GSM") %></td>
+                                <td><%# Eval("MAIL") %></td>
                                 <td><%# Eval("KAYIT_ZAMANI") %></td>
                             </tr>
                         </ItemTemplate>
@@ -98,11 +112,26 @@
                     </asp:Repeater>
 
 
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1"  runat="server" popupcontrolid="Panel1" targetcontrolid="Label2" backgroundcssclass="modalBackground" cancelcontrolid="btnHide"></ajaxToolkit:ModalPopupExtender>  
+
+
+                    <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" Style="display: none; width: 300px">
+                        <div class="header">
+                            Bilgi
+                        </div>
+                        <div class="body">
+                            <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                        </div>
+                        <div class="footer" align="right">
+                            <asp:Button ID="btnHide" runat="server" CssClass="no" Text="Kapat" />
+                        </div>
+                    </asp:Panel>
+
                 </div>
             </div>
         </div>
     </div>
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 
-
+    <asp:Label ID="Label1" runat="server" Text="Label" Visible="false"></asp:Label>
 </asp:Content>

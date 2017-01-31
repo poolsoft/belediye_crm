@@ -7,18 +7,22 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <div class="row">
+         <div style="right: 0; position: absolute; z-index: 10; bottom: 0; margin-right: 30px; margin-bottom: 30px" class=" btn btn-primary">
+            <i class="fa fa-plus"></i>
+              <asp:Button ID="btnYeniBelediyeEkle" runat="server" CssClass="btn btn-primary" Text="YENİ BELEDİYE EKLE" Visible="True" OnClick="btnYeniBelediyeEkle_Click" />
+             </div>
+
         <div class="col-xs-12">
-            <div class="card">
-                <div class="card-header">
-                    <asp:Button ID="btnYeniBelediyeEkle" runat="server" CssClass="btn btn-success" Text="YENİ BELEDİYE EKLE" Visible="True" OnClick="btnYeniBelediyeEkle_Click" />
+            <div class="card"> 
+              
+                <div class="card-header"> 
                     <br />
-                    <br />
-                    <asp:Label ID="lblMesaj" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="lblMesaj" runat="server" Text="asd"></asp:Label>
                 </div>
                 <div class="card-body no-padding">
                     <asp:Repeater ID="rptBELEDIYE" runat="server" OnItemCommand="rptYAPI_ItemCommand" Visible="true">
@@ -33,8 +37,7 @@
                                         <th>BELEDIYE_TURU</th>
                                         <th>NUFUS</th>
                                         <th>TELEFON</th>
-                                        <th>NOT_ACIKLAMA</th>
-                                        <th>KAYIT_ZAMANI</th>
+                                        <th>NOT_ACIKLAMA</th> 
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -74,11 +77,11 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <asp:Button ID="btnBirimEkle" runat="server" CssClass="btn btn-default" OnClick="btnBirimEkle_Click" Width="100%" CommandName="BIRIM" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Birim Ekle" /></li>
+                                                <asp:Button ID="btnBirimEkle" runat="server" CssClass="btn btn-default" OnClick="btnBirimEkle_Click" Width="100%" CommandName="BIRIM" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Birimler" /></li>
                                             <li>
-                                                <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="DETAY" /></li>
+                                                <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Düzenle" /></li>
                                             <li>
-                                                <button type="button" class="btn btn-default" data-toggle="modal" style="width: 100%" data-target="#myModal">SİL  </button>
+                                                <button type="button" class="btn btn-default" data-toggle="modal" style="width: 100%" data-target="#myModal">Sil  </button>
                                             </li>
                                         </ul>
                                     </div>
@@ -90,8 +93,7 @@
                                 <td><%# Eval("BELEDIYE_TURU") %></td>
                                 <td><%# Eval("NUFUS") %></td>
                                 <td>0<%# Eval("TELEFON") %></td>
-                                <td><%# Eval("NOT_ACIKLAMA") %></td>
-                                <td><%# Eval("KAYIT_ZAMANI") %></td>
+                                <td><%# Eval("NOT_ACIKLAMA") %></td> 
                             </tr>
                         </ItemTemplate>
                         <FooterTemplate>

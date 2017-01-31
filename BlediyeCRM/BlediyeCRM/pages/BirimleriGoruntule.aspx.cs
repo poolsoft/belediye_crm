@@ -15,6 +15,10 @@ namespace BlediyeCRM.pages
         {
             if (!IsPostBack)
             {
+                if(Request.QueryString["BELEDIYE_ID"]==null)
+                Response.Redirect("Belediyeleri_Goruntule.aspx");
+
+              
                 BirimleriCek();
             }
         }
@@ -42,20 +46,29 @@ namespace BlediyeCRM.pages
 
         protected void rptBIRIMLER_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if (e.CommandName == "BIRIM")
+            if (e.CommandName =="GORUSME")
             {
-                Response.Redirect("Gorusme_Ekle.aspx?BELEDIYE_ID=" + Convert.ToUInt32(e.CommandArgument)+"&BIRIM_ID="+Convert.ToInt32(Label1.Text));
+                if (Session["YETKILI"].ToString() == "2")
+                {
+                    Label2.ForeColor = Color.Red;
+                    Label2.Text = "Yetkiniz bulunmamaktadır.";
+                    ModalPopupExtender1.Show();
+                }
+                else
+                Response.Redirect("Gorusmeleri_Goruntule.aspx?BIRIM_ID=" + (e.CommandArgument) + "&BELEDIYE_ID=" + (Request.QueryString["BELEDIYE_ID"]));
+             //   Response.Redirect("Gorusme_Ekle.aspx?BELEDIYE_ID=" + Convert.ToInt32(e.CommandName) + "&BIRIM_ID=" + Convert.ToInt32(e.CommandArgument));
+                 
             }
 
             if (e.CommandName == "DETAY")
             {
-                Response.Redirect("Belediye_Ekle.aspx?BELEDIYE_GUNCELLE=1&BELEDIYE_ID=" + e.CommandArgument);
+                Response.Redirect("Birim_Ekle.aspx?BIRIM_GUNCELLE=1&BIRIM_ID=" + e.CommandArgument + "&BELEDIYE_ID=" + Request.QueryString["BELEDIYE_ID"]);
             }
 
             if (e.CommandName == "SIL")
             {
                 DB a = new DB();
-                if (a.BelediyeSil(Convert.ToInt32(e.CommandArgument)) == 1)
+                if (a.BirimSil(Convert.ToInt32(e.CommandArgument),0) == 1)
                 {
                     lblMesaj.ForeColor = Color.Green;
                     lblMesaj.Text = "Silindi.";
@@ -69,6 +82,14 @@ namespace BlediyeCRM.pages
 
             }
         }
+
+        protected void btnYeniBirimEkle_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Birim_Ekle.aspx?BELEDIYE_ID=" + Convert.ToInt32(Request.QueryString["BELEDIYE_ID"]));
+        }
+
+        
+  
 
     }
 }

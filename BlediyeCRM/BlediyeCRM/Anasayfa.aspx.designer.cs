@@ -11,5 +11,32 @@ namespace BlediyeCRM {
     
     
     public partial class Anasayfa {
+        
+        /// <summary>
+        /// lblBelAdet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBelAdet;
+        
+        /// <summary>
+        /// lblBirimAdet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBirimAdet;
+        
+        /// <summary>
+        /// lblGorusme control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGorusme;
     }
 }

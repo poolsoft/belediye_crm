@@ -11,10 +11,31 @@ namespace BlediyeCRM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["YETKI"] == "")
-            //{
-            //    Response.Redirect("Default.aspx");
-            //}
+            if (!IsPostBack)
+            {
+                if (Session["YETKILI"].ToString() == "0")
+                {
+                    Response.Redirect("Default.aspx");
+
+                }
+
+                BelediyeAdet();
+            }
         }
+
+
+        public void BelediyeAdet()
+        {
+
+            DB a = new DB(); 
+            lblBelAdet.Text = "" + a.BelediyeAdet();
+            lblBirimAdet.Text = "" + a.BirimAdet();
+            lblGorusme.Text = "" + a.GorusmeAdet();
+
+
+        }
+
+
+
     }
 }

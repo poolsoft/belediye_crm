@@ -396,5 +396,87 @@ namespace BlediyeCRM
         }
 
 
+        //Beldiye sayısı
+        public int BelediyeAdet()
+        {
+            int sonuc = -1;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+                cmd = new SqlCommand("select count(*) as adet from BELEDIYE", con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    sonuc = Convert.ToInt32(""+dr["adet"]); 
+                }
+                con.Close(); 
+                return sonuc; 
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
+
+        //Birim sayısı
+        public int BirimAdet()
+        {
+            int sonuc = -1;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+                cmd = new SqlCommand("select count(*) as adet from BIRIMLER", con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    sonuc = Convert.ToInt32("" + dr["adet"]);
+                }
+                con.Close();
+                return sonuc;
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
+
+        //Görüşmeler sayısı
+        public int GorusmeAdet()
+        {
+            int sonuc = -1;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+                cmd = new SqlCommand("select count(*) as adet from GORUSMELER", con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    sonuc = Convert.ToInt32("" + dr["adet"]);
+                }
+                con.Close();
+                return sonuc;
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
+
+
     }
 }

@@ -611,7 +611,6 @@
     <Content Include="assets\images\profile.png" />
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\vendor.js" />
-    <Content Include="index.html" />
     <Content Include="Belediyeleri_Goruntule.aspx" />
     <Content Include="Belediye_Ekle.aspx" />
     <Content Include="Bilgilerimi_Guncelle.aspx" />

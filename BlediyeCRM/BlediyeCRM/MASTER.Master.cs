@@ -22,5 +22,10 @@ namespace BlediyeCRM
                 
             }
         }
+
+        protected void grtl_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("");
+        }
     }
 }

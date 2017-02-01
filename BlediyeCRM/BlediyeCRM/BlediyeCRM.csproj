@@ -612,21 +612,17 @@
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\vendor.js" />
     <Content Include="index.html" />
-    <Content Include="pages\Belediyeleri_Goruntule.aspx" />
-    <Content Include="pages\Belediye_Ekle.aspx" />
-    <Content Include="pages\Bilgilerimi_Guncelle.aspx" />
-    <Content Include="pages\BirimleriGoruntule.aspx" />
-    <Content Include="pages\Birim_Ekle.aspx" />
+    <Content Include="Belediyeleri_Goruntule.aspx" />
+    <Content Include="Belediye_Ekle.aspx" />
+    <Content Include="Bilgilerimi_Guncelle.aspx" />
+    <Content Include="BirimleriGoruntule.aspx" />
+    <Content Include="Birim_Ekle.aspx" />
     <Content Include="Guvenli_Cikis.aspx" />
-    <Content Include="pages\Gorusmeleri_Goruntule.aspx" />
-    <Content Include="pages\Gorusme_Ekle.aspx" />
-    <Content Include="pages\Kullanicilari_Goruntule.aspx" />
-    <Content Include="pages\Kullanici_Ekle.aspx" />
-    <Content Include="pages\assets\images\blur.svg" />
-    <Content Include="pages\assets\images\landing\ss.jpg" />
-    <Content Include="pages\assets\images\landing\ss.png" />
-    <Content Include="pages\assets\images\profile.png" />
-    <Content Include="pages\SifreGuncelle.aspx" />
+    <Content Include="Gorusmeleri_Goruntule.aspx" />
+    <Content Include="Gorusme_Ekle.aspx" />
+    <Content Include="Kullanicilari_Goruntule.aspx" />
+    <Content Include="Kullanici_Ekle.aspx" />
+    <Content Include="SifreGuncelle.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -652,18 +648,18 @@
     <Compile Include="MASTER.Master.designer.cs">
       <DependentUpon>MASTER.Master</DependentUpon>
     </Compile>
-    <Compile Include="pages\Belediyeleri_Goruntule.aspx.cs">
+    <Compile Include="Belediyeleri_Goruntule.aspx.cs">
       <DependentUpon>Belediyeleri_Goruntule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\Belediyeleri_Goruntule.aspx.designer.cs">
+    <Compile Include="Belediyeleri_Goruntule.aspx.designer.cs">
       <DependentUpon>Belediyeleri_Goruntule.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\Belediye_Ekle.aspx.cs">
+    <Compile Include="Belediye_Ekle.aspx.cs">
       <DependentUpon>Belediye_Ekle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\Belediye_Ekle.aspx.designer.cs">
+    <Compile Include="Belediye_Ekle.aspx.designer.cs">
       <DependentUpon>Belediye_Ekle.aspx</DependentUpon>
     </Compile>
     <Compile Include="Guvenli_Cikis.aspx.cs">
@@ -673,60 +669,60 @@
     <Compile Include="Guvenli_Cikis.aspx.designer.cs">
       <DependentUpon>Guvenli_Cikis.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\Bilgilerimi_Guncelle.aspx.cs">
+    <Compile Include="Bilgilerimi_Guncelle.aspx.cs">
       <DependentUpon>Bilgilerimi_Guncelle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\Bilgilerimi_Guncelle.aspx.designer.cs">
+    <Compile Include="Bilgilerimi_Guncelle.aspx.designer.cs">
       <DependentUpon>Bilgilerimi_Guncelle.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\BirimleriGoruntule.aspx.cs">
+    <Compile Include="BirimleriGoruntule.aspx.cs">
       <DependentUpon>BirimleriGoruntule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\BirimleriGoruntule.aspx.designer.cs">
+    <Compile Include="BirimleriGoruntule.aspx.designer.cs">
       <DependentUpon>BirimleriGoruntule.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\Birim_Ekle.aspx.cs">
+    <Compile Include="Birim_Ekle.aspx.cs">
       <DependentUpon>Birim_Ekle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\Birim_Ekle.aspx.designer.cs">
+    <Compile Include="Birim_Ekle.aspx.designer.cs">
       <DependentUpon>Birim_Ekle.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\Gorusmeleri_Goruntule.aspx.cs">
+    <Compile Include="Gorusmeleri_Goruntule.aspx.cs">
       <DependentUpon>Gorusmeleri_Goruntule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\Gorusmeleri_Goruntule.aspx.designer.cs">
+    <Compile Include="Gorusmeleri_Goruntule.aspx.designer.cs">
       <DependentUpon>Gorusmeleri_Goruntule.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\Gorusme_Ekle.aspx.cs">
+    <Compile Include="Gorusme_Ekle.aspx.cs">
       <DependentUpon>Gorusme_Ekle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\Gorusme_Ekle.aspx.designer.cs">
+    <Compile Include="Gorusme_Ekle.aspx.designer.cs">
       <DependentUpon>Gorusme_Ekle.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\Kullanicilari_Goruntule.aspx.cs">
+    <Compile Include="Kullanicilari_Goruntule.aspx.cs">
       <DependentUpon>Kullanicilari_Goruntule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\Kullanicilari_Goruntule.aspx.designer.cs">
+    <Compile Include="Kullanicilari_Goruntule.aspx.designer.cs">
       <DependentUpon>Kullanicilari_Goruntule.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\Kullanici_Ekle.aspx.cs">
+    <Compile Include="Kullanici_Ekle.aspx.cs">
       <DependentUpon>Kullanici_Ekle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\Kullanici_Ekle.aspx.designer.cs">
+    <Compile Include="Kullanici_Ekle.aspx.designer.cs">
       <DependentUpon>Kullanici_Ekle.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\SifreGuncelle.aspx.cs">
+    <Compile Include="SifreGuncelle.aspx.cs">
       <DependentUpon>SifreGuncelle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\SifreGuncelle.aspx.designer.cs">
+    <Compile Include="SifreGuncelle.aspx.designer.cs">
       <DependentUpon>SifreGuncelle.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

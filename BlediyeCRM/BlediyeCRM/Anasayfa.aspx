@@ -4,6 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <div class="btn-floating" id="help-actions">
         <div class="btn-bg"></div>
         <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
@@ -12,10 +16,8 @@
         </button>
         <div class="toggle-content">
             <ul class="actions">
-                <li><a href="#">Website</a></li>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Issues</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="Belediyeleri_Goruntule.aspx">Belediyeleri Görüntüle</a></li>
+                <li><a href="Belediye_Ekle.aspx">Belediye Ekle</a></li> 
             </ul>
         </div>
     </div>
@@ -74,7 +76,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="card card-mini">
                 <div class="card-header">
-                    <div class="card-title">Last Statuses</div>
+                    <div class="card-title">  </div>
                     <ul class="card-action">
                         <li>
                             <a href="/">
@@ -87,42 +89,28 @@
                     <table class="table card-table">
                         <thead>
                             <tr>
-                                <th>Products</th>
-                                <th class="right">Amount</th>
-                                <th>Status</th>
+                                <th>İşin Adı</th>
+                                <th class="right">Miktarı</th>
+                                <th>Durumu</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>MicroSD 64Gb</td>
-                                <td class="right">12</td>
-                                <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Complete</span></span></td>
+                                <td>Numaraj</td>
+                                <td class="right">-</td>
+                                <td><span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Bekliyor</span></span></td>
                             </tr>
                             <tr>
-                                <td>MiniPC i5</td>
-                                <td class="right">5</td>
-                                <td><span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Pending</span></span></td>
+                                <td>Yazılım</td>
+                                <td class="right">-</td>
+                                <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Tamamlandı</span></span></td>
                             </tr>
                             <tr>
-                                <td>Mountain Bike</td>
-                                <td class="right">1</td>
-                                <td><span class="badge badge-info badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>Confirm Payment</span></span></td>
+                                <td>Tabela</td>
+                                <td class="right">-</td>
+                                <td><span class="badge badge-info badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>3. Hakediş</span></span></td>
                             </tr>
-                            <tr>
-                                <td>Notebook</td>
-                                <td class="right">10</td>
-                                <td><span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span>Cancelled</span></span></td>
-                            </tr>
-                            <tr>
-                                <td>Raspberry Pi2</td>
-                                <td class="right">6</td>
-                                <td><span class="badge badge-primary badge-icon"><i class="fa fa-truck" aria-hidden="true"></i><span>Shipped</span></span></td>
-                            </tr>
-                            <tr>
-                                <td>Flashdrive 128Mb</td>
-                                <td class="right">40</td>
-                                <td><span class="badge badge-info badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>Confirm Payment</span></span></td>
-                            </tr>
+                             
                         </tbody>
                     </table>
                 </div>
@@ -134,13 +122,13 @@
                 <div class="card-header">
                     <ul class="nav nav-tabs tab-stats">
                         <li role="tab1" class="active">
-                            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Browsers</a>
+                            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Numaraj</a>
                         </li>
                         <li role="tab2">
-                            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">OS</a>
+                            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Yazılım</a>
                         </li>
-                        <li role="tab2">
-                            <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">More</a>
+                        <li role="tab3">
+                            <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Tabela</a>
                         </li>
                     </ul>
                 </div>
@@ -148,15 +136,12 @@
                     <div role="tabpanel" class="tab-pane active" id="tab1">
                         <div class="row">
                             <div class="col-sm-8">
-                                <div class="chart ct-chart-browser ct-perfect-fourth"></div>
+                               <%-- <div class="chart ct-chart-browser ct-perfect-fourth"></div>--%>
                             </div>
                             <div class="col-sm-4">
                                 <ul class="chart-label">
-                                    <li class="ct-label ct-series-a">Google Chrome</li>
-                                    <li class="ct-label ct-series-b">Firefox</li>
-                                    <li class="ct-label ct-series-c">Safari</li>
-                                    <li class="ct-label ct-series-d">IE</li>
-                                    <li class="ct-label ct-series-e">Opera</li>
+                                    <li class="ct-label ct-series-a">Devam Eden</li>
+                                    <li class="ct-label ct-series-b">Planlanan</li> 
                                 </ul>
                             </div>
                         </div>
@@ -164,21 +149,30 @@
                     <div role="tabpanel" class="tab-pane" id="tab2">
                         <div class="row">
                             <div class="col-sm-8">
-                                <div class="chart ct-chart-os ct-perfect-fourth"></div>
+                               <%-- <div class="chart ct-chart-os ct-perfect-fourth"></div>--%>
                             </div>
                             <div class="col-sm-4">
                                 <ul class="chart-label">
-                                    <li class="ct-label ct-series-a">iOS</li>
-                                    <li class="ct-label ct-series-b">Android</li>
-                                    <li class="ct-label ct-series-c">Windows</li>
-                                    <li class="ct-label ct-series-d">OSX</li>
-                                    <li class="ct-label ct-series-e">Linux</li>
+                                    <li class="ct-label ct-series-a">Devam Eden</li>
+                                    <li class="ct-label ct-series-b">Planlanan</li> 
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="tab3">
+                     <div role="tabpanel" class="tab-pane" id="tab3">
+                        <div class="row">
+                            <div class="col-sm-8">
+                              <%--  <div class="chart ct-chart-os ct-perfect-fourth"></div>--%>
+                            </div>
+                            <div class="col-sm-4">
+                                <ul class="chart-label">
+                                 <li class="ct-label ct-series-a">Devam Eden</li>
+                                    <li class="ct-label ct-series-b">Planlanan</li> 
+                                </ul>
+                            </div>
+                        </div>
                     </div>
+                     
                 </div>
             </div>
         </div>

@@ -4936,7 +4936,10 @@ table.table.card-table {
     border-top: 2px solid #dfe6e8;
     padding: 20px 30px;
     font-size: 14px; }
-    .dataTables_wrapper .bottom .dataTables_info {
+    .dataTables_wrapper .bottom .dataTables_info {t
+ie {
+  {
+  fill: whwhite
       float: left;
       color: #8d9293; }
     .dataTables_wrapper .bottom .dataTables_paginate {

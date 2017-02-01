@@ -30285,7 +30285,7 @@ S2.define('jquery.select2',[
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "TOPLAM _TOTAL_ veri mevcuttur.  _START_ ile _END_ of  arasındakiler gösteriliyor.",
+			"sInfo": "TOPLAM _TOTAL_ veri mevcuttur.  _START_ ile _END_  arasındakiler gösteriliyor.",
 	
 	
 			/**

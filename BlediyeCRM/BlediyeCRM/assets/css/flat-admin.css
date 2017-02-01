@@ -1897,7 +1897,7 @@ a:hover {
       padding-right: 10.75px; }
   body .app-container {
     padding-left: 0;
-    padding-top: 90px; }
+    padding-top: 0px; }
     body .app-container .app-heading {
       padding-left: 15px;
       padding-right: 15px; }
@@ -4936,10 +4936,8 @@ table.table.card-table {
     border-top: 2px solid #dfe6e8;
     padding: 20px 30px;
     font-size: 14px; }
-    .dataTables_wrapper .bottom .dataTables_info {t
-ie {
-  {
-  fill: whwhite
+   .dataTables_wrapper .bottom .dataTables_info {
+       margin-top:40px;
       float: left;
       color: #8d9293; }
     .dataTables_wrapper .bottom .dataTables_paginate {

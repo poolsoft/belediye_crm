@@ -19,30 +19,16 @@
 
 <body>
 
-    <form id="form1" runat="server">
 
 
-        <div class="app app-default">
 
+    <div class="app app-default">
+
+        <form id="form1" runat="server">
             <div class="app-container app-login">
                 <div class="flex-center">
                     <div class="app-header"></div>
                     <div class="app-body">
-                        <div class="loader-container text-center">
-
-                            <div class="icon">
-                                <div class="sk-folding-cube">
-                                    <div class="sk-cube1 sk-cube"></div>
-                                    <div class="sk-cube2 sk-cube"></div>
-                                    <div class="sk-cube4 sk-cube"></div>
-                                    <div class="sk-cube3 sk-cube"></div>
-                                </div>
-                            </div>
-
-                            <div class="title">Logging in...</div>
-
-                        </div>
-
 
 
 
@@ -85,20 +71,20 @@
                                 </div>
 
                             </div>
+                        </div>
+
+
+
                     </div>
-
-
-
-                </div>
-                <div class="app-footer">
+                    <div class="app-footer">
+                    </div>
                 </div>
             </div>
-        </div>
 
-        </div>
+        </form>
+    </div>
 
 
-    </form>
 
     <script type="text/javascript" src="assets/js/vendor.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>

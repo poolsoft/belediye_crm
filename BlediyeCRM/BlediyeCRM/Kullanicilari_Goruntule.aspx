@@ -4,24 +4,21 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+     
 
     <div class="row">
 
-        <div style="right: 42%; left:42%; position: absolute; z-index: 10; bottom: 0;   margin-bottom:10px" class=" btn btn-success">
-            <i class="fa fa-plus"></i> 
-            <asp:Button ID="btnYeniKullanici" runat="server" CssClass="btn btn-success" Text="YENİ KULLANICI EKLE" Visible="True" OnClick="btnYeniKullanici_Click" />
-        </div>
-
-
         <div class="col-xs-12">
             <div class="card">
+
                 <div class="card-header">
-                    
-                        Kullanıcılar 
+
+                    <asp:Button ID="btnYeniKullanici" runat="server" CssClass="btn btn-success" Text="YENİ KULLANICI EKLE" Visible="True" OnClick="btnYeniKullanici_Click" />
+
+                </div>
+
+                <div class="card-header">
+                    Kullanıcılar 
                      
                 </div>
                 <div class="card-header" style="right: 0; position: absolute; z-index: 10; bottom: 0">
@@ -36,7 +33,7 @@
                                     <tr>
                                         <th></th>
                                         <th>AD SOYAD</th>
-                                        <th>KULLANICI ADI</th> 
+                                        <th>KULLANICI ADI</th>
                                         <th>YETKİ</th>
                                     </tr>
                                 </thead>
@@ -89,7 +86,7 @@
 
 
                                 <td><%# Eval("ADSOYAD") %></td>
-                                <td><%# Eval("KADI") %></td> 
+                                <td><%# Eval("KADI") %></td>
                                 <td>KULLANICI</td>
                             </tr>
                         </ItemTemplate>

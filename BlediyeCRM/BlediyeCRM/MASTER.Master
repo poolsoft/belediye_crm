@@ -38,7 +38,7 @@
 
             <aside class="app-sidebar" id="sidebar">
                 <div class="sidebar-header">
-                    <a class="sidebar-brand" href="../Anasayfa.aspx"><span class="highlight">CRM</span> Belediye</a>
+                    <a class="sidebar-brand" href="Anasayfa.aspx"><span class="highlight">CRM</span> Belediye</a>
                     <button type="button" class="sidebar-toggle">
                         <i class="fa fa-times"></i>
                     </button>
@@ -46,7 +46,7 @@
                 <div class="sidebar-menu">
                     <ul class="sidebar-nav">
                         <li class="">
-                            <a href="../Anasayfa.aspx">
+                            <a href="Anasayfa.aspx">
                                 <div class="icon">
                                     <i class="fa fa-tasks" aria-hidden="true"></i>
                                 </div>
@@ -55,7 +55,7 @@
                         </li>
 
                         <li class="dropdown ">
-                            <a href="../Belediye.aspx" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <div class="icon">
                                     <i class="fa fa-archive" aria-hidden="true"></i>
                                 </div>
@@ -66,10 +66,10 @@
                                 <ul>
                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Belediye İşlemleri</li>
                                     <li>
-                                        <a href="../Belediyeleri_Goruntule.aspx">Belediye Görüntüleme</a>
+                                        <a href="Belediyeleri_Goruntule.aspx">Belediye Görüntüleme</a>
 
                                     </li>
-                                    <li><a href="../Belediye_Ekle.aspx">Belediye Ekle</a></li>
+                                    <li><a href="Belediye_Ekle.aspx">Belediye Ekle</a></li>
                                 </ul>
                             </div>
 
@@ -89,13 +89,13 @@
                                 <ul>
 
                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Kullanıcı</li>
-                                    <li><a href="../Kullanici_Ekle.aspx">Kullanıcı Ekle</a></li>
-                                    <li><a href="../Kullanicilari_Goruntule.aspx">Kullanıcıları Görüntüle</a></li>
+                                    <li><a href="Kullanici_Ekle.aspx">Kullanıcı Ekle</a></li>
+                                    <li><a href="Kullanicilari_Goruntule.aspx">Kullanıcıları Görüntüle</a></li>
                                     <li class="line"></li>
                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Admin</li>
-                                    <li><a href="../Bilgilerimi_Guncelle.aspx">Bilgilerimi Güncelle</a></li>
-                                    <li><a href="../SifreGuncelle.aspx">Şifremi Güncelle</a></li>
-                                    <li><a href="../Guvenli_Cikis.aspx">Güvenli Çıkış</a></li>
+                                    <li><a href="Bilgilerimi_Guncelle.aspx">Bilgilerimi Güncelle</a></li>
+                                    <li><a href="SifreGuncelle.aspx">Şifremi Güncelle</a></li>
+                                    <li><a href="Guvenli_Cikis.aspx">Güvenli Çıkış</a></li>
 
 
                                 </ul>
@@ -103,6 +103,8 @@
 
 
                         </li>
+
+
                     </ul>
                 </div>
                 <div class="sidebar-footer">
@@ -129,22 +131,25 @@
                                     </button>
                                 </li>
                                 <li class="logo">
-                                    <a class="navbar-brand" href="#"><span class="highlight">Flat v3</span> Admin</a>
+                                    <a class="navbar-brand" href="#"><span class="highlight">CRM</span> Belediye</a>
                                 </li>
                                 <li>
                                     <button type="button" class="navbar-toggle">
-                                        <img class="profile-img" src="./assets/images/profile.png">
+                                        <img class="profile-img" src="assets/images/profile.png">
                                     </button>
                                 </li>
                             </ul>
 
                             <ul class="nav navbar-nav navbar-right">
-                               
+
                                 <li class="dropdown profile">
-                                    <a href="/html/profile.html" class="dropdown-toggle" data-toggle="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                         <img class="profile-img" src="assets/images/profile.png">
-                                        <div class="title">Profile</div>
-                                    </a>
+                                        <div class="title">
+                                             Profil
+                                             <a href="Guvenli_Cikis.aspx">Güvenli Çıkış </a>
+                                        </div>
+                                     </a>
                                     <div class="dropdown-menu">
                                         <div class="profile-info">
                                             <h4 class="username">
@@ -152,16 +157,18 @@
                                         </div>
                                         <ul class="action">
                                             <li>
-                                                <a href="/Bilgilerimi_Guncelle.aspx">Bilgileri Güncelle </a>
+                                                <a href="Bilgilerimi_Guncelle.aspx">Bilgileri Güncelle </a>
                                             </li>
                                             <li>
-                                                <a href="/SifreGuncelle.aspx">Şifre Güncelle </a>
+                                                <a href="SifreGuncelle.aspx">Şifre Güncelle </a>
                                             </li>
                                             <li>
-                                                <a href="/Guvenli_Cikis.aspx">Güvenli Çıkış </a>
+                                                <a href="Guvenli_Cikis.aspx">Güvenli Çıkış </a>
                                             </li>
                                         </ul>
                                     </div>
+                                   
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -183,19 +190,19 @@
         </div>
 
     </form>
-    <script type="text/javascript" src="../assets/js/vendor.js"></script>
-    <script type="text/javascript" src="../assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/vendor.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
 
 
+    <!--lightbox-->
+    <script src="assets/js/lightbox-plus-jquery.min.js"></script>
+    <script src="assets/js/lightbox.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 
-    <!--lightbox-->
-    <script src="assets/js/lightbox-plus-jquery.min.js"></script>
-    <script src="assets/js/lightbox.min.js"></script>
 
 </body>
 </html>

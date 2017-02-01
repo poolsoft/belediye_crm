@@ -4,24 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <div class="btn-floating" id="help-actions">
-        <div class="btn-bg"></div>
-        <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
-            <i class="icon fa fa-plus"></i>
-            <span class="help-text">Shortcut</span>
-        </button>
-        <div class="toggle-content">
-            <ul class="actions">
-                <li><a href="Belediyeleri_Goruntule.aspx">Belediyeleri Görüntüle</a></li>
-                <li><a href="Belediye_Ekle.aspx">Belediye Ekle</a></li> 
-            </ul>
-        </div>
-    </div>
-
+    
    
     <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -76,7 +63,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="card card-mini">
                 <div class="card-header">
-                    <div class="card-title">  </div>
+                    <div class="card-title"> İŞİN DURUMU </div>
                     <ul class="card-action">
                         <li>
                             <a href="/">
@@ -89,14 +76,14 @@
                     <table class="table card-table">
                         <thead>
                             <tr>
-                                <th>İşin Adı</th>
-                                <th class="right">Miktarı</th>
+                                <th>İŞİn Adı</th>
+                                <th class="right">Mİktarı</th>
                                 <th>Durumu</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Numaraj</td>
+                                <td>Numarataj</td>
                                 <td class="right">-</td>
                                 <td><span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Bekliyor</span></span></td>
                             </tr>
@@ -122,7 +109,7 @@
                 <div class="card-header">
                     <ul class="nav nav-tabs tab-stats">
                         <li role="tab1" class="active">
-                            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Numaraj</a>
+                            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Numarataj</a>
                         </li>
                         <li role="tab2">
                             <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Yazılım</a>
@@ -178,6 +165,9 @@
         </div>
     </div>
 
+    
+     
 
 
+        
 </asp:Content>

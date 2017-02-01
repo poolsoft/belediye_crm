@@ -103,8 +103,8 @@ namespace BlediyeCRM.pages
                     con.Open();
                     if (cmd.ExecuteNonQuery() > 0)
                     {
-                        lblsonuc.Visible = true;
-                       // Label1.Text = "Belediye başarıyla kaydedildi.";
+                        //lblsonuc.Visible = true;
+                       Label1.Text = "Birim başarıyla kaydedildi.";
                         lblsonuc.Text = "Birim başarıyla kaydedildi.";
                         ModalPopupExtender1.Show();
 
@@ -122,8 +122,8 @@ namespace BlediyeCRM.pages
                     }
                     else
                     {
-                        lblsonuc.Visible = true;
-                       // Label1.Text = "Kaydetme sırasında hata oluştu.";
+                       // lblsonuc.Visible = true;
+                        Label1.Text = "Kaydetme sırasında hata oluştu.";
                         lblsonuc.Text = "Kaydetme sırasında hata oluştu.";
                         ModalPopupExtender1.Show();
 

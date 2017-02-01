@@ -9,25 +9,33 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <div class="btn-floating" id="help-actions" style="right: 42%; left: 42%">
-        <div class="btn btn-success">
-            <i class="fa fa-plus"></i>
-            <asp:Button ID="Button1" runat="server" CssClass="btn btn-success" Text="YENİ GÖRÜŞME EKLE" Visible="True" OnClick="Button1_Click" />
+
+     <div class="row">
+        <div class="col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                   <div class="btn btn-primary">
+                        <i class="fa fa-mail-reply"></i>
+                        <a href="BirimleriGoruntule.aspx?BELEDIYE_ID=<%=Request.QueryString["BELEDIYE_ID"] %>" style="color: white">Geri Dön  </a> 
+                    </div>
+                     &nbsp;&nbsp; <asp:Button ID="Button1" runat="server" CssClass="btn btn-success" Text="YENİ GÖRÜŞME EKLE" Visible="True" OnClick="Button1_Click" />
+                </div>
+            </div>
         </div>
     </div>
+
+
+
+     
 
     <div class="row">
         <div class="col-xs-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="btn btn-primary">
-                        <i class="fa fa-mail-reply"></i>
-                        <a href="BirimleriGoruntule.aspx?BELEDIYE_ID=<%=Request.QueryString["BELEDIYE_ID"] %>" style="color: white">Geri Dön  </a>
-
-                    </div>
+                    
                 </div>
-                <div class="card-header" style="right: 0; position: absolute; z-index: 10; bottom: 0">
-                    &nbsp;&nbsp;
+                <div class="card-header"  >
+                    
                     <asp:Label ID="lblMesaj" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="card-body no-padding">
@@ -50,7 +58,7 @@
                             <tr>
                                 <td>
 
-                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                  <%--  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -65,12 +73,12 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
-                                                    <asp:Button ID="btnSIL" CssClass="btn btn-danger" runat="server" CommandName="SIL" CommandArgument='<%# Eval("GORUSME_ID") %>' Text="Sil" />
+                                                   
 
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>--%>
 
 
 
@@ -84,7 +92,8 @@
                                             <li>
                                                 <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("GORUSME_ID") %>' Text="Düzenle" /></li>
                                             <li>
-                                                <button type="button" class="btn btn-default" data-toggle="modal" style="width: 100%" data-target="#myModal">Sil </button>
+                                                 <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server"  Width="100%" CommandName="SIL" CommandArgument='<%# Eval("GORUSME_ID") %>' Text="Sil" />
+                                                 
                                             </li>
                                         </ul>
                                     </div>

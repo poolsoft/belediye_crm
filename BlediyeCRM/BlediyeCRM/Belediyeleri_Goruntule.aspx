@@ -6,25 +6,32 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <div class="btn-floating" id="help-actions" style="right:42%; left:42%">
-    <div class="btn btn-primary" >
-        <i class="fa fa-plus"></i>
-        <asp:Button ID="btnYeniBelediyeEkle" runat="server" CssClass="btn btn-primary" Text="YENİ BELEDİYE EKLE" Visible="True" OnClick="btnYeniBelediyeEkle_Click" />
-    </div>
-    </div>
     <div class="row">
         <div class="col-xs-12">
             <div class="card">
-
                 <div class="card-header">
-                    <br />
+                    <asp:Button ID="btnYeniBelediyeEkle" runat="server" CssClass="btn btn-success" Text="YENİ BELEDİYE EKLE" Visible="True" OnClick="btnYeniBelediyeEkle_Click" />
+                    &nbsp;&nbsp;
                     <asp:Label ID="lblMesaj" runat="server" Text="asd"></asp:Label>
                 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    <br />
+                    <br />
+                    <asp:Label ID="Label1" runat="server" Text="" Visible="false"></asp:Label>
+                </div>
+
                 <div class="card-body no-padding">
                     <asp:Repeater ID="rptBELEDIYE" runat="server" OnItemCommand="rptYAPI_ItemCommand" Visible="true">
                         <HeaderTemplate>
@@ -37,8 +44,8 @@
                                         <th>BELEDIYE </th>
                                         <th>BELEDIYE_TURU</th>
                                         <th>NUFUS</th>
+                                        <th>PARTİSİ</th>
                                         <th>TELEFON</th>
-                                        <th>NOT_ACIKLAMA</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,7 +54,7 @@
                             <tr>
                                 <td>
 
-                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <%--                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -61,12 +68,12 @@
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
 
-                                                    <asp:Button ID="btnSIL" CssClass="btn btn-danger" runat="server" CommandName="SIL" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Sil" />
+                                                   
 
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>--%>
 
 
                                     <%--  <asp:Button ID="btnBirimEkle" CssClass="btn btn-success" runat="server" CommandName="BIRIM" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Birim Ekle" OnClick="btnBirimEkle_Click" /> --%>
@@ -82,7 +89,7 @@
                                             <li>
                                                 <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Düzenle" /></li>
                                             <li>
-                                                <button type="button" class="btn btn-default" data-toggle="modal" style="width: 100%" data-target="#myModal">Sil  </button>
+                                                <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server" Width="100%" CommandName="SIL" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Sil" />
                                             </li>
                                         </ul>
                                     </div>
@@ -93,8 +100,8 @@
                                 <td><%# Eval("BELEDIYE") %></td>
                                 <td><%# Eval("BELEDIYE_TURU") %></td>
                                 <td><%# Eval("NUFUS") %></td>
+                                <td><%# Eval("PARTISI") %></td>
                                 <td>0<%# Eval("TELEFON") %></td>
-                                <td><%# Eval("NOT_ACIKLAMA") %></td>
                             </tr>
                         </ItemTemplate>
                         <FooterTemplate>

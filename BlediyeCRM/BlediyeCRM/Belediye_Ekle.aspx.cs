@@ -21,7 +21,24 @@ namespace BlediyeCRM.pages
 
                 if (Request.QueryString["BELEDIYE_GUNCELLE"] == "1")
                 {
+                    txtBelediye.Enabled = false;
+                    txtIl.Enabled = false;
+                    txtIlce.Enabled = false;
+                    txtBelediye.Enabled = false;
+                    DDBElediyeTuru.Enabled = false;
+                    txtNufusSayisi.Enabled = false;
+                    txtPartisi.Enabled = false;
+                    txtBelediyeBaskaniAdi.Enabled = false;
+                    txtBelediyeAdresi.Enabled = false;
+                    txtTelefon.Enabled = false;
+                    txtLisans.Enabled = false;
+                    txtNot.Enabled = false;
+                    rdVAR.Enabled = false;
+                    rdYOK.Enabled = false;
+
                     Button2.Text = "Güncelle";
+                    Button2.Visible = false;
+                    btnIptal.Visible = false;
                     BelediyeCek();
                 }
             }
@@ -82,6 +99,25 @@ namespace BlediyeCRM.pages
                         ModalPopupExtender2.Show();
                         BelediyeCek();
 
+                        btnDuzenle.Visible = true;
+                        Button2.Visible = false;
+                        btnIptal.Visible = false;
+
+                        txtBelediye.Enabled = false;
+                        txtIl.Enabled = false;
+                        txtIlce.Enabled = false;
+                        txtBelediye.Enabled = false;
+                        DDBElediyeTuru.Enabled = false;
+                        txtNufusSayisi.Enabled = false;
+                        txtPartisi.Enabled = false;
+                        txtBelediyeBaskaniAdi.Enabled = false;
+                        txtBelediyeAdresi.Enabled = false;
+                        txtTelefon.Enabled = false;
+                        txtLisans.Enabled = false;
+                        txtNot.Enabled = false;
+                        rdVAR.Enabled = false;
+                        rdYOK.Enabled = false;
+ 
                     }
                     else
                     {
@@ -212,6 +248,50 @@ namespace BlediyeCRM.pages
             {
 
             }
+        }
+
+        protected void btnDuzenle_Click(object sender, EventArgs e)
+        {
+            btnDuzenle.Visible = false;
+            Button2.Visible = true;
+            btnIptal.Visible = true;
+
+            txtBelediye.Enabled = true;
+            txtIl.Enabled = true;
+            txtIlce.Enabled = true;
+            txtBelediye.Enabled = true;
+            DDBElediyeTuru.Enabled = true;
+            txtNufusSayisi.Enabled = true;
+            txtPartisi.Enabled = true;
+            txtBelediyeBaskaniAdi.Enabled = true;
+            txtBelediyeAdresi.Enabled = true;
+            txtTelefon.Enabled = true;
+            txtLisans.Enabled = true;
+            txtNot.Enabled = true;
+            rdVAR.Enabled = true;
+            rdYOK.Enabled = true;
+             
+
+        }
+
+        protected void btnIptal_Click(object sender, EventArgs e)
+        {
+            btnDuzenle.Visible = true;
+            Button2.Visible = false;
+            btnIptal.Visible = false;
+
+            txtBelediye.Enabled = false;
+            txtIl.Enabled = false;
+            txtIlce.Enabled = false;
+            txtBelediye.Enabled = false;
+            DDBElediyeTuru.Enabled = false;
+            txtNufusSayisi.Enabled = false;
+            txtPartisi.Enabled = false;
+            txtBelediyeBaskaniAdi.Enabled = false;
+            txtBelediyeAdresi.Enabled = false;
+            txtTelefon.Enabled = false;
+            txtLisans.Enabled = false;
+            txtNot.Enabled = false;
         }
 
       

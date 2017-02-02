@@ -15,8 +15,9 @@ namespace BlediyeCRM.pages
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
-                LOADING();
+            { 
+                LOADING(); 
+             
                 lblMesaj.Text = "";
             }
              
@@ -88,6 +89,21 @@ namespace BlediyeCRM.pages
         protected void btnBirimEkle_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void rptBELEDIYE_Load(object sender, EventArgs e)
+        {
+            ClientScript.RegisterStartupScript(GetType(), "hwa", "waitingDialog.show();setTimeout(function () {waitingDialog.hide();}, 3000);", true);
+        }
+
+        protected void rptBELEDIYE_Init(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void rptBELEDIYE_DataBinding(object sender, EventArgs e)
+        {
+           
         }
 
          

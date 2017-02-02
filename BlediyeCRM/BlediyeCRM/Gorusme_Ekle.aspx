@@ -6,18 +6,20 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    
+
     <div class="row">
 
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <div class="btn btn-primary">
-                        <i class="fa fa-mail-reply"></i>
-                        <a href="Gorusmeleri_Goruntule.aspx?BELEDIYE_ID=<%=(Request.QueryString["BELEDIYE_ID"]) %>&BIRIM_ID=<%=Convert.ToInt32(Request.QueryString["BIRIM_ID"]) %>" style="color: white">Geri Dön  </a>
+                        
+                        <a href="Gorusmeleri_Goruntule.aspx?BELEDIYE_ID=<%=(Request.QueryString["BELEDIYE_ID"]) %>&BIRIM_ID=<%=Convert.ToInt32(Request.QueryString["BIRIM_ID"]) %>" style="color: white"><i class="fa fa-mail-reply"></i>Geri Dön  </a>
                     </div>
                 </div>
                 <div class="card-header">
-                    Yeni Görüşme Ekleme Platformu
+                  Görüşme İşlemleri
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -53,7 +55,19 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">HATIRLATMA TARİHİ</label>
                                 <div class="col-md-9">
+
+
+
+
+
+
                                     <asp:TextBox ID="txtHatirlatmaTarihi" MaxLength="100" CssClass="form-control" placeholder="Hatırlatma tarihi" runat="server"></asp:TextBox>
+
+                                    <script type="text/javascript">
+                                        $(function () {
+                                            $('#datetimepicker1').datetimepicker();
+                                        });
+                                    </script>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*** Hatırlatma tarihi yazmalısınız" ControlToValidate="txtHatirlatmaTarihi" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
@@ -72,16 +86,19 @@
 
                         <div class="form-group has-success">
                             <div class="col-md-9">
-                                <asp:Button ID="btnKaydet" CssClass="btn btn-success" runat="server" Text="Kaydet" OnClick="btnKaydet_Click" />
-                                
+                                <asp:Button ID="btnDuzenle" runat="server" Text="Düzenle" CssClass="btn btn-primary" Visible="false" OnClick="btnDuzenle_Click" />
+                                <asp:Button ID="btnKaydet" CssClass="btn btn-primary" runat="server" Text="Kaydet" OnClick="btnKaydet_Click" />
+                                <asp:Button ID="btnIptal" runat="server" Text="İptal" CssClass="btn btn-primary" OnClick="btnIptal_Click" />
+                                <br />
+                                <br />
                                 <asp:Label ID="lblMesaj" runat="server" Text="" Visible="false"></asp:Label>
                             </div>
                         </div>
 
 
                         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                        <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender2" runat="server" popupcontrolid="Panel1" targetcontrolid="Label1" backgroundcssclass="modalBackground" cancelcontrolid="btnHide"></ajaxToolkit:ModalPopupExtender>
-                       
+                        <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="Panel1" TargetControlID="Label1" BackgroundCssClass="modalBackground" CancelControlID="btnHide"></ajaxToolkit:ModalPopupExtender>
+
 
                         <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" Style="display: none; width: 300px">
                             <div class="header">
@@ -101,10 +118,8 @@
                 </div>
             </div>
         </div>
-
-
-
+         
     </div>
 
-
+     
 </asp:Content>

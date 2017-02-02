@@ -22,7 +22,18 @@ namespace BlediyeCRM.pages
 
                 if (Request.QueryString["BIRIM_GUNCELLE"] == "1")
                 {
-                    btnKaydet.Text="Güncelle";
+                    txtBirimAdi.Enabled = false;
+                    txtYetkiliAdi.Enabled = false;
+                    txtGorevi.Enabled = false;
+                    txtTelefon.Enabled = false;
+                    txtDahili.Enabled = false;
+                    txtGsm.Enabled = false;
+                    txtEmail.Enabled = false;
+                    txtNot.Enabled = false;
+
+                    btnIptal.Visible = false;
+                    btnKaydet.Visible = false;
+                    btnKaydet.Text = "Güncelle";
                     Birim_Getir(Convert.ToInt32(Request.QueryString["BIRIM_ID"]));
                 }
 
@@ -52,6 +63,20 @@ namespace BlediyeCRM.pages
                         lblsonuc.Text = "Birim başarıyla güncellendi.";
                         ModalPopupExtender1.Show();
                         Birim_Getir(Convert.ToInt32(Request.QueryString["BIRIM_ID"]));
+
+                        btnDuzenle.Visible = true;
+                        btnKaydet.Visible = false;
+                        btnIptal.Visible = false;
+
+                        txtBirimAdi.Enabled = false;
+                        txtYetkiliAdi.Enabled = false;
+                        txtGorevi.Enabled = false;
+                        txtTelefon.Enabled = false;
+                        txtDahili.Enabled = false;
+                        txtGsm.Enabled = false;
+                        txtEmail.Enabled = false;
+                        txtNot.Enabled = false;
+
                     }
                     else
                     {
@@ -171,6 +196,40 @@ namespace BlediyeCRM.pages
         protected void Unnamed_ServerClick(object sender, EventArgs e)
         {
             Response.Redirect("BirimleriGoruntule.aspx?BELEDIYE_ID=" + Convert.ToInt32(Request.QueryString["BELEDIYE_ID"]));
+        }
+
+        protected void btnDuzenle_Click(object sender, EventArgs e)
+        {
+            btnDuzenle.Visible = false;
+            btnKaydet.Visible = true;
+            btnIptal.Visible = true;
+
+            txtBirimAdi.Enabled = true;
+            txtYetkiliAdi.Enabled = true;
+            txtGorevi.Enabled = true;
+            txtTelefon.Enabled = true;
+            txtDahili.Enabled = true;
+            txtGsm.Enabled = true;
+            txtEmail.Enabled = true;
+            txtNot.Enabled = true;
+             
+        
+        }
+
+        protected void btnIptal_Click(object sender, EventArgs e)
+        {
+            btnDuzenle.Visible = true;
+            btnKaydet.Visible = false;
+            btnIptal.Visible = false;
+
+            txtBirimAdi.Enabled = false;
+            txtYetkiliAdi.Enabled = false;
+            txtGorevi.Enabled = false;
+            txtTelefon.Enabled = false;
+            txtDahili.Enabled = false;
+            txtGsm.Enabled = false;
+            txtEmail.Enabled = false;
+            txtNot.Enabled = false;
         }
     }
 }

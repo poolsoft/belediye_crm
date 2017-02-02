@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="assets/js/Loading.js"></script>
 
     <div class="row">
         <div class="col-xs-12">
@@ -21,7 +22,7 @@
             </div>
         </div>
     </div>
-
+     
 
     <div class="row">
         <div class="col-xs-12">
@@ -33,7 +34,7 @@
                 </div>
 
                 <div class="card-body no-padding">
-                    <asp:Repeater ID="rptBELEDIYE" runat="server" OnItemCommand="rptYAPI_ItemCommand" Visible="true">
+                    <asp:Repeater ID="rptBELEDIYE" runat="server" OnItemCommand="rptYAPI_ItemCommand" Visible="true" OnDataBinding="rptBELEDIYE_DataBinding" OnInit="rptBELEDIYE_Init" OnLoad="rptBELEDIYE_Load">
                         <HeaderTemplate>
                             <table class="datatable table table-striped primary" cellspacing="0" width="100%">
                                 <thead>
@@ -53,31 +54,7 @@
                         <ItemTemplate>
                             <tr>
                                 <td>
-
-                                    <%--                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    <h4 class="modal-title" id="myModalLabel">Silmek istediğinize emin misiniz?</h4>
-                                                </div>
-                                                <div class="modal-body">
-
-                                                    <asp:Label ID="lblMesaja" runat="server" Text="Bu belediyeyi silerseniz, belediyeye bağlı birimler ve görüşmelerde silinecektir."></asp:Label>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
-
-                                                   
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>--%>
-
-
-                                    <%--  <asp:Button ID="btnBirimEkle" CssClass="btn btn-success" runat="server" CommandName="BIRIM" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Birim Ekle" OnClick="btnBirimEkle_Click" /> --%>
-
+                                     
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                                             Menu
@@ -87,7 +64,7 @@
                                             <li>
                                                 <asp:Button ID="btnBirimEkle" runat="server" CssClass="btn btn-default" OnClick="btnBirimEkle_Click" Width="100%" CommandName="BIRIM" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Birimler" /></li>
                                             <li>
-                                                <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Düzenle" /></li>
+                                                <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Belediyeyi Görüntüle" /></li>
                                             <li>
                                                 <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server" Width="100%" CommandName="SIL" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Sil" />
                                             </li>

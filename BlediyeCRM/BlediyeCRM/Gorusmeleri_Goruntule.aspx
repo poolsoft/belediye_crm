@@ -15,8 +15,8 @@
             <div class="card">
                 <div class="card-header">
                    <div class="btn btn-primary">
-                        <i class="fa fa-mail-reply"></i>
-                        <a href="BirimleriGoruntule.aspx?BELEDIYE_ID=<%=Request.QueryString["BELEDIYE_ID"] %>" style="color: white">Geri Dön  </a> 
+                       
+                        <a href="BirimleriGoruntule.aspx?BELEDIYE_ID=<%=Request.QueryString["BELEDIYE_ID"] %>" style="color: white"> <i class="fa fa-mail-reply"></i>Geri Dön  </a> 
                     </div>
                      &nbsp;&nbsp; <asp:Button ID="Button1" runat="server" CssClass="btn btn-success" Text="YENİ GÖRÜŞME EKLE" Visible="True" OnClick="Button1_Click" />
                 </div>
@@ -31,11 +31,9 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="card">
-                <div class="card-header">
-                    
-                </div>
+                
                 <div class="card-header"  >
-                    
+                     <br /> <br />
                     <asp:Label ID="lblMesaj" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="card-body no-padding">
@@ -45,10 +43,9 @@
                                 <thead>
                                     <tr>
                                         <th></th>
-                                        <th>GÖRÜŞME KONUSU</th>
+                                        <th>GÖRÜŞME_KONUSU</th>
                                         <th>HATIRLATMA</th>
-                                        <th>SON DURUM</th>
-                                        <th>NOTLAR </th>
+                                        <th>SON_DURUM</th> 
                                         <th>GORUSME TARIHI </th>
                                     </tr>
                                 </thead>
@@ -58,30 +55,7 @@
                             <tr>
                                 <td>
 
-                                  <%--  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                    <h4 class="modal-title" id="myModalLabel">Silmek istediğinize emin misiniz?</h4>
-                                                </div>
-                                                <div class="modal-body">
-
-                                                    <asp:Label ID="lblMesaja" runat="server" Text="Bu belediyeyi silerseniz, belediyeye bağlı birimler ve görüşmelerde silinecektir."></asp:Label>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
-                                                   
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>--%>
-
-
-
+                                
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                                             Menu
@@ -90,7 +64,7 @@
                                         <ul class="dropdown-menu">
 
                                             <li>
-                                                <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("GORUSME_ID") %>' Text="Düzenle" /></li>
+                                                <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("GORUSME_ID") %>' Text="Görüşmeyi Görüntüle" /></li>
                                             <li>
                                                  <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server"  Width="100%" CommandName="SIL" CommandArgument='<%# Eval("GORUSME_ID") %>' Text="Sil" />
                                                  
@@ -103,8 +77,7 @@
 
                                 <td><%# Eval("GORUSME_KONUSU") %></td>
                                 <td><%# Eval("HATIRLATMA_TARIHI") %></td>
-                                <td><%# Eval("SON_DURUMU") %></td>
-                                <td><%# Eval("GORUSME_NOTLARI") %></td>
+                                <td><%# Eval("SON_DURUMU") %></td> 
                                 <td><%# Eval("KAYIT_ZAMANI") %></td>
                             </tr>
                         </ItemTemplate>

@@ -14,8 +14,8 @@
             <div class="card">
                 <div class="card-header">
                     <div class="btn btn-primary">
-                        <i class="fa fa-mail-reply"></i>
-                        <a href="Belediyeleri_Goruntule.aspx" style="color: white">Geri Dön  </a>
+                        
+                        <a href="Belediyeleri_Goruntule.aspx" style="color: white"><i class="fa fa-mail-reply"></i>Geri Dön  </a>
                     </div>
                 </div>
                 <div class="card-header">
@@ -26,7 +26,6 @@
 
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
-
                             <div class="row">
 
                                 <div class="col-md-6">
@@ -35,7 +34,7 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">İL</label>
                                             <div class="col-md-9">
-                                                <asp:TextBox ID="txtIl" MaxLength="15" CssClass="form-control" placeholder="İl" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txtIl"   MaxLength="15" CssClass="form-control" placeholder="İl" runat="server"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*** İl yazmalısınız" ControlToValidate="txtIl" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
@@ -45,7 +44,7 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">BELEDİYE ADI</label>
                                             <div class="col-md-9">
-                                                <asp:TextBox ID="txtBelediye" MaxLength="150" CssClass="form-control" placeholder="Belediye Adı" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txtBelediye"   MaxLength="150" CssClass="form-control" placeholder="Belediye Adı" runat="server"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*** Belediye adı yazmalısınız" ControlToValidate="txtBelediye" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
@@ -55,7 +54,7 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">NÜFUS SAYISI</label>
                                             <div class="col-md-9">
-                                                <asp:TextBox ID="txtNufusSayisi" CssClass="form-control" TextMode="Number" placeholder=" Nüfus Sayısı" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txtNufusSayisi"   CssClass="form-control" TextMode="Number" placeholder=" Nüfus Sayısı" runat="server"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*** Nüfus yazmalısınız." ControlToValidate="txtNufusSayisi" ForeColor="Red"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
@@ -65,7 +64,7 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">BELEDİYE BAŞKAN ADI</label>
                                             <div class="col-md-9">
-                                                <asp:TextBox ID="txtBelediyeBaskaniAdi" CssClass="form-control" placeholder="Belediye Başkanı Adı" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txtBelediyeBaskaniAdi"   CssClass="form-control" placeholder="Belediye Başkanı Adı" runat="server"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*** Belediye başkan adını yazmalısınız." ControlToValidate="txtBelediyeBaskaniAdi" ForeColor="Red"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
@@ -75,7 +74,7 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">TELEFON</label>
                                             <div class="col-md-9">
-                                                <asp:TextBox ID="txtTelefon" TextMode="Number" CssClass="form-control" placeholder="Telefon Numarası" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txtTelefon"   TextMode="Number" CssClass="form-control" placeholder="Telefon Numarası" runat="server"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*** 
                                     Telefon  yazmalısınız"
                                                     ControlToValidate="txtTelefon" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
@@ -86,7 +85,7 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">NOT - AÇIKLAMA</label>
                                             <div class="col-md-9">
-                                                <asp:TextBox ID="txtNot" TextMode="MultiLine" CssClass="form-control" placeholder="Not - Açıklama" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txtNot"   TextMode="MultiLine" CssClass="form-control" placeholder="Not - Açıklama" runat="server"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="*** Not  yazmalısınız" ControlToValidate="txtNot" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
@@ -102,7 +101,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">İLÇE</label>
                                         <div class="col-md-9">
-                                            <asp:TextBox ID="txtIlce" MaxLength="100" CssClass="form-control" placeholder="İlçe" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="txtIlce" Enabled="false" MaxLength="100" CssClass="form-control" placeholder="İlçe" runat="server"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*** İlçe yazmalısınız" ControlToValidate="txtIlce" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
@@ -112,7 +111,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">BELEDİYE TÜRÜ</label>
                                         <div class="col-md-9">
-                                            <asp:DropDownList ID="DDBElediyeTuru" CssClass="form-control" runat="server" AutoPostBack="false" OnSelectedIndexChanged="DDBElediyeTuru_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:DropDownList ID="DDBElediyeTuru"   CssClass="form-control" runat="server" AutoPostBack="false" OnSelectedIndexChanged="DDBElediyeTuru_SelectedIndexChanged"></asp:DropDownList>
                                             <br />
                                         </div>
                                     </div>
@@ -121,7 +120,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">PARTİSİ</label>
                                         <div class="col-md-9">
-                                            <asp:TextBox ID="txtPartisi" MaxLength="8" CssClass="form-control" placeholder="Partisi" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="txtPartisi" Enabled="false" MaxLength="8" CssClass="form-control" placeholder="Partisi" runat="server"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="*** Parti adını yazmalısınız..." ControlToValidate="txtPartisi" ForeColor="Red"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
@@ -132,7 +131,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">BELEDİYE ADRESİ</label>
                                         <div class="col-md-9">
-                                            <asp:TextBox ID="txtBelediyeAdresi" TextMode="MultiLine" MaxLength="200" CssClass="form-control" placeholder="Belediye Adresi" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="txtBelediyeAdresi"   TextMode="MultiLine" MaxLength="200" CssClass="form-control" placeholder="Belediye Adresi" runat="server"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*** Belediye adresi yazmalısınız" ControlToValidate="txtBelediyeAdresi" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
@@ -158,7 +157,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">LİSANS DURUMU</label>
                                         <div class="col-md-9">
-                                            <asp:TextBox ID="txtLisans" CssClass="form-control" placeholder="Lisans Durumu" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="txtLisans" CssClass="form-control"   placeholder="Lisans Durumu" runat="server"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="*** CBS Yazılım  yazmalısınız" ControlToValidate="txtTelefon" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
@@ -166,8 +165,9 @@
 
                                 <div class="form-group has-success">
                                     <div class="col-md-9">
-
-                                        <asp:Button ID="Button2" CssClass="btn btn-primary" runat="server" OnClick="Button2_Click" Text="Kaydet" />
+                                        <asp:Button ID="btnDuzenle" runat="server" Text="Düzenle" CssClass="btn btn-primary" OnClick="btnDuzenle_Click"/>
+                                        <asp:Button ID="Button2" CssClass="btn btn-primary" runat="server" Visible="false" OnClick="Button2_Click" Text="Kaydet" />
+                                         <asp:Button ID="btnIptal" CssClass="btn btn-primary" runat="server" Visible="false" OnClick="btnIptal_Click" Text="İptal" />
                                         <br />
                                     </div>
                                 </div>

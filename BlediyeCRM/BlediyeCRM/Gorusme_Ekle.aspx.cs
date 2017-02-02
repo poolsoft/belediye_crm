@@ -25,7 +25,15 @@ namespace BlediyeCRM.pages
 
                 if (Request.QueryString["GORUSME_GUNCELLE"] == "1")
                 {
+                    txtGorusme.Enabled = false;
+                    txtHatirlatmaTarihi.Enabled = false;
+                    txtSonDurum.Enabled = false;
+                    txtGorusmeNotlari.Enabled = false;
+
+                    btnDuzenle.Visible = true;
                     btnKaydet.Text = "Güncelle";
+                    btnKaydet.Visible = false;
+                    btnIptal.Visible = false;
                     Gorusme_Getir(Convert.ToInt32(Request.QueryString["GORUSME_ID"]));
                 }
 
@@ -56,6 +64,14 @@ namespace BlediyeCRM.pages
                         lblMesaj.Text = "Görüşme başarıyla güncellendi.";
                         ModalPopupExtender2.Show();
                         Gorusme_Getir(Convert.ToInt32(Request.QueryString["GORUSME_ID"]));
+                        btnDuzenle.Visible = true;
+                        btnIptal.Visible = false;
+                        btnIptal.Visible = false;
+
+                        txtGorusme.Enabled = false;
+                        txtHatirlatmaTarihi.Enabled = false;
+                        txtSonDurum.Enabled = false;
+                        txtGorusmeNotlari.Enabled = false;
                     }
                     else
                     {
@@ -161,6 +177,31 @@ namespace BlediyeCRM.pages
             {
 
             }
+        }
+
+        protected void btnDuzenle_Click(object sender, EventArgs e)
+        {
+            btnDuzenle.Visible = false;
+            btnKaydet.Visible = true;
+            btnIptal.Visible = true;
+
+            txtGorusme.Enabled = true;
+            txtHatirlatmaTarihi.Enabled = true;
+            txtSonDurum.Enabled = true;
+            txtGorusmeNotlari.Enabled = true;
+
+        }
+
+        protected void btnIptal_Click(object sender, EventArgs e)
+        {
+            btnDuzenle.Visible = true;
+            btnKaydet.Visible = false;
+            btnIptal.Visible = false;
+
+            txtGorusme.Enabled = false;
+            txtHatirlatmaTarihi.Enabled = false;
+            txtSonDurum.Enabled = false;
+            txtGorusmeNotlari.Enabled = false;
         }
 
 

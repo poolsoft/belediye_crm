@@ -32,7 +32,7 @@ var waitingDialog = waitingDialog || (function ($) {
                 options = {};
             }
             if (typeof message === 'undefined') {
-                message = 'Belediyeler Yükleniyor';
+                message = 'Veriler yükleniyor...';
             }
             var settings = $.extend({
                 dialogSize: 'm',

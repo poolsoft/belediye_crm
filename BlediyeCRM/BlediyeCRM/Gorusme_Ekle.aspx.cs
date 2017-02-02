@@ -15,6 +15,8 @@ namespace BlediyeCRM.pages
         {
             if (!IsPostBack)
             {
+               
+
                 if (Session["YETKILI"].ToString() == "2")
                 {
                     Response.Redirect("Belediyeleri_Goruntule.aspx");

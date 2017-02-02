@@ -79,6 +79,11 @@ namespace BlediyeCRM.pages
             Response.Redirect("Gorusme_Ekle.aspx?BELEDIYE_ID=" + Request.QueryString["BELEDIYE_ID"] + "&BIRIM_ID=" + Request.QueryString["BIRIM_ID"]);
         }
 
+        protected void rptBIRIMLER_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            ClientScript.RegisterStartupScript(GetType(), "hwa", "waitingDialog.show();setTimeout(function () {waitingDialog.hide();}, 3000);", true);
+        }
+
     
     
     

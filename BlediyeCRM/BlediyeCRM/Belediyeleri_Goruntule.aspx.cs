@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -16,12 +17,15 @@ namespace BlediyeCRM.pages
         {
             if (!IsPostBack)
             { 
+
                 LOADING();
-               
+                
                 lblMesaj.Text = "";
             }
              
         }
+
+       
 
         protected void rptYAPI_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
@@ -93,7 +97,7 @@ namespace BlediyeCRM.pages
 
         protected void rptBELEDIYE_Load(object sender, EventArgs e)
         {
-            ClientScript.RegisterStartupScript(GetType(), "hwa", "waitingDialog.show();setTimeout(function () {waitingDialog.hide();}, 5000);", true);
+           
         }
 
         protected void rptBELEDIYE_Init(object sender, EventArgs e)
@@ -104,6 +108,11 @@ namespace BlediyeCRM.pages
         protected void rptBELEDIYE_DataBinding(object sender, EventArgs e)
         {
            
+        }
+
+        protected void rptBELEDIYE_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            ClientScript.RegisterStartupScript(GetType(), "hwa", "waitingDialog.show();setTimeout(function () {waitingDialog.hide();}, 5000);", true);
         }
 
          

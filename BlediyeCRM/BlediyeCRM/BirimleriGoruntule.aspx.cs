@@ -88,6 +88,11 @@ namespace BlediyeCRM.pages
             Response.Redirect("Birim_Ekle.aspx?BELEDIYE_ID=" + Convert.ToInt32(Request.QueryString["BELEDIYE_ID"]));
         }
 
+        protected void rptBIRIMLER_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            ClientScript.RegisterStartupScript(GetType(), "hwa", "waitingDialog.show();setTimeout(function () {waitingDialog.hide();}, 3000);", true);
+        }
+
         
   
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER.Master" AutoEventWireup="true" CodeBehind="Gorusme_Ekle.aspx.cs" Inherits="BlediyeCRM.pages.Gorusme_Ekle" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER.Master" UICulture="tr" Culture="tr-TR"    AutoEventWireup="true" CodeBehind="Gorusme_Ekle.aspx.cs" Inherits="BlediyeCRM.pages.Gorusme_Ekle" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
@@ -55,8 +55,8 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">HATIRLATMA TARİHİ</label>
                                 <div class="col-md-9">
-                                    <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
-                                    <ajaxToolkit:CalendarExtender ID="CalendarExtender1" PopupButtonID="imgPopup" runat="server" TargetControlID="txtHatirlatmaTarihi"
+                                    <asp:ScriptManager ID="ScriptManager2" runat="server" EnableScriptGlobalization="true"></asp:ScriptManager>
+                                    <ajaxToolkit:CalendarExtender ID="CalendarExtender1"   PopupButtonID="imgPopup" runat="server" TargetControlID="txtHatirlatmaTarihi"
                                         Format="dd/MM/yyyy" />
                                     <div style="right: 0; width: 5%; z-index: 10; margin-right:30px; margin-top:5px; position: absolute">
                                         <asp:ImageButton ID="imgPopup" ImageUrl="~/assets/images/calendar.png" ImageAlign="Bottom" runat="server" Width="30px" />

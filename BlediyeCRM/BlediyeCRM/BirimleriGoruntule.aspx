@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="assets/js/Loading.js"></script>
    
      <div class="row">
         <div class="col-xs-12">
@@ -35,7 +36,7 @@
                     <asp:Label ID="lblMesaj" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="card-body no-padding">
-                    <asp:Repeater ID="rptBIRIMLER" runat="server" OnItemCommand="rptBIRIMLER_ItemCommand" Visible="true">
+                    <asp:Repeater ID="rptBIRIMLER" runat="server" OnItemCommand="rptBIRIMLER_ItemCommand" Visible="true" OnItemDataBound="rptBIRIMLER_ItemDataBound">
                         <HeaderTemplate>
                             <table class="datatable table table-striped primary" cellspacing="0" width="100%">
                                 <thead>

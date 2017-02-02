@@ -90,7 +90,7 @@ namespace BlediyeCRM.pages
 
         protected void rptBIRIMLER_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            ClientScript.RegisterStartupScript(GetType(), "hwa", "waitingDialog.show();setTimeout(function () {waitingDialog.hide();}, 3000);", true);
+             
         }
 
         

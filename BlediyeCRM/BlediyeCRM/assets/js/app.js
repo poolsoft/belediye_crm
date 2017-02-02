@@ -10468,7 +10468,7 @@ var datatable = $('.datatable').DataTable({
     "sLengthMenu": "_MENU_"
   },
   "initComplete": function initComplete(settings, json) {
-    $('div.dataTables_filter input').attr('placeholder', 'Search...');
+    $('div.dataTables_filter input').attr('placeholder', 'Aranacak Kelime...');
     // $(".dataTables_wrapper select").select2({
     //   minimumResultsForSearch: Infinity
     // });

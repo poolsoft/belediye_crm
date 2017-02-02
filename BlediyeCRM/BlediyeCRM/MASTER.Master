@@ -107,7 +107,7 @@
 
                     </ul>
                 </div>
-                <div class="sidebar-footer">
+               <%-- <div class="sidebar-footer">
                     <ul class="menu">
                         <li>
                             <a href="/" class="dropdown-toggle" data-toggle="dropdown">
@@ -116,7 +116,7 @@
                         </li>
                         <li><a href="#"><span class="flag-icon flag-icon-th flag-icon-squared"></span></a></li>
                     </ul>
-                </div>
+                </div>--%>
             </aside>
 
             <div class="app-container">

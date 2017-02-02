@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Anasayfa.aspx" />
+    <Content Include="assets\images\calendar.png" />
     <Content Include="assets\css\lightbox.css" />
     <Content Include="assets\css\lightbox.min.css" />
     <Content Include="assets\css\ModalCss.css" />

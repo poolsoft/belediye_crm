@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    
+
 
     <div class="row">
 
@@ -14,12 +14,12 @@
             <div class="card">
                 <div class="card-header">
                     <div class="btn btn-primary">
-                        
+
                         <a href="Gorusmeleri_Goruntule.aspx?BELEDIYE_ID=<%=(Request.QueryString["BELEDIYE_ID"]) %>&BIRIM_ID=<%=Convert.ToInt32(Request.QueryString["BIRIM_ID"]) %>" style="color: white"><i class="fa fa-mail-reply"></i>Geri Dön  </a>
                     </div>
                 </div>
                 <div class="card-header">
-                  Görüşme İşlemleri
+                    Görüşme İşlemleri
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -55,19 +55,16 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">HATIRLATMA TARİHİ</label>
                                 <div class="col-md-9">
-
-
-
-
-
-
+                                    <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
+                                    <ajaxToolkit:CalendarExtender ID="CalendarExtender1" PopupButtonID="imgPopup" runat="server" TargetControlID="txtHatirlatmaTarihi"
+                                        Format="dd/MM/yyyy" />
+                                    <div style="right: 0; width: 5%; z-index: 10; margin-right:30px; margin-top:5px; position: absolute">
+                                        <asp:ImageButton ID="imgPopup" ImageUrl="~/assets/images/calendar.png" ImageAlign="Bottom" runat="server" Width="30px" />
+                                    </div>
                                     <asp:TextBox ID="txtHatirlatmaTarihi" MaxLength="100" CssClass="form-control" placeholder="Hatırlatma tarihi" runat="server"></asp:TextBox>
 
-                                    <script type="text/javascript">
-                                        $(function () {
-                                            $('#datetimepicker1').datetimepicker();
-                                        });
-                                    </script>
+
+
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*** Hatırlatma tarihi yazmalısınız" ControlToValidate="txtHatirlatmaTarihi" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
@@ -96,7 +93,7 @@
                         </div>
 
 
-                        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                        <%-- <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
                         <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="Panel1" TargetControlID="Label1" BackgroundCssClass="modalBackground" CancelControlID="btnHide"></ajaxToolkit:ModalPopupExtender>
 
 
@@ -118,8 +115,8 @@
                 </div>
             </div>
         </div>
-         
+
     </div>
 
-     
+
 </asp:Content>

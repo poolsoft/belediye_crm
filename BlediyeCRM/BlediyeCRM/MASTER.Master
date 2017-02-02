@@ -30,11 +30,9 @@
 </head>
 <body style="background-color: #f1f1f1">
 
-    <form id="form1" runat="server">
-        <div class="app app-default">
 
-
-
+    <div class="app app-default">
+        <form id="form1" runat="server">
             <aside class="app-sidebar" id="sidebar">
                 <div class="sidebar-header">
                     <a class="sidebar-brand" href="Anasayfa.aspx"><span class="highlight">CRM</span> Belediye</a>
@@ -107,16 +105,7 @@
 
                     </ul>
                 </div>
-               <%-- <div class="sidebar-footer">
-                    <ul class="menu">
-                        <li>
-                            <a href="/" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-cogs" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li><a href="#"><span class="flag-icon flag-icon-th flag-icon-squared"></span></a></li>
-                    </ul>
-                </div>--%>
+
             </aside>
 
             <div class="app-container">
@@ -185,14 +174,13 @@
 
             </div>
 
+        </form>
+    </div>
 
-        </div>
 
-    </form>
     <script type="text/javascript" src="assets/js/vendor.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
-
-
+     
     <!--lightbox-->
     <script src="assets/js/lightbox-plus-jquery.min.js"></script>
     <script src="assets/js/lightbox.min.js"></script>

@@ -31,6 +31,7 @@ namespace BlediyeCRM.pages
                     txtHatirlatmaTarihi.Enabled = false;
                     txtSonDurum.Enabled = false;
                     txtGorusmeNotlari.Enabled = false;
+                    imgPopup.Enabled = false;
 
                     btnDuzenle.Visible = true;
                     btnKaydet.Text = "Güncelle";
@@ -68,7 +69,9 @@ namespace BlediyeCRM.pages
                         Gorusme_Getir(Convert.ToInt32(Request.QueryString["GORUSME_ID"]));
                         btnDuzenle.Visible = true;
                         btnIptal.Visible = false;
-                        btnIptal.Visible = false;
+                        btnKaydet.Visible = false;
+                      
+                        imgPopup.Enabled = false;
 
                         txtGorusme.Enabled = false;
                         txtHatirlatmaTarihi.Enabled = false;
@@ -170,7 +173,8 @@ namespace BlediyeCRM.pages
                     txtHatirlatmaTarihi.Text = "" + dr["HATIRLATMA_TARIHI"];
                     txtSonDurum.Text = "" + dr["SON_DURUMU"];
                     txtGorusmeNotlari.Text = "" + dr["GORUSME_NOTLARI"];
-
+                    txtGORUSMEYI_YAPAN_KISI.Text = "" + dr["KULLANICI_ADI"];
+                    txtTARIH.Text = "" + dr["KAYIT_ZAMANI"];
 
                 }
                  
@@ -191,6 +195,7 @@ namespace BlediyeCRM.pages
             txtHatirlatmaTarihi.Enabled = true;
             txtSonDurum.Enabled = true;
             txtGorusmeNotlari.Enabled = true;
+            imgPopup.Enabled = true;
 
         }
 
@@ -204,6 +209,7 @@ namespace BlediyeCRM.pages
             txtHatirlatmaTarihi.Enabled = false;
             txtSonDurum.Enabled = false;
             txtGorusmeNotlari.Enabled = false;
+            imgPopup.Enabled = false;
         }
 
 

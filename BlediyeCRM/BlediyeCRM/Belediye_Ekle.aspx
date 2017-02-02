@@ -62,7 +62,7 @@
 
 
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label">BELEDİYE BAŞKAN ADI</label>
+                                            <label class="col-md-3 control-label">BELEDİYE BAŞKAN_ADI</label>
                                             <div class="col-md-9">
                                                 <asp:TextBox ID="txtBelediyeBaskaniAdi"   CssClass="form-control" placeholder="Belediye Başkanı Adı" runat="server"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*** Belediye başkan adını yazmalısınız." ControlToValidate="txtBelediyeBaskaniAdi" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -83,7 +83,7 @@
 
 
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label">NOT - AÇIKLAMA</label>
+                                            <label class="col-md-3 control-label">NOT AÇIKLAMA</label>
                                             <div class="col-md-9">
                                                 <asp:TextBox ID="txtNot"   TextMode="MultiLine" CssClass="form-control" placeholder="Not - Açıklama" runat="server"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="*** Not  yazmalısınız" ControlToValidate="txtNot" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
@@ -136,9 +136,18 @@
                                         </div>
                                     </div>
 
-
+                                     
 
                                     <div class="form-group">
+                                        <label class="col-md-3 control-label">LİSANS DURUMU</label>
+                                        <div class="col-md-9">
+                                            <asp:TextBox ID="txtLisans" CssClass="form-control"   placeholder="Lisans Durumu" runat="server"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="*** CBS Yazılım  yazmalısınız" ControlToValidate="txtTelefon" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+                                        </div>
+                                    </div>
+
+
+                                      <div class="form-group">
                                         <label class="col-md-3 control-label">CBS YAZILIMI</label>
                                         <div class="col-md-9">
                                             <div>
@@ -154,13 +163,41 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">LİSANS DURUMU</label>
+
+
+                                      <div class="form-group">
+                                        <label class="col-md-3 control-label">NUMARATAJ(ABS)</label>
                                         <div class="col-md-9">
-                                            <asp:TextBox ID="txtLisans" CssClass="form-control"   placeholder="Lisans Durumu" runat="server"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="*** CBS Yazılım  yazmalısınız" ControlToValidate="txtTelefon" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+                                            <div>
+                                                <div>
+                                                    <asp:RadioButton ID="rdNumaratajVAR" GroupName="b" runat="server" Text="VAR" />
+                                                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                                                <asp:RadioButton ID="rdNumaratajYOK" GroupName="b" runat="server" Text="YOK" />
+                                                    <br />
+                                                    <br />
+                                                </div>
+
+                                            </div>
                                         </div>
                                     </div>
+
+                                      <div class="form-group">
+                                        <label class="col-md-3 control-label">NUMARATAJ_TABELASI</label>
+                                        <div class="col-md-9">
+                                            <div>
+                                                <div>
+                                                    <asp:RadioButton ID="rdTabelaVAR" GroupName="c" runat="server" Text="VAR" />
+                                                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                                                <asp:RadioButton ID="rdTabelaYOK" GroupName="c" runat="server" Text="YOK" />
+                                                    <br />
+                                                    <br />
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                 </div>
 
                                 <div class="form-group has-success">

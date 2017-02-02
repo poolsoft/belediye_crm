@@ -28,7 +28,7 @@
                             <div class="section-body">
 
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label">BİRİM ADI</label>
+                                    <label class="col-md-3 control-label">BİRİM_ADI</label>
                                     <div class="col-md-9">
                                         <asp:TextBox ID="txtBirimAdi" MaxLength="100" CssClass="form-control"  placeholder="Birim adı" runat="server"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*** Birim adı yazmalısınız" ControlToValidate="txtBirimAdi" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
@@ -47,7 +47,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label">DAHİLİ NUMARA</label>
+                                    <label class="col-md-3 control-label">DAHİLİ_NUMARA</label>
                                     <div class="col-md-9">
                                         <asp:TextBox ID="txtDahili" TextMode="Number" CssClass="form-control"   placeholder="Dahili Numarası" runat="server"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="*** 
@@ -76,7 +76,7 @@
                         <div class="col-md-6">
 
                             <div class="form-group">
-                                <label class="col-md-3 control-label">YETKİLİ ADI</label>
+                                <label class="col-md-3 control-label">YETKİLİ_ADI</label>
                                 <div class="col-md-9">
                                     <asp:TextBox ID="txtYetkiliAdi" MaxLength="70" CssClass="form-control"  placeholder="Yetikili Adı" runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*** Yetkili adı yazmalısınız" ControlToValidate="txtYetkiliAdi" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
@@ -104,7 +104,7 @@
 
 
                             <div class="form-group">
-                                <label class="col-md-3 control-label">NOT - AÇIKLAMA</label>
+                                <label class="col-md-3 control-label">NOT_AÇIKLAMA</label>
                                 <div class="col-md-9">
                                     <asp:TextBox ID="txtNot" TextMode="MultiLine"   MaxLength="500" CssClass="form-control" placeholder="Not - Açıklama" runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="*** Not  yazmalısınız" ControlToValidate="txtNot" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>

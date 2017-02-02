@@ -47,7 +47,8 @@
                                         <th>GÖRÜŞME_KONUSU</th>
                                         <th>HATIRLATMA</th>
                                         <th>SON_DURUM</th> 
-                                        <th>GORUSME TARIHI </th>
+                                         <th>GÖRÜŞMEYİ_YAPAN_KİŞİ</th> 
+                                        <th>KAYIT_TARIHI </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,6 +80,7 @@
                                 <td><%# Eval("GORUSME_KONUSU") %></td>
                                 <td><%# Eval("HATIRLATMA_TARIHI") %></td>
                                 <td><%# Eval("SON_DURUMU") %></td> 
+                                <td><%# Eval("KULLANICI_ADI") %></td> 
                                 <td><%# Eval("KAYIT_ZAMANI") %></td>
                             </tr>
                         </ItemTemplate>

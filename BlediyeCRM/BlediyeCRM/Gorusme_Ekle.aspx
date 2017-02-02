@@ -43,7 +43,12 @@
                                     </div>
                                 </div>
 
-
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label">GÖRÜŞMEYİ YAPAN KİŞİ</label>
+                                    <div class="col-md-9">
+                                        <asp:TextBox ID="txtGORUSMEYI_YAPAN_KISI" Enabled="false" MaxLength="80" CssClass="form-control" placeholder="Son durumu yazmalısınız" runat="server"></asp:TextBox> 
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
@@ -78,6 +83,14 @@
                                 </div>
                             </div>
 
+
+
+                              <div class="form-group">
+                                    <label class="col-md-3 control-label">GÖRÜŞMENİN TARİHİ</label>
+                                    <div class="col-md-9">
+                                        <asp:TextBox ID="txtTARIH" Enabled="false" MaxLength="50" CssClass="form-control" placeholder="Son durumu yazmalısınız" runat="server"></asp:TextBox> 
+                                    </div>
+                                </div>
 
                         </div>
 

@@ -43,7 +43,7 @@
                                     </div>
                                 </div>
 
-                                  <div class="form-group">
+                                  <div class="form-group" runat="server" id="gorusmeYapan" visible="false">
                                     <label class="col-md-3 control-label">GÖRÜŞMEYİ YAPAN KİŞİ</label>
                                     <div class="col-md-9">
                                         <asp:TextBox ID="txtGORUSMEYI_YAPAN_KISI" Enabled="false" MaxLength="80" CssClass="form-control" placeholder="Son durumu yazmalısınız" runat="server"></asp:TextBox> 
@@ -78,17 +78,17 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">GÖRÜŞME NOTLARI</label>
                                 <div class="col-md-9">
-                                    <asp:TextBox ID="txtGorusmeNotlari" TextMode="MultiLine" MaxLength="500" CssClass="form-control" placeholder="Görüşme notları " runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtGorusmeNotlari"  TextMode="MultiLine" MaxLength="500" CssClass="form-control" placeholder="Görüşme notları " runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="*** Görüşme notları yazmalısınız" ControlToValidate="txtGorusmeNotlari" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
 
 
-                              <div class="form-group">
+                              <div class="form-group" runat="server" id="gorusmeTarihi" visible="false">
                                     <label class="col-md-3 control-label">GÖRÜŞMENİN TARİHİ</label>
                                     <div class="col-md-9">
-                                        <asp:TextBox ID="txtTARIH" Enabled="false" MaxLength="50" CssClass="form-control" placeholder="Son durumu yazmalısınız" runat="server"></asp:TextBox> 
+                                        <asp:TextBox ID="txtTARIH" Enabled="false"   MaxLength="50" CssClass="form-control" placeholder="Son durumu yazmalısınız" runat="server"></asp:TextBox> 
                                     </div>
                                 </div>
 

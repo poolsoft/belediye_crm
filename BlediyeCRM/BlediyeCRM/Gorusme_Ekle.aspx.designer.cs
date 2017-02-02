@@ -49,6 +49,15 @@ namespace BlediyeCRM.pages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
+        /// gorusmeYapan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gorusmeYapan;
+        
+        /// <summary>
         /// txtGORUSMEYI_YAPAN_KISI control.
         /// </summary>
         /// <remarks>
@@ -119,6 +128,15 @@ namespace BlediyeCRM.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
+        
+        /// <summary>
+        /// gorusmeTarihi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gorusmeTarihi;
         
         /// <summary>
         /// txtTARIH control.

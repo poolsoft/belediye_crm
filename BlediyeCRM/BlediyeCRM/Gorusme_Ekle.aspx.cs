@@ -31,6 +31,8 @@ namespace BlediyeCRM.pages
                     txtHatirlatmaTarihi.Enabled = false;
                     txtSonDurum.Enabled = false;
                     txtGorusmeNotlari.Enabled = false;
+                    gorusmeYapan.Visible = true;
+                    gorusmeTarihi.Visible = true;
                     imgPopup.Enabled = false;
 
                     btnDuzenle.Visible = true;

@@ -20,26 +20,36 @@ namespace BlediyeCRM.pages
                     Response.Redirect("Belediyeleri_Goruntule.aspx");
                 }
 
+                 
                 if (Request.QueryString["BELEDIYE_ID"] == null)
-                    Response.Redirect("Belediyeleri_Goruntule.aspx");
-
-                GorusmeCek();
+                {
+                    geri.Visible = false;
+                    GorusmeCekHepsi();
+                }
+                else
+                {
+                    GorusmeCek();
+                } 
 
             }
         }
 
         protected void rptBIRIMLER_ItemCommand(object source, RepeaterCommandEventArgs e)
-        { 
+        {
 
             if (e.CommandName == "DETAY")
             {
-                Response.Redirect("Gorusme_Ekle.aspx?GORUSME_GUNCELLE=1&GORUSME_ID=" + e.CommandArgument + "&BELEDIYE_ID=" + Request.QueryString["BELEDIYE_ID"] + "&BIRIM_ID=" + Request.QueryString["BIRIM_ID"]);
+                DB a = new DB();
+                int BELEDIYE_ID = a.GorusmeBelediyeID(Convert.ToInt32(e.CommandArgument));
+                int BIRIM_ID = a.GorusmeBirimID(Convert.ToInt32(e.CommandArgument));
+
+                Response.Redirect("Gorusme_Ekle.aspx?GORUSME_GUNCELLE=1&GORUSME_ID=" + e.CommandArgument + "&BELEDIYE_ID=" + BELEDIYE_ID + "&BIRIM_ID=" + BIRIM_ID);
             }
 
             if (e.CommandName == "SIL")
             {
                 DB a = new DB();
-                if (a.GorusmeSil(Convert.ToInt32(e.CommandArgument), 0,0) == 1)
+                if (a.GorusmeSil(Convert.ToInt32(e.CommandArgument), 0, 0) == 1)
                 {
                     lblMesaj.ForeColor = Color.Green;
                     lblMesaj.Text = "Silindi.";
@@ -53,9 +63,7 @@ namespace BlediyeCRM.pages
 
             }
         }
-
-
-
+         
         public void GorusmeCek()
         {
             try
@@ -72,7 +80,21 @@ namespace BlediyeCRM.pages
             }
         }
 
-        
+        public void GorusmeCekHepsi()
+        {
+            try
+            {
+                DB a = new DB();
+                SqlDataReader dr = a.GorusmeleriGetirHepsi();
+                rptBIRIMLER.DataSource = dr;
+                rptBIRIMLER.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblMesaj.ForeColor = Color.Red;
+                lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz.";
+            }
+        }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -84,13 +106,13 @@ namespace BlediyeCRM.pages
 
         }
 
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
     }
 }

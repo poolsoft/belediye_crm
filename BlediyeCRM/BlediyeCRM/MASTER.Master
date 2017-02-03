@@ -65,9 +65,16 @@
                                         Belediye İşlemleri</li>
                                     <li>
                                         <a href="Belediyeleri_Goruntule.aspx">Belediye Görüntüleme</a>
-
                                     </li>
-                                    <li><a href="Belediye_Ekle.aspx">Belediye Ekle</a></li>
+                                    <li>
+                                        <a href="Belediye_Ekle.aspx">Belediye Ekle</a>
+                                    </li>
+                                     <li>
+                                        <a href="BirimleriGoruntule.aspx">Birimleri Görüntüle</a>
+                                    </li>
+                                    <li>
+                                        <a href="Gorusmeleri_Goruntule.aspx">Görüşmeleri Görüntüle</a>
+                                    </li>
                                 </ul>
                             </div>
 
@@ -180,7 +187,7 @@
 
     <script type="text/javascript" src="assets/js/vendor.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
-     
+
     <!--lightbox-->
     <script src="assets/js/lightbox-plus-jquery.min.js"></script>
     <script src="assets/js/lightbox.min.js"></script>

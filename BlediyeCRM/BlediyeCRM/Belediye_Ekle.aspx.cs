@@ -34,7 +34,7 @@ namespace BlediyeCRM.pages
                     txtLisans.Enabled = false;
                     txtNot.Enabled = false;
                     rdVAR.Enabled = false;
-                    rdYOK.Enabled = false; 
+                    rdYOK.Enabled = false;
                     rdNumaratajVAR.Enabled = false;
                     rdNumaratajYOK.Enabled = false;
                     rdTabelaYOK.Enabled = false;
@@ -45,6 +45,36 @@ namespace BlediyeCRM.pages
                     btnIptal.Visible = false;
                     BelediyeCek();
                 }
+                else
+                {
+                    txtBelediye.Enabled = true;
+                    txtIl.Enabled = true;
+                    txtIlce.Enabled = true;
+                    txtBelediye.Enabled = true;
+                    DDBElediyeTuru.Enabled = true;
+                    txtNufusSayisi.Enabled = true;
+                    txtPartisi.Enabled = true;
+                    txtBelediyeBaskaniAdi.Enabled = true;
+                    txtBelediyeAdresi.Enabled = true;
+                    txtTelefon.Enabled = true;
+                    txtLisans.Enabled = true;
+                    txtNot.Enabled = true;
+                    rdVAR.Enabled = true;
+                    rdYOK.Enabled = true;
+                    rdNumaratajVAR.Enabled = true;
+                    rdNumaratajYOK.Enabled = true;
+                    rdTabelaYOK.Enabled = true;
+                    rdTabelaVAR.Enabled = true;
+
+                    Button2.Visible = true;
+                    btnIptal.Visible = true;
+                    btnDuzenle.Visible = false;
+
+
+
+                }
+
+
             }
 
         }
@@ -96,16 +126,16 @@ namespace BlediyeCRM.pages
                         NUM = 0;
 
                     int TAB = 0;
-                    if (rdTabelaVAR.Checked==true)
+                    if (rdTabelaVAR.Checked == true)
                         TAB = 1;
-                    else if (rdTabelaYOK.Checked==true)
+                    else if (rdTabelaYOK.Checked == true)
                         TAB = 0;
 
                     DB a = new DB();
                     SqlConnection con = null;
                     SqlCommand cmd = null;
                     con = new SqlConnection((a.ConnectionBelediye()));
-                    cmd = new SqlCommand("UPDATE [dbo].[BELEDIYE] SET [IL]='" + txtIl.Text.Trim().Replace("'", "`") + "',[ILCE]='" + txtIlce.Text.Trim().Replace("'", "`") + "',[BELEDIYE]='" + txtBelediye.Text.Trim().Replace("'", "`") + "', [BELEDIYE_TURU]='" + DDBElediyeTuru.SelectedItem.Text + "'," + "[NUFUS]=" + Convert.ToInt64(txtNufusSayisi.Text.Trim()) + " ,[PARTISI]='" + txtPartisi.Text.Trim().Replace("'", "`") + "',[BELEDIYE_BASKANI_ADI]='" + txtBelediyeBaskaniAdi.Text.Trim().Replace("'", "`") + "',[BELEDIYE_ADRESI]='" + txtBelediyeAdresi.Text.Trim().Replace("'", "`") + "',[TELEFON]=" + Convert.ToInt64(txtTelefon.Text.Trim()) + "," + "[CBS_YAZILIMI]=" + cbs + ",[LISANS_DURUMU]='" + txtLisans.Text.Trim().Replace("'", "`") + "',[NOT_ACIKLAMA]='" + txtNot.Text.Trim().Replace("'", "`") + "',[NUMARATAJ]='"+NUM+"',[NUMARATAJ_TABELASI]='"+TAB+"'  where BELEDIYE_ID= " + Convert.ToInt32(Request.QueryString["BELEDIYE_ID"]), con);
+                    cmd = new SqlCommand("UPDATE [dbo].[BELEDIYE] SET [IL]='" + txtIl.Text.Trim().Replace("'", "`") + "',[ILCE]='" + txtIlce.Text.Trim().Replace("'", "`") + "',[BELEDIYE]='" + txtBelediye.Text.Trim().Replace("'", "`") + "', [BELEDIYE_TURU]='" + DDBElediyeTuru.SelectedItem.Text + "'," + "[NUFUS]=" + Convert.ToInt64(txtNufusSayisi.Text.Trim()) + " ,[PARTISI]='" + txtPartisi.Text.Trim().Replace("'", "`") + "',[BELEDIYE_BASKANI_ADI]='" + txtBelediyeBaskaniAdi.Text.Trim().Replace("'", "`") + "',[BELEDIYE_ADRESI]='" + txtBelediyeAdresi.Text.Trim().Replace("'", "`") + "',[TELEFON]=" + Convert.ToInt64(txtTelefon.Text.Trim()) + "," + "[CBS_YAZILIMI]=" + cbs + ",[LISANS_DURUMU]='" + txtLisans.Text.Trim().Replace("'", "`") + "',[NOT_ACIKLAMA]='" + txtNot.Text.Trim().Replace("'", "`") + "',[NUMARATAJ]='" + NUM + "',[NUMARATAJ_TABELASI]='" + TAB + "'  where BELEDIYE_ID= " + Convert.ToInt32(Request.QueryString["BELEDIYE_ID"]), con);
 
                     con.Open();
                     if (cmd.ExecuteNonQuery() > 0)
@@ -137,7 +167,7 @@ namespace BlediyeCRM.pages
                         rdNumaratajYOK.Enabled = false;
                         rdTabelaYOK.Enabled = false;
                         rdTabelaVAR.Enabled = false;
-                              
+
                     }
                     else
                     {
@@ -180,7 +210,7 @@ namespace BlediyeCRM.pages
                     cmd.Parameters.AddWithValue("@BELEDIYE_BASKANI_ADI", "" + txtBelediyeBaskaniAdi.Text.Trim().Replace("'", "`"));
                     cmd.Parameters.AddWithValue("@BELEDIYE_ADRESI", "" + txtBelediyeAdresi.Text.Trim().Replace("'", "`"));
                     cmd.Parameters.AddWithValue("@TELEFON", Convert.ToInt64(txtTelefon.Text.Trim()));
-                   
+
                     if (rdVAR.Checked)
                         cmd.Parameters.AddWithValue("@CBS_YAZILIMI", 1);
                     else
@@ -278,10 +308,12 @@ namespace BlediyeCRM.pages
                     txtLisans.Text = "" + dr["LISANS_DURUMU"];
                     txtNot.Text = "" + dr["NOT_ACIKLAMA"];
 
-                    for (int i = 0; i < DDBElediyeTuru.Items.Count ; i++)
+                    for (int i = 0; i < DDBElediyeTuru.Items.Count; i++)
                     {
-                        if (DDBElediyeTuru.Items[i].ToString() ==  dr["BELEDIYE_TURU"].ToString())
+                        if (DDBElediyeTuru.Items[i].ToString() == dr["BELEDIYE_TURU"].ToString())
                             DDBElediyeTuru.SelectedIndex = i;
+                        else
+                            DDBElediyeTuru.SelectedIndex = 0;
                     }
                 }
             }
@@ -315,35 +347,38 @@ namespace BlediyeCRM.pages
             rdNumaratajYOK.Enabled = true;
             rdTabelaYOK.Enabled = true;
             rdTabelaVAR.Enabled = true;
-             
+
 
         }
 
         protected void btnIptal_Click(object sender, EventArgs e)
         {
-            btnDuzenle.Visible = true;
-            Button2.Visible = false;
-            btnIptal.Visible = false;
+            if (Request.QueryString["BELEDIYE_GUNCELLE"] == "1")
+            {
+                btnDuzenle.Visible = true;
+                Button2.Visible = false;
+                btnIptal.Visible = false;
 
-            txtBelediye.Enabled = false;
-            txtIl.Enabled = false;
-            txtIlce.Enabled = false;
-            txtBelediye.Enabled = false;
-            DDBElediyeTuru.Enabled = false;
-            txtNufusSayisi.Enabled = false;
-            txtPartisi.Enabled = false;
-            txtBelediyeBaskaniAdi.Enabled = false;
-            txtBelediyeAdresi.Enabled = false;
-            txtTelefon.Enabled = false;
-            txtLisans.Enabled = false;
-            txtNot.Enabled = false;
-            rdNumaratajVAR.Enabled = false;
-            rdNumaratajYOK.Enabled = false;
-            rdTabelaYOK.Enabled = false;
-            rdTabelaVAR.Enabled = false;
+                txtBelediye.Enabled = false;
+                txtIl.Enabled = false;
+                txtIlce.Enabled = false;
+                txtBelediye.Enabled = false;
+                DDBElediyeTuru.Enabled = false;
+                txtNufusSayisi.Enabled = false;
+                txtPartisi.Enabled = false;
+                txtBelediyeBaskaniAdi.Enabled = false;
+                txtBelediyeAdresi.Enabled = false;
+                txtTelefon.Enabled = false;
+                txtLisans.Enabled = false;
+                txtNot.Enabled = false;
+                rdNumaratajVAR.Enabled = false;
+                rdNumaratajYOK.Enabled = false;
+                rdTabelaYOK.Enabled = false;
+                rdTabelaVAR.Enabled = false;
+            }
         }
 
-      
+
 
 
     }

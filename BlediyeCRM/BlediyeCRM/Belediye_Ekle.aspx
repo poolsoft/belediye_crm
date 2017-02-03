@@ -34,7 +34,7 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">İL</label>
                                             <div class="col-md-9">
-                                                <asp:TextBox ID="txtIl"   MaxLength="15" CssClass="form-control" placeholder="İl" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txtIl"   MaxLength="15" CssClass="form-control" placeholder="il" runat="server"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*** İl yazmalısınız" ControlToValidate="txtIl" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
@@ -101,7 +101,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">İLÇE</label>
                                         <div class="col-md-9">
-                                            <asp:TextBox ID="txtIlce" Enabled="false" MaxLength="100" CssClass="form-control" placeholder="İlçe" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="txtIlce" Enabled="false" MaxLength="100" CssClass="form-control" placeholder="ilçe" runat="server"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*** İlçe yazmalısınız" ControlToValidate="txtIlce" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>

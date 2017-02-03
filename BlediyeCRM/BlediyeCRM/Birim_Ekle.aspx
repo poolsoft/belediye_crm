@@ -39,20 +39,16 @@
                                 <div class="form-group">
                                     <label class="col-md-3 control-label">TELEFON</label>
                                     <div class="col-md-9">
-                                        <asp:TextBox ID="txtTelefon" TextMode="Number" CssClass="form-control"   placeholder="Telefon Numarası" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*** 
-                                    Telefon  yazmalısınız"
-                                            ControlToValidate="txtTelefon" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="txtTelefon" TextMode="Number" CssClass="form-control" Text="0"  placeholder="Telefon Numarası" runat="server"></asp:TextBox>
+                                       
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label">DAHİLİ_NUMARA</label>
                                     <div class="col-md-9">
-                                        <asp:TextBox ID="txtDahili" TextMode="Number" CssClass="form-control"   placeholder="Dahili Numarası" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="*** 
-                                    Dahili numarası  yazmalısınız.."
-                                            ControlToValidate="txtDahili" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="txtDahili" TextMode="Number" CssClass="form-control" Text="0"   placeholder="Dahili Numarası" runat="server"></asp:TextBox>
+                                         
                                     </div>
                                 </div>
 
@@ -61,9 +57,8 @@
                                 <div class="form-group">
                                     <label class="col-md-3 control-label">GSM</label>
                                     <div class="col-md-9">
-                                        <asp:TextBox ID="txtGsm" TextMode="Number" CssClass="form-control"   placeholder="Cep Telefon Numarası" Text="" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="*** Cep Telefonu yazmalısınız"
-                                            ControlToValidate="txtGsm" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="txtGsm" TextMode="Number" CssClass="form-control"   placeholder="Cep Telefon Numarası" Text="0" runat="server"></asp:TextBox>
+                                        
                                     </div>
                                 </div>
 
@@ -88,7 +83,7 @@
                                 <label class="col-md-3 control-label">GÖREVİ</label>
                                 <div class="col-md-9">
                                     <asp:TextBox ID="txtGorevi" MaxLength="100" CssClass="form-control"   placeholder="Partisi" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="*** Görevi yazmalısınız..." ControlToValidate="txtGorevi" ForeColor="Red"></asp:RequiredFieldValidator>
+                                     
                                 </div>
                             </div>
 
@@ -97,7 +92,7 @@
                                 <label class="col-md-3 control-label">EMAIL</label>
                                 <div class="col-md-9">
                                     <asp:TextBox ID="txtEmail" MaxLength="150"    CssClass="form-control" TextMode="Email" placeholder="Email adresi" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="*** Email yazmalısınız..." ControlToValidate="txtEmail" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    
                                 </div>
                             </div>
 
@@ -107,7 +102,7 @@
                                 <label class="col-md-3 control-label">NOT_AÇIKLAMA</label>
                                 <div class="col-md-9">
                                     <asp:TextBox ID="txtNot" TextMode="MultiLine"   MaxLength="500" CssClass="form-control" placeholder="Not - Açıklama" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="*** Not  yazmalısınız" ControlToValidate="txtNot" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+                                   
                                 </div>
                             </div>
 

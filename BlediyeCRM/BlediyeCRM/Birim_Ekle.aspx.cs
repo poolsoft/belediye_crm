@@ -31,10 +31,27 @@ namespace BlediyeCRM.pages
                     txtEmail.Enabled = false;
                     txtNot.Enabled = false;
 
+                    btnDuzenle.Visible = true;
                     btnIptal.Visible = false;
                     btnKaydet.Visible = false;
                     btnKaydet.Text = "Güncelle";
                     Birim_Getir(Convert.ToInt32(Request.QueryString["BIRIM_ID"]));
+                }
+
+                else
+                {
+                    txtBirimAdi.Enabled = true;
+                    txtYetkiliAdi.Enabled = true;
+                    txtGorevi.Enabled = true;
+                    txtTelefon.Enabled = true;
+                    txtDahili.Enabled = true;
+                    txtGsm.Enabled = true;
+                    txtEmail.Enabled = true;
+                    txtNot.Enabled = true;
+
+                    btnDuzenle.Visible = false;
+                    btnIptal.Visible = true;
+                    btnKaydet.Visible = true;
                 }
 
             }
@@ -129,7 +146,7 @@ namespace BlediyeCRM.pages
                     if (cmd.ExecuteNonQuery() > 0)
                     {
                         //lblsonuc.Visible = true;
-                       Label1.Text = "Birim başarıyla kaydedildi.";
+                        Label1.Text = "Birim başarıyla kaydedildi.";
                         lblsonuc.Text = "Birim başarıyla kaydedildi.";
                         ModalPopupExtender1.Show();
 
@@ -147,7 +164,7 @@ namespace BlediyeCRM.pages
                     }
                     else
                     {
-                       // lblsonuc.Visible = true;
+                        // lblsonuc.Visible = true;
                         Label1.Text = "Kaydetme sırasında hata oluştu.";
                         lblsonuc.Text = "Kaydetme sırasında hata oluştu.";
                         ModalPopupExtender1.Show();
@@ -160,7 +177,7 @@ namespace BlediyeCRM.pages
                 {
                     lblsonuc.Visible = true;
                     lblsonuc.ForeColor = Color.Red;
-                   // Label1.Text = "İnternet bağlantınızı kontrol ediniz. Beklenmedik bir hata oluştu.";
+                    // Label1.Text = "İnternet bağlantınızı kontrol ediniz. Beklenmedik bir hata oluştu.";
                     lblsonuc.Text = "İnternet bağlantınızı kontrol ediniz. Beklenmedik bir hata oluştu.";
                     ModalPopupExtender1.Show();
                 }
@@ -169,7 +186,7 @@ namespace BlediyeCRM.pages
 
         public void Birim_Getir(int BIRIM_ID)
         {
-            try 
+            try
             {
                 DB a = new DB();
                 SqlDataReader dr = a.BirimGetir(BIRIM_ID);
@@ -177,21 +194,21 @@ namespace BlediyeCRM.pages
                 if (dr.HasRows)
                 {
                     txtBirimAdi.Text = "" + dr["BIRIM_ADI"];
-                    txtYetkiliAdi.Text=""+dr["YETKILI_ADI"];
+                    txtYetkiliAdi.Text = "" + dr["YETKILI_ADI"];
                     txtGorevi.Text = "" + dr["GOREVI"];
                     txtTelefon.Text = "" + dr["TELEFON"];
                     txtDahili.Text = "" + dr["DAHILI"];
                     txtGsm.Text = "" + dr["GSM"];
                     txtEmail.Text = "" + dr["MAIL"];
-                    txtNot.Text = "" + dr["NOT_ACIKLAMA"]; 
+                    txtNot.Text = "" + dr["NOT_ACIKLAMA"];
                 }
                 dr.Close();
             }
             catch (Exception ex)
-            { 
-                
+            {
+
             }
-            
+
         }
         protected void Unnamed_ServerClick(object sender, EventArgs e)
         {
@@ -212,24 +229,27 @@ namespace BlediyeCRM.pages
             txtGsm.Enabled = true;
             txtEmail.Enabled = true;
             txtNot.Enabled = true;
-             
-        
+
+
         }
 
         protected void btnIptal_Click(object sender, EventArgs e)
         {
-            btnDuzenle.Visible = true;
-            btnKaydet.Visible = false;
-            btnIptal.Visible = false;
+            if (Request.QueryString["BIRIM_GUNCELLE"] == "1")
+            {
+                btnDuzenle.Visible = true;
+                btnKaydet.Visible = false;
+                btnIptal.Visible = false;
 
-            txtBirimAdi.Enabled = false;
-            txtYetkiliAdi.Enabled = false;
-            txtGorevi.Enabled = false;
-            txtTelefon.Enabled = false;
-            txtDahili.Enabled = false;
-            txtGsm.Enabled = false;
-            txtEmail.Enabled = false;
-            txtNot.Enabled = false;
+                txtBirimAdi.Enabled = false;
+                txtYetkiliAdi.Enabled = false;
+                txtGorevi.Enabled = false;
+                txtTelefon.Enabled = false;
+                txtDahili.Enabled = false;
+                txtGsm.Enabled = false;
+                txtEmail.Enabled = false;
+                txtNot.Enabled = false;
+            }
         }
     }
 }

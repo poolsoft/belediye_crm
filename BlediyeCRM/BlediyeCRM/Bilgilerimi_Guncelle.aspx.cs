@@ -15,8 +15,6 @@ namespace BlediyeCRM.pages
         {
             if (!IsPostBack)
             {
-                //if (Session["YETKILI"].ToString() == "2")
-                //    Response.Redirect("Default.aspx");
 
                 KullaniciCek(Convert.ToInt32(Session["KULLANICI_ID"]));
 
@@ -27,12 +25,9 @@ namespace BlediyeCRM.pages
 
         protected void btnGuncelle_Click(object sender, EventArgs e)
         {
-
             DB a = new DB();
-
             try
             {
-
                 SqlConnection con = null;
                 SqlCommand cmd = null;
                 con = new SqlConnection((a.ConnectionBelediye()));
@@ -45,8 +40,6 @@ namespace BlediyeCRM.pages
                     Label1.Text = "Bilgileriniz başarıyla güncellendi.";
                     lblMesaj.Text = "Bilgileriniz başarıyla güncellendi.";
                     ModalPopupExtender2.Show();
-
-                  
                 }
                 else
                 {

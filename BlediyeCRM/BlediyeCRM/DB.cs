@@ -218,6 +218,28 @@ namespace BlediyeCRM
             }
         }
 
+        //Birimleri Hepsi  Getir
+        public SqlDataReader BirimleriGetirHespi()
+        {
+            SqlDataReader sonuc = null;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+                cmd = new SqlCommand("select * from BIRIMLER  order by KAYIT_ZAMANI desc ", con);
+                con.Open();
+                sonuc = cmd.ExecuteReader();
+                return sonuc;
+                con.Close();
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
+
         //Görüşmeleri  Getir
         public SqlDataReader GorusmeleriGetir(int BIRIM_ID)
         {
@@ -240,6 +262,27 @@ namespace BlediyeCRM
             }
         }
 
+        //Görüşmeleri Hepsi  Getir
+        public SqlDataReader GorusmeleriGetirHepsi()
+        {
+            SqlDataReader sonuc = null;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+                cmd = new SqlCommand("select * from GORUSMELER  order by KAYIT_ZAMANI desc ", con);
+                con.Open();
+                sonuc = cmd.ExecuteReader();
+                return sonuc;
+                con.Close();
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
 
         //Kullanıcları  Getir
         public SqlDataReader KullanicilariGetir(int KULLANICI_ID)
@@ -309,8 +352,7 @@ namespace BlediyeCRM
                 Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
             }
         }
-
-
+         
         //Kullanıcı Sil
         public int KullanicieSil(int KULLANICI_ID)
         {
@@ -336,8 +378,7 @@ namespace BlediyeCRM
                 Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
             }
         }
-
-
+         
         //Kullanıcı Sil
         public int SifreGuncelleme(int KULLANICI_ID, string sifre)
         {
@@ -369,8 +410,7 @@ namespace BlediyeCRM
                 Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
             }
         }
-
-
+         
         //Kullanıcı  Getir
         public SqlDataReader KullaniciGetir(int KULLANICI_ID)
         {
@@ -394,8 +434,7 @@ namespace BlediyeCRM
                 Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
             }
         }
-
-
+         
         //Beldiye sayısı
         public int BelediyeAdet()
         {
@@ -476,6 +515,91 @@ namespace BlediyeCRM
                 Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
             }
         }
+
+        // BIRIM ID'YE GORE BELEDIYE_ID CEK
+        public int BirimBelediyeID(int BIRIM_ID)
+        {
+            int sonuc = -1;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+                cmd = new SqlCommand("select * from BIRIMLER where  BIRIM_ID=" + BIRIM_ID, con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    sonuc = Convert.ToInt32(dr["BELEDIYE_ID"]); 
+                   
+                }
+                return sonuc;
+                con.Close();
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
+
+        // GORUSME ID'YE GORE BELEDIYE_ID CEK
+        public int GorusmeBelediyeID(int GORUSME_ID)
+        {
+            int sonuc = -1;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+                cmd = new SqlCommand("select * from GORUSMELER where  GORUSME_ID=" + GORUSME_ID, con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    sonuc = Convert.ToInt32(dr["BELEDIYE_ID"]);
+                    
+                }
+                return sonuc;
+                con.Close();
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
+
+        // GORUSME ID'YE GORE BIRIM_ID CEK
+        public int GorusmeBirimID(int GORUSME_ID)
+        {
+            int sonuc = -1;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+                cmd = new SqlCommand("select * from GORUSMELER where  GORUSME_ID=" + GORUSME_ID, con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    sonuc = Convert.ToInt32(dr["BIRIM_ID"]);
+                    
+                }
+                return sonuc;
+                con.Close();
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
+
 
 
     }

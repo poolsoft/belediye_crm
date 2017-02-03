@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-     <script src="assets/js/Loading.js"></script>
-   
-     <div class="row">
+    <script src="assets/js/Loading.js"></script>
+
+
+    <div class="row">
         <div class="col-xs-12">
-            <div class="card">
-                <div class="card-header">
+            <div class="card"> 
+                <div class="card-header" runat="server" id="geri">
                     <div class="btn btn-primary">
-                        
                         <a href="Belediyeleri_Goruntule.aspx" style="color: white"><i class="fa fa-mail-reply"></i>Geri Dön  </a>
                     </div>
                     &nbsp;&nbsp;
@@ -30,9 +30,10 @@
 
     <div class="row">
         <div class="col-xs-12">
-            <div class="card"> 
-                <div class="card-header" > 
-                    <br /> <br />
+            <div class="card">
+                <div class="card-header">
+                    <br />
+                    <br />
                     <asp:Label ID="lblMesaj" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="card-body no-padding">
@@ -57,7 +58,7 @@
                             <tr>
                                 <td>
 
-                                   
+
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                                             Menu
@@ -69,8 +70,7 @@
                                             <li>
                                                 <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("BIRIM_ID") %>' Text="Birimi Görüntüle" /></li>
                                             <li>
-                                                <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server" Width="100%" CommandName="SIL" CommandArgument='<%# Eval("BIRIM_ID") %>' Text="Sil" />
-
+                                                <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server" Width="100%" CommandName="SIL" CommandArgument='<%# Eval("BIRIM_ID") %>' Text="Sil" /> 
                                             </li>
                                         </ul>
                                     </div>

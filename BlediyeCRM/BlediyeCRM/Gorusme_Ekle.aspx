@@ -57,6 +57,16 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">DOSYA EKLE</label>
+                                    <div class="col-md-9">
+                                        <asp:FileUpload ID="FileUpload1" runat="server" /><br />
+                                        <asp:LinkButton ID="dosya" runat="server"  Visible="false" OnClick="dosya_Click">DOSYA indir</asp:LinkButton><br />
+                                    </div>
+                                </div>
+
+
+
                                 <div class="form-group" runat="server" id="gorusmeYapan" visible="false">
                                     <label class="col-md-3 control-label">GÖRÜŞMEYİ YAPAN KİŞİ</label>
                                     <div class="col-md-9">

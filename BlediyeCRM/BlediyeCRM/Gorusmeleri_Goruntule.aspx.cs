@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +12,7 @@ namespace BlediyeCRM.pages
 {
     public partial class Gorusmeleri_Goruntule : System.Web.UI.Page
     {
+        int TUM = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -20,16 +22,17 @@ namespace BlediyeCRM.pages
                     Response.Redirect("Belediyeleri_Goruntule.aspx");
                 }
 
-                 
+
                 if (Request.QueryString["BELEDIYE_ID"] == null)
                 {
+                    TUM = 1;
                     geri.Visible = false;
                     GorusmeCekHepsi();
                 }
                 else
                 {
                     GorusmeCek();
-                } 
+                }
 
             }
         }
@@ -49,11 +52,52 @@ namespace BlediyeCRM.pages
             if (e.CommandName == "SIL")
             {
                 DB a = new DB();
+
+                try
+                {
+                    SqlDataReader dr = a.GorusmeGetir(Convert.ToInt32(e.CommandArgument));
+                    dr.Read();
+                    if (dr.HasRows)
+                    {
+                        SqlConnection con = null;
+                        SqlCommand cmd = null;
+                        con = new SqlConnection((a.ConnectionBelediye()));
+                        cmd = new SqlCommand("INSERT INTO [dbo].[SILINEN_GORUSMELER] ([GORUSME_KONUSU],  " +
+                                           "  [KULLANICI_ADI],[SILME_TARIHI] )  VALUES(@GORUSME_KONUSU, @KULLANICI_ADI,@SILME_TARIHI )", con);
+
+                        cmd.Parameters.AddWithValue("@GORUSME_KONUSU", "" + dr["GORUSME_KONUSU"]);
+                        cmd.Parameters.AddWithValue("@KULLANICI_ADI", "" + Session["ADSOYAD"]);
+                        cmd.Parameters.AddWithValue("@SILME_TARIHI", " " + DateTime.Now);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lblMesaj.ForeColor = Color.Red;
+                    lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz. Beklenmedik bir hata oluştu.";
+
+                }
+
+                 
+
+
+                FileInfo TheFile = new FileInfo(Server.MapPath("~/dosya/") + a.GorusmeDOSYA_YOLU(Convert.ToInt32(Request.QueryString["GORUSMEID"])));
+                if (TheFile.Exists)
+                {
+                    File.Delete(MapPath("~/dosya/") + a.GorusmeDOSYA_YOLU(Convert.ToInt32(Request.QueryString["GORUSMEID"])));
+                }
+
                 if (a.GorusmeSil(Convert.ToInt32(e.CommandArgument), 0, 0) == 1)
                 {
                     lblMesaj.ForeColor = Color.Green;
                     lblMesaj.Text = "Silindi.";
-                    GorusmeCek();
+                    if (TUM == 1)
+                        GorusmeCekHepsi();
+                    else
+                        GorusmeCek();
                 }
                 else
                 {
@@ -63,7 +107,7 @@ namespace BlediyeCRM.pages
 
             }
         }
-         
+
         public void GorusmeCek()
         {
             try

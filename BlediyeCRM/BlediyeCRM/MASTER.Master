@@ -91,8 +91,12 @@
                                 <div class="title">Yönetim Paneli</div>
                             </a>
                             <div class="dropdown-menu">
-                                <ul>
-
+                                <ul> 
+                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Silinen Veriler</li>
+                                    <li><a href="Silinen_Belediyeler.aspx">Silinen Belediyeler</a></li>
+                                    <li><a href="Silinen_Birimler.aspx">Silinen Birimler</a></li>
+                                    <li><a href="Silinen_Gorusmeler.aspx">Silinen Görüşmeler</a></li>
+                                    <li class="line"></li>
                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Kullanıcı</li>
                                     <li><a href="Kullanici_Ekle.aspx">Kullanıcı Ekle</a></li>
                                     <li><a href="Kullanicilari_Goruntule.aspx">Kullanıcıları Görüntüle</a></li>
@@ -100,9 +104,7 @@
                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Admin</li>
                                     <li><a href="Bilgilerimi_Guncelle.aspx">Bilgilerimi Güncelle</a></li>
                                     <li><a href="SifreGuncelle.aspx">Şifremi Güncelle</a></li>
-                                    <li><a href="Guvenli_Cikis.aspx">Güvenli Çıkış</a></li>
-
-
+                                    <li><a href="Guvenli_Cikis.aspx">Güvenli Çıkış</a></li>  
                                 </ul>
                             </div>
 
@@ -115,8 +117,7 @@
 
             </aside>
 
-            <div class="app-container">
-
+            <div class="app-container"> 
                 <nav class="navbar navbar-default" id="navbar">
                     <div class="container-fluid">
                         <div class="navbar-collapse collapse in">

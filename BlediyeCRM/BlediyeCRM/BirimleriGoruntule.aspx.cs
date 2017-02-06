@@ -11,7 +11,7 @@ namespace BlediyeCRM.pages
 {
     public partial class BirimleriGoruntule : System.Web.UI.Page
     {
-        int TUM = 0;
+        int TUM;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -19,7 +19,7 @@ namespace BlediyeCRM.pages
                 if (Request.QueryString["BELEDIYE_ID"] == null)
                 {
                     TUM = 1;
-                     
+
                     geri.Visible = false;
                     BirimleriCekHepsi();
 
@@ -29,7 +29,7 @@ namespace BlediyeCRM.pages
                         {
                             if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
                             {
-                                var lbl = (Button)item.FindControl("btnGorusmeEkle"); 
+                                var lbl = (Button)item.FindControl("btnGorusmeEkle");
                                 lbl.Visible = false;
                             }
                         }
@@ -38,6 +38,7 @@ namespace BlediyeCRM.pages
                 }
                 else
                 {
+                    TUM = 0;
                     BirimleriCek();
                 }
             }
@@ -79,10 +80,10 @@ namespace BlediyeCRM.pages
             }
         }
         protected void rptBIRIMLER_ItemCommand(object source, RepeaterCommandEventArgs e)
-        { 
+        {
             if (e.CommandName == "GORUSME")
             {
-               
+
 
                 if (Session["YETKILI"].ToString() == "2")
                 {
@@ -94,7 +95,7 @@ namespace BlediyeCRM.pages
                 {
                     DB a = new DB();
                     int BELEDIYE_ID = a.BirimBelediyeID(Convert.ToInt32(e.CommandArgument));
-                    Response.Redirect("Gorusmeleri_Goruntule.aspx?BIRIM_ID=" + (e.CommandArgument) + "&BELEDIYE_ID=" + BELEDIYE_ID); 
+                    Response.Redirect("Gorusmeleri_Goruntule.aspx?BIRIM_ID=" + (e.CommandArgument) + "&BELEDIYE_ID=" + BELEDIYE_ID);
                 }
 
             }
@@ -109,7 +110,7 @@ namespace BlediyeCRM.pages
             if (e.CommandName == "SIL")
             {
                 DB a = new DB();
-                 
+
                 try
                 {
                     SqlDataReader dr = a.BirimGetir(Convert.ToInt32(e.CommandArgument));
@@ -124,7 +125,7 @@ namespace BlediyeCRM.pages
 
                         cmd.Parameters.AddWithValue("@BIRIM_ADI", "" + dr["BIRIM_ADI"]);
                         cmd.Parameters.AddWithValue("@YETKILI_ADI", "" + dr["YETKILI_ADI"]);
-                        cmd.Parameters.AddWithValue("@MAIL", "" + dr["MAIL"]); 
+                        cmd.Parameters.AddWithValue("@MAIL", "" + dr["MAIL"]);
                         cmd.Parameters.AddWithValue("@KULLANICI_ADI", "" + Session["ADSOYAD"]);
                         cmd.Parameters.AddWithValue("@SILME_TARIHI", " " + DateTime.Now);
 
@@ -140,16 +141,16 @@ namespace BlediyeCRM.pages
                     lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz. Beklenmedik bir hata oluştu.";
 
                 }
-                 
+
 
                 if (a.BirimSil(Convert.ToInt32(e.CommandArgument), 0) == 1)
                 {
                     lblMesaj.ForeColor = Color.Green;
                     lblMesaj.Text = "Silindi.";
-                    if (TUM == 1)
+                    if (Request.QueryString["BELEDIYE_ID"] == null)
                         BirimleriCekHepsi();
-                    else
-                    BirimleriCek();
+                    else if (TUM == 0)
+                        BirimleriCek();
                 }
                 else
                 {
@@ -161,7 +162,7 @@ namespace BlediyeCRM.pages
         }
 
         protected void btnYeniBirimEkle_Click(object sender, EventArgs e)
-        { 
+        {
             Response.Redirect("Birim_Ekle.aspx?BELEDIYE_ID=" + Convert.ToInt32(Request.QueryString["BELEDIYE_ID"]));
         }
 

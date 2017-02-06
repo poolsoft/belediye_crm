@@ -94,7 +94,7 @@ namespace BlediyeCRM.pages
                 {
                     lblMesaj.ForeColor = Color.Green;
                     lblMesaj.Text = "Silindi.";
-                    if (TUM == 1)
+                    if (Request.QueryString["BELEDIYE_ID"] == null)
                         GorusmeCekHepsi();
                     else
                         GorusmeCek();

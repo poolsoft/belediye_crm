@@ -135,68 +135,8 @@
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*** Belediye adresi yazmalısınız" ControlToValidate="txtBelediyeAdresi" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
-
                                      
-
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">LİSANS DURUMU</label>
-                                        <div class="col-md-9">
-                                            <asp:TextBox ID="txtLisans" CssClass="form-control"   placeholder="Lisans Durumu" runat="server"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="*** CBS Yazılım  yazmalısınız" ControlToValidate="txtTelefon" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
-                                        </div>
-                                    </div>
-
-
-                                      <div class="form-group">
-                                        <label class="col-md-3 control-label">CBS YAZILIMI</label>
-                                        <div class="col-md-9">
-                                            <div>
-                                                <div>
-                                                    <asp:RadioButton ID="rdVAR" GroupName="a" runat="server" Text="VAR" />
-                                                    &nbsp;&nbsp;&nbsp;&nbsp; 
-                                                <asp:RadioButton ID="rdYOK" GroupName="a" runat="server" Text="YOK" />
-                                                    <br />
-                                                    <br />
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                      <div class="form-group">
-                                        <label class="col-md-3 control-label">NUMARATAJ(ABS)</label>
-                                        <div class="col-md-9">
-                                            <div>
-                                                <div>
-                                                    <asp:RadioButton ID="rdNumaratajVAR" GroupName="b" runat="server" Text="VAR" />
-                                                    &nbsp;&nbsp;&nbsp;&nbsp; 
-                                                <asp:RadioButton ID="rdNumaratajYOK" GroupName="b" runat="server" Text="YOK" />
-                                                    <br />
-                                                    <br />
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                      <div class="form-group">
-                                        <label class="col-md-3 control-label">NUMARATAJ_TABELASI</label>
-                                        <div class="col-md-9">
-                                            <div>
-                                                <div>
-                                                    <asp:RadioButton ID="rdTabelaVAR" GroupName="c" runat="server" Text="VAR" />
-                                                    &nbsp;&nbsp;&nbsp;&nbsp; 
-                                                <asp:RadioButton ID="rdTabelaYOK" GroupName="c" runat="server" Text="YOK" />
-                                                    <br />
-                                                    <br />
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                      
 
                                 </div>
 

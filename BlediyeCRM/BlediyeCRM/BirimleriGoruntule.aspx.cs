@@ -64,6 +64,7 @@ namespace BlediyeCRM.pages
                 lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz.";
             }
         }
+      
         public void BirimleriCekHepsi()
         {
             try
@@ -79,6 +80,7 @@ namespace BlediyeCRM.pages
                 lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz.";
             }
         }
+     
         protected void rptBIRIMLER_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "GORUSME")

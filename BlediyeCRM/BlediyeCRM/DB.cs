@@ -205,7 +205,7 @@ namespace BlediyeCRM
                 SqlConnection con = null;
                 SqlCommand cmd = null;
                 con = new SqlConnection(ConnectionBelediye());
-                cmd = new SqlCommand("select * from BIRIMLER where BELEDIYE_ID=" + BELEDIYE_ID + " order by KAYIT_ZAMANI desc ", con);
+                cmd = new SqlCommand("select * from BIRIMLER   where BELEDIYE_ID=" + BELEDIYE_ID + " order by KAYIT_ZAMANI desc ", con);
                 con.Open();
                 sonuc = cmd.ExecuteReader();
                 return sonuc;

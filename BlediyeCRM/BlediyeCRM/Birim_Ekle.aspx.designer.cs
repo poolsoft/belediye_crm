@@ -58,6 +58,69 @@ namespace BlediyeCRM.pages {
         protected global::System.Web.UI.WebControls.TextBox txtGsm;
         
         /// <summary>
+        /// txtLisans control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLisans;
+        
+        /// <summary>
+        /// rdVAR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdVAR;
+        
+        /// <summary>
+        /// rdYOK control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdYOK;
+        
+        /// <summary>
+        /// rdNumaratajVAR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdNumaratajVAR;
+        
+        /// <summary>
+        /// rdNumaratajYOK control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdNumaratajYOK;
+        
+        /// <summary>
+        /// rdTabelaVAR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdTabelaVAR;
+        
+        /// <summary>
+        /// rdTabelaYOK control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdTabelaYOK;
+        
+        /// <summary>
         /// txtYetkiliAdi control.
         /// </summary>
         /// <remarks>

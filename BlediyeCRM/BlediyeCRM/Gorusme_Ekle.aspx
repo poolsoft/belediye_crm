@@ -52,7 +52,7 @@
                                             <asp:ListItem>DUSUNULECEK</asp:ListItem>
                                             <asp:ListItem>OLMADI</asp:ListItem>
                                         </asp:DropDownList>
-                         <%-- <asp:TextBox ID="txtSonDurum" MaxLength="150" CssClass="form-control" placeholder="Son durumu yazmalısınız" runat="server"></asp:TextBox>--%>
+                                        <%-- <asp:TextBox ID="txtSonDurum" MaxLength="150" CssClass="form-control" placeholder="Son durumu yazmalısınız" runat="server"></asp:TextBox>--%>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*** Son durum yazmalısınız" ControlToValidate="ddSonDurum" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
                                     <label class="col-md-3 control-label">DOSYA EKLE</label>
                                     <div class="col-md-9">
                                         <asp:FileUpload ID="FileUpload1" runat="server" /><br />
-                                        <asp:LinkButton ID="dosya" runat="server"  Visible="false" OnClick="dosya_Click">DOSYA indir</asp:LinkButton><br />
+                                        <asp:LinkButton ID="dosya" runat="server" Visible="false" OnClick="dosya_Click">DOSYA indir</asp:LinkButton><br />
                                     </div>
                                 </div>
 
@@ -77,9 +77,21 @@
                                 <div class="form-group" runat="server" id="gorusmeTarihi" visible="false">
                                     <label class="col-md-3 control-label">GÖRÜŞMENİN TARİHİ</label>
                                     <div class="col-md-9">
-                                        <asp:TextBox ID="txtTARIH" Enabled="false" MaxLength="50" CssClass="form-control" placeholder="Son durumu yazmalısınız" runat="server"></asp:TextBox>
+
+                                        <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"></asp:ScriptManager>
+                                        <ajaxToolkit:CalendarExtender ID="CalendarExtender2" PopupButtonID="ImageButton1" runat="server" TargetControlID="txtTARIH"
+                                            Format="dd/MM/yyyy" />
+                                        <div style="right: 0; width: 5%; z-index: 10; margin-right: 30px; margin-top: 5px; position: absolute">
+                                            <asp:ImageButton ID="ImageButton1" ImageUrl="~/assets/images/calendar.png" ImageAlign="Bottom" runat="server" Width="30px" />
+                                        </div>
+                                        <asp:TextBox ID="txtTARIH" MaxLength="100" CssClass="form-control" placeholder="Görüşme Tarihi" runat="server"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*** Görüşme tarihi yazmalısınız" ControlToValidate="txtTARIH" Font-Bold="false" ForeColor="#FF3300"></asp:RequiredFieldValidator> 
+
                                     </div>
                                 </div>
+
+
+
 
                             </div>
                         </div>
@@ -89,7 +101,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">HATIRLATMA TARİHİ</label>
                                 <div class="col-md-9">
-                                    <asp:ScriptManager ID="ScriptManager2" runat="server" EnableScriptGlobalization="true"></asp:ScriptManager>
+                                     
                                     <ajaxToolkit:CalendarExtender ID="CalendarExtender1" PopupButtonID="imgPopup" runat="server" TargetControlID="txtHatirlatmaTarihi"
                                         Format="dd/MM/yyyy" />
                                     <div style="right: 0; width: 5%; z-index: 10; margin-right: 30px; margin-top: 5px; position: absolute">

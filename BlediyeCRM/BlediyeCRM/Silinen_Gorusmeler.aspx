@@ -8,7 +8,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="assets/js/Loading.js"></script>
 
-    
+     <script type="text/javascript">
+         function Confirm() {
+             var confirm_value = document.createElement("INPUT");
+             confirm_value.type = "hidden";
+             confirm_value.name = "confirm_value";
+             if (confirm("Silmek istediğinize eminmisiniz?")) {
+                 confirm_value.value = "Evet";
+             } else {
+                 confirm_value.value = "Hayır";
+             }
+             document.forms[0].appendChild(confirm_value);
+         }
+    </script>
      
 
     <div class="row">
@@ -46,7 +58,7 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server" Width="100%" CommandName="SIL" CommandArgument='<%# Eval("GORUSME_ID") %>' Text="Sil" />
+                                                <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server" Width="100%" CommandName="SIL" CommandArgument='<%# Eval("GORUSME_ID") %>' Text="Sil" OnClientClick = "Confirm()" />
                                             </li>
                                         </ul>
                                     </div>

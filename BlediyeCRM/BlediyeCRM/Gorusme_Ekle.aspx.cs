@@ -37,16 +37,17 @@ namespace BlediyeCRM.pages
                     txtGorusmeNotlari.Enabled = false;
                     gorusmeYapan.Visible = true;
                     gorusmeTarihi.Visible = true;
+                    ImageButton1.Enabled = false;
                     imgPopup.Enabled = false;
+                    txtTARIH.Enabled = false;
+                    FileUpload1.Enabled = false;
 
                     btnDuzenle.Visible = true;
                     btnKaydet.Text = "Güncelle";
                     btnKaydet.Visible = false;
                     btnIptal.Visible = false;
                     Gorusme_Getir(Convert.ToInt32(Request.QueryString["GORUSME_ID"]));
-
-
-
+                     
                 }
                 else
                 {
@@ -55,8 +56,11 @@ namespace BlediyeCRM.pages
                     ddSonDurum.Enabled = true;
                     txtGorusmeNotlari.Enabled = true;
                     gorusmeYapan.Visible = false;
-                    gorusmeTarihi.Visible = false;
+                    gorusmeTarihi.Visible = true;
                     imgPopup.Enabled = true;
+                    ImageButton1.Enabled = true;
+                    FileUpload1.Enabled = true;
+                    txtTARIH.Enabled = true;
 
                     btnDuzenle.Visible = false;
                     btnKaydet.Visible = true;
@@ -98,7 +102,7 @@ namespace BlediyeCRM.pages
                             SqlConnection con = null;
                             SqlCommand cmd = null;
                             con = new SqlConnection((a.ConnectionBelediye()));
-                            cmd = new SqlCommand("UPDATE [dbo].[GORUSMELER] SET  [GORUSME_KONUSU]='" + txtGorusme.Text.Trim().Replace("'", "`") + "',[HATIRLATMA_TARIHI]='" + txtHatirlatmaTarihi.Text.Trim().Replace("'", "`") + "', [SON_DURUMU]='" + ddSonDurum.SelectedItem.ToString() + "',[GORUSME_NOTLARI]='" + txtGorusmeNotlari.Text.Trim().Replace("'", "`") + "',DOSYA_YOLU='"+ numIterations + Path.GetFileName(FileUpload1.FileName)+"'  where GORUSME_ID= " + Convert.ToInt32(Request.QueryString["GORUSME_ID"]), con);
+                            cmd = new SqlCommand("UPDATE [dbo].[GORUSMELER] SET  [GORUSME_KONUSU]='" + txtGorusme.Text.Trim().Replace("'", "`") + "',[HATIRLATMA_TARIHI]='" + txtHatirlatmaTarihi.Text.Trim().Replace("'", "`") + "', [SON_DURUMU]='" + ddSonDurum.SelectedItem.ToString() + "',[GORUSME_NOTLARI]='" + txtGorusmeNotlari.Text.Trim().Replace("'", "`") + "',DOSYA_YOLU='" + numIterations + Path.GetFileName(FileUpload1.FileName) + "',KAYIT_ZAMANI='"+txtTARIH.Text+"'  where GORUSME_ID= " + Convert.ToInt32(Request.QueryString["GORUSME_ID"]), con);
 
                             con.Open();
                             if (cmd.ExecuteNonQuery() > 0)
@@ -113,9 +117,11 @@ namespace BlediyeCRM.pages
                                 btnDuzenle.Visible = true;
                                 btnIptal.Visible = false;
                                 btnKaydet.Visible = false;
-
+                                ImageButton1.Enabled = false;
                                 imgPopup.Enabled = false;
+                                FileUpload1.Enabled = false;
 
+                                txtTARIH.Enabled = false;
                                 txtGorusme.Enabled = false;
                                 txtHatirlatmaTarihi.Enabled = false;
                                 ddSonDurum.Enabled = false;
@@ -160,7 +166,7 @@ namespace BlediyeCRM.pages
                         SqlConnection con = null;
                         SqlCommand cmd = null;
                         con = new SqlConnection((a.ConnectionBelediye()));
-                        cmd = new SqlCommand("UPDATE [dbo].[GORUSMELER] SET  [GORUSME_KONUSU]='" + txtGorusme.Text.Trim().Replace("'", "`") + "',[HATIRLATMA_TARIHI]='" + txtHatirlatmaTarihi.Text.Trim().Replace("'", "`") + "', [SON_DURUMU]='" + ddSonDurum.SelectedItem.ToString() + "',[GORUSME_NOTLARI]='" + txtGorusmeNotlari.Text.Trim().Replace("'", "`") + "'  where GORUSME_ID= " + Convert.ToInt32(Request.QueryString["GORUSME_ID"]), con);
+                        cmd = new SqlCommand("UPDATE [dbo].[GORUSMELER] SET  [GORUSME_KONUSU]='" + txtGorusme.Text.Trim().Replace("'", "`") + "',[HATIRLATMA_TARIHI]='" + txtHatirlatmaTarihi.Text.Trim().Replace("'", "`") + "', [SON_DURUMU]='" + ddSonDurum.SelectedItem.ToString() + "',[GORUSME_NOTLARI]='" + txtGorusmeNotlari.Text.Trim().Replace("'", "`") + "',KAYIT_ZAMANI='"+txtTARIH.Text+"'  where GORUSME_ID= " + Convert.ToInt32(Request.QueryString["GORUSME_ID"]), con);
 
                         con.Open();
                         if (cmd.ExecuteNonQuery() > 0)
@@ -175,9 +181,10 @@ namespace BlediyeCRM.pages
                             btnDuzenle.Visible = true;
                             btnIptal.Visible = false;
                             btnKaydet.Visible = false;
-
+                            ImageButton1.Enabled = false;
                             imgPopup.Enabled = false;
-
+                            txtTARIH.Enabled = false;
+                            FileUpload1.Enabled = false;
                             txtGorusme.Enabled = false;
                             txtHatirlatmaTarihi.Enabled = false;
                             ddSonDurum.Enabled = false;
@@ -244,7 +251,7 @@ namespace BlediyeCRM.pages
 
                             cmd.Parameters.AddWithValue("@GORUSME_NOTLARI", "" + txtGorusmeNotlari.Text.Trim().Replace("'", "`"));
                             cmd.Parameters.AddWithValue("@KULLANICI_ADI", "" + Session["ADSOYAD"]);
-                            cmd.Parameters.AddWithValue("@KAYIT_ZAMANI", " " + DateTime.Now);
+                            cmd.Parameters.AddWithValue("@KAYIT_ZAMANI", " " + txtTARIH.Text);
                             cmd.Parameters.AddWithValue("@DOSYA_YOLU", "" + numIterations + Path.GetFileName(FileUpload1.FileName));
                             con.Open();
                             if (cmd.ExecuteNonQuery() > 0)
@@ -259,6 +266,7 @@ namespace BlediyeCRM.pages
                                 txtHatirlatmaTarihi.Text = "";
                                 ddSonDurum.Text = "";
                                 txtGorusmeNotlari.Text = "";
+                                txtTARIH.Text = "";
 
                             }
                             else
@@ -296,8 +304,7 @@ namespace BlediyeCRM.pages
 
                         Random rand = new Random((int)DateTime.Now.Ticks);
                         int numIterations = 0;
-                        numIterations = rand.Next(1, 10000);
-
+                        numIterations = rand.Next(1, 10000); 
                         FileUpload1.SaveAs(folderPath + numIterations + Path.GetFileName(FileUpload1.FileName));
 
                         try
@@ -308,18 +315,17 @@ namespace BlediyeCRM.pages
                             con = new SqlConnection((a.ConnectionBelediye()));
                             cmd = new SqlCommand("INSERT INTO [dbo].[GORUSMELER] ([BIRIM_ID],[GORUSME_KONUSU],[HATIRLATMA_TARIHI]," +
                                                "[SON_DURUMU],[GORUSME_NOTLARI],[KULLANICI_ADI],[KAYIT_ZAMANI],[BELEDIYE_ID],[DOSYA_YOLU])" +
-                                               "  VALUES(@BIRIM_ID,@GORUSME_KONUSU,@HATIRLATMA_TARIHI,@SON_DURUMU, @GORUSME_NOTLARI,@KULLANICI_ADI,@KAYIT_ZAMANI,@BELEDIYE_ID,@DOSYA_YOLU )", con);
+                                               "  VALUES(@BIRIM_ID,@GORUSME_KONUSU,@HATIRLATMA_TARIHI,@SON_DURUMU, @GORUSME_NOTLARI, @KULLANICI_ADI,@KAYIT_ZAMANI,@BELEDIYE_ID,@DOSYA_YOLU )", con);
 
                             cmd.Parameters.AddWithValue("@BIRIM_ID", "" + Convert.ToInt32(Request.QueryString["BIRIM_ID"]));
-                            cmd.Parameters.AddWithValue("@BELEDIYE_ID", "" + Convert.ToInt32(Request.QueryString["BELEDIYE_ID"]));
-
+                            cmd.Parameters.AddWithValue("@BELEDIYE_ID", "" + Convert.ToInt32(Request.QueryString["BELEDIYE_ID"])); 
                             cmd.Parameters.AddWithValue("@GORUSME_KONUSU", "" + txtGorusme.Text.Trim().Replace("'", "`"));
                             cmd.Parameters.AddWithValue("@HATIRLATMA_TARIHI", "" + txtHatirlatmaTarihi.Text.Trim().Replace("'", "`"));
                             cmd.Parameters.AddWithValue("@SON_DURUMU", "" + ddSonDurum.SelectedItem.ToString());
 
                             cmd.Parameters.AddWithValue("@GORUSME_NOTLARI", "" + txtGorusmeNotlari.Text.Trim().Replace("'", "`"));
                             cmd.Parameters.AddWithValue("@KULLANICI_ADI", "" + Session["ADSOYAD"]);
-                            cmd.Parameters.AddWithValue("@KAYIT_ZAMANI", " " + DateTime.Now);
+                            cmd.Parameters.AddWithValue("@KAYIT_ZAMANI", " " + txtTARIH.Text);
                             cmd.Parameters.AddWithValue("@DOSYA_YOLU", "" );
                             con.Open();
                             if (cmd.ExecuteNonQuery() > 0)
@@ -334,6 +340,7 @@ namespace BlediyeCRM.pages
                                 txtHatirlatmaTarihi.Text = "";
                                 ddSonDurum.Text = "";
                                 txtGorusmeNotlari.Text = "";
+                                txtTARIH.Text = "";
 
                             }
                             else
@@ -440,11 +447,14 @@ namespace BlediyeCRM.pages
             btnKaydet.Visible = true;
             btnIptal.Visible = true;
 
+            ImageButton1.Enabled = true;
             txtGorusme.Enabled = true;
             txtHatirlatmaTarihi.Enabled = true;
             ddSonDurum.Enabled = true;
+            txtTARIH.Enabled = true;
             txtGorusmeNotlari.Enabled = true;
             imgPopup.Enabled = true;
+            FileUpload1.Enabled = true;
 
         }
 
@@ -460,14 +470,16 @@ namespace BlediyeCRM.pages
                 txtGorusme.Enabled = false;
                 txtHatirlatmaTarihi.Enabled = false;
                 ddSonDurum.Enabled = false;
+                txtTARIH.Enabled = false;
                 txtGorusmeNotlari.Enabled = false;
                 imgPopup.Enabled = false;
+                ImageButton1.Enabled = false;
+                FileUpload1.Enabled = false;
             }
         }
 
         protected void dosya_Click(object sender, EventArgs e)
-        {
-
+        { 
             DB a = new DB();
             string dosyaAdi = Server.MapPath("http://192.168.2.65/dosya") + "/" + a.GorusmeDOSYA_YOLU(Convert.ToInt32(Request.QueryString["GORUSMEID"]));
             FileInfo dosyaa = new FileInfo(dosyaAdi);
@@ -483,10 +495,6 @@ namespace BlediyeCRM.pages
 
            
         }
-
-
-
-
 
 
 

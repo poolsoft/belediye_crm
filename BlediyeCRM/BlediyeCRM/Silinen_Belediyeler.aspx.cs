@@ -13,7 +13,7 @@ namespace BlediyeCRM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["YETKILI"]==null)
+            if (Session["YETKILI"] == null)
                 Response.Redirect("Belediyeleri_Goruntule.aspx");
 
             if (Session["YETKILI"].ToString() == "2")
@@ -40,21 +40,34 @@ namespace BlediyeCRM
         {
             if (e.CommandName == "SIL")
             {
-                DB a = new DB();
-                int b = a.SilinenBelediyeSil(Convert.ToInt32(e.CommandArgument));
-                if (b > -1)
+
+
+                string confirmValue = Request.Form["confirm_value"];
+                if (confirmValue == "Evet")
                 {
-                    Label1.Visible = true;
-                    Label1.ForeColor = Color.Green;
-                    Label1.Text = "Silindi";
-                    silinen_belediyeler();
+                    DB a = new DB();
+                    int b = a.SilinenBelediyeSil(Convert.ToInt32(e.CommandArgument));
+                    if (b > -1)
+                    {
+                        Label1.Visible = true;
+                        Label1.ForeColor = Color.Green;
+                        Label1.Text = "Silindi";
+                        silinen_belediyeler();
+                    }
+                    else
+                    {
+                        Label1.Visible = true;
+                        Label1.ForeColor = Color.Green;
+                        Label1.Text = "İnternet bağlantınızı kontrol ediniz.";
+                    }
+
                 }
                 else
                 {
-                    Label1.Visible = true;
-                    Label1.ForeColor = Color.Green;
-                    Label1.Text = "İnternet bağlantınızı kontrol ediniz.";
+
                 }
+
+
             }
         }
 

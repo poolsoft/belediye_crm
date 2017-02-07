@@ -1,21 +1,34 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER.Master" AutoEventWireup="true" CodeBehind="Silinen_Belediyeler.aspx.cs" Inherits="BlediyeCRM.Silinen_Belediyeler" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="assets/js/Loading.js"></script>
 
-    
-     
+    <script type="text/javascript">
+        function Confirm() {
+            var confirm_value = document.createElement("INPUT");
+            confirm_value.type = "hidden";
+            confirm_value.name = "confirm_value";
+            if (confirm("Silmek istediğinize eminmisiniz?")) {
+                confirm_value.value = "Evet";
+            } else {
+                confirm_value.value = "Hayır";
+            }
+            document.forms[0].appendChild(confirm_value);
+        }
+    </script>
+
 
     <div class="row">
         <div class="col-xs-12">
             <div class="card">
                 <div class="card-header">
-                   Silinen Belediye Kayıtları
+                    Silinen Belediye Kayıtları
                     <br />
                     <asp:Label ID="Label1" runat="server" Text="" Visible="false"></asp:Label>
                 </div>
@@ -30,7 +43,7 @@
                                         <th>BELEDIYE_ADI</th>
                                         <th>BASKANIN_ADI</th>
                                         <th>SİLEN_KULLANICI </th>
-                                        <th>SİLİNME_TARİHİ</th> 
+                                        <th>SİLİNME_TARİHİ</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,7 +51,7 @@
                         <ItemTemplate>
                             <tr>
                                 <td>
-                                     
+
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                                             Menu
@@ -46,7 +59,7 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server" Width="100%" CommandName="SIL" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Sil" />
+                                                <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server" Width="100%" CommandName="SIL" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Sil" OnClientClick = "Confirm()" />
                                             </li>
                                         </ul>
                                     </div>
@@ -55,7 +68,7 @@
                                 <td><%# Eval("BELEDIYE_ADI") %></td>
                                 <td><%# Eval("BELEDIYE_BASKANI_ADI") %></td>
                                 <td><%# Eval("KULLANICI_ADI") %></td>
-                                <td><%# Eval("SILME_TARIHI") %></td> 
+                                <td><%# Eval("SILME_TARIHI") %></td>
                             </tr>
                         </ItemTemplate>
                         <FooterTemplate>

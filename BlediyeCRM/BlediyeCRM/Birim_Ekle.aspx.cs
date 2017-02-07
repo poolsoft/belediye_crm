@@ -31,6 +31,15 @@ namespace BlediyeCRM.pages
                     txtEmail.Enabled = false;
                     txtNot.Enabled = false;
 
+                    rdNumaratajVAR.Enabled = false;
+                    rdNumaratajYOK.Enabled = false;
+                    rdTabelaVAR.Enabled = false;
+                    rdTabelaYOK.Enabled = false;
+                    rdVAR.Enabled = false;
+                    rdYOK.Enabled = false;
+                    txtLisans.Enabled = false;
+                  
+
                     btnDuzenle.Visible = true;
                     btnIptal.Visible = false;
                     btnKaydet.Visible = false;
@@ -49,6 +58,14 @@ namespace BlediyeCRM.pages
                     txtEmail.Enabled = true;
                     txtNot.Enabled = true;
 
+                    rdNumaratajVAR.Enabled = true;
+                    rdNumaratajYOK.Enabled = true;
+                    rdTabelaVAR.Enabled = true;
+                    rdTabelaYOK.Enabled = true;
+                    rdVAR.Enabled = true;
+                    rdYOK.Enabled = true;
+                    txtLisans.Enabled = true;
+
                     btnDuzenle.Visible = false;
                     btnIptal.Visible = true;
                     btnKaydet.Visible = true;
@@ -62,15 +79,34 @@ namespace BlediyeCRM.pages
             lblsonuc.Visible = false;
 
             if (Request.QueryString["BIRIM_GUNCELLE"] == "1")
-            {
+            { 
+
                 try
                 {
+
+                    int cbs = 0;
+                    if (rdVAR.Checked == true)
+                        cbs = 1;
+                    else if (rdYOK.Checked == true)
+                        cbs = 0;
+
+                    int NUM = 0;
+                    if (rdNumaratajVAR.Checked == true)
+                        NUM = 1;
+                    else if (rdNumaratajYOK.Checked == true)
+                        NUM = 0;
+
+                    int TAB = 0;
+                    if (rdTabelaVAR.Checked == true)
+                        TAB = 1;
+                    else if (rdTabelaYOK.Checked == true)
+                        TAB = 0;
 
                     DB a = new DB();
                     SqlConnection con = null;
                     SqlCommand cmd = null;
                     con = new SqlConnection((a.ConnectionBelediye()));
-                    cmd = new SqlCommand("UPDATE [dbo].[BIRIMLER] SET  [BIRIM_ADI]='" + txtBirimAdi.Text.Trim().Replace("'", "`") + "',[YETKILI_ADI]='" + txtYetkiliAdi.Text.Trim().Replace("'", "`") + "', [GOREVI]='" + txtGorevi.Text.Trim().Replace("'", "`") + "'," + "[TELEFON]=" + Convert.ToInt64(txtTelefon.Text.Trim()) + " ,[DAHILI]='" + Convert.ToInt64(txtDahili.Text.Trim()) + "',[GSM]='" + Convert.ToInt64(txtGsm.Text.Trim()) + "',[MAIL]='" + txtEmail.Text.Trim().Replace("'", "`") + "',[NOT_ACIKLAMA]='" + txtNot.Text.Trim().Replace("'", "`") + "' where BIRIM_ID= " + Convert.ToInt32(Request.QueryString["BIRIM_ID"]), con);
+                    cmd = new SqlCommand("UPDATE [dbo].[BIRIMLER] SET  [BIRIM_ADI]='" + txtBirimAdi.Text.Trim().Replace("'", "`") + "',[YETKILI_ADI]='" + txtYetkiliAdi.Text.Trim().Replace("'", "`") + "', [GOREVI]='" + txtGorevi.Text.Trim().Replace("'", "`") + "'," + "[TELEFON]=" + Convert.ToInt64(txtTelefon.Text.Trim()) + " ,[DAHILI]='" + Convert.ToInt64(txtDahili.Text.Trim()) + "',[GSM]='" + Convert.ToInt64(txtGsm.Text.Trim()) + "',[MAIL]='" + txtEmail.Text.Trim().Replace("'", "`") + "',[NOT_ACIKLAMA]='" + txtNot.Text.Trim().Replace("'", "`") + ",[LISANS_DURUMU]='" + txtLisans.Text.Trim().Replace("'", "`") + "' ,[CBS_YAZILIMI]=" + cbs + "' ,[NUMARATAJ]='" + NUM + "',[NUMARATAJ_TABELASI]='" + TAB + "' where BIRIM_ID= " + Convert.ToInt32(Request.QueryString["BIRIM_ID"]), con);
 
                     con.Open();
                     if (cmd.ExecuteNonQuery() > 0)
@@ -93,6 +129,13 @@ namespace BlediyeCRM.pages
                         txtGsm.Enabled = false;
                         txtEmail.Enabled = false;
                         txtNot.Enabled = false;
+                        rdNumaratajVAR.Enabled = false;
+                        rdNumaratajYOK.Enabled = false;
+                        rdTabelaVAR.Enabled = false;
+                        rdTabelaYOK.Enabled = false;
+                        rdVAR.Enabled = false;
+                        rdYOK.Enabled = false;
+                        txtLisans.Enabled = false;
 
                     }
                     else
@@ -126,8 +169,8 @@ namespace BlediyeCRM.pages
                     SqlCommand cmd = null;
                     con = new SqlConnection((a.ConnectionBelediye()));
                     cmd = new SqlCommand("INSERT INTO [dbo].[BIRIMLER] ([BELEDIYE_ID],[BIRIM_ADI],[YETKILI_ADI],[GOREVI]," +
-                                       "[TELEFON],[DAHILI],[GSM],[MAIL],[NOT_ACIKLAMA],[KULLANICI_ADI],[KAYIT_ZAMANI])" +
-                                       "  VALUES(@BELEDIYE_ID,@BIRIM_ADI,@YETKILI_ADI,@GOREVI,@TELEFON,@DAHILI,@GSM,@MAIL, @NOT_ACIKLAMA,@KULLANICI_ADI,@KAYIT_ZAMANI )", con);
+                                       "[TELEFON],[DAHILI],[GSM],[MAIL],[NOT_ACIKLAMA],[KULLANICI_ADI],[KAYIT_ZAMANI],[LISANS_DURUMU],[CBS_YAZILIMI],[NUMARATAJ], [NUMARATAJ_TABELASI] )" +
+                                       "  VALUES(@BELEDIYE_ID,@BIRIM_ADI,@YETKILI_ADI,@GOREVI,@TELEFON,@DAHILI, @GSM,@MAIL, @NOT_ACIKLAMA,@KULLANICI_ADI,@KAYIT_ZAMANI,@LISANS_DURUMU,@CBS_YAZILIMI,@NUMARATAJ,@NUMARATAJ_TABELASI )", con);
 
                     cmd.Parameters.AddWithValue("@BELEDIYE_ID", "" + Convert.ToInt32(Request.QueryString["BELEDIYE_ID"]));
                     cmd.Parameters.AddWithValue("@BIRIM_ADI", "" + txtBirimAdi.Text.Trim().Replace("'", "`"));
@@ -142,6 +185,24 @@ namespace BlediyeCRM.pages
                     cmd.Parameters.AddWithValue("@NOT_ACIKLAMA", "" + txtNot.Text.Trim().Replace("'", "`"));
                     cmd.Parameters.AddWithValue("@KULLANICI_ADI", "" + Session["ADSOYAD"]);
                     cmd.Parameters.AddWithValue("@KAYIT_ZAMANI", " " + DateTime.Now);
+
+                    if (rdVAR.Checked)
+                        cmd.Parameters.AddWithValue("@CBS_YAZILIMI", 1);
+                    else
+                        cmd.Parameters.AddWithValue("@CBS_YAZILIMI", 0);
+
+                    if (rdNumaratajVAR.Checked)
+                        cmd.Parameters.AddWithValue("@NUMARATAJ", 1);
+                    else
+                        cmd.Parameters.AddWithValue("@NUMARATAJ", 0);
+
+                    if (rdTabelaVAR.Checked)
+                        cmd.Parameters.AddWithValue("@NUMARATAJ_TABELASI", 1);
+                    else
+                        cmd.Parameters.AddWithValue("@NUMARATAJ_TABELASI", 0);
+
+                    cmd.Parameters.AddWithValue("@LISANS_DURUMU", "" + txtLisans.Text.Trim().Replace("'", "`"));
+
                     con.Open();
                     if (cmd.ExecuteNonQuery() > 0)
                     {
@@ -160,6 +221,8 @@ namespace BlediyeCRM.pages
                         txtEmail.Text = "";
                         txtTelefon.Text = "";
                         txtNot.Text = "";
+ 
+                        txtLisans.Text = "";
 
                     }
                     else
@@ -193,6 +256,23 @@ namespace BlediyeCRM.pages
                 dr.Read();
                 if (dr.HasRows)
                 {
+
+                    if (Convert.ToBoolean(dr["CBS_YAZILIMI"]) == true)
+                        rdVAR.Checked = true;
+                    else
+                        rdYOK.Checked = true;
+
+                    if (Convert.ToBoolean(dr["NUMARATAJ"]) == true)
+                        rdNumaratajVAR.Checked = true;
+                    else
+                        rdNumaratajYOK.Checked = true;
+
+                    if (Convert.ToBoolean(dr["NUMARATAJ_TABELASI"]) == true)
+                        rdTabelaVAR.Checked = true;
+                    else
+                        rdTabelaYOK.Checked = true;
+
+                    txtLisans.Text = "" + dr["LISANS_DURUMU"];
                     txtBirimAdi.Text = "" + dr["BIRIM_ADI"];
                     txtYetkiliAdi.Text = "" + dr["YETKILI_ADI"];
                     txtGorevi.Text = "" + dr["GOREVI"];
@@ -210,6 +290,7 @@ namespace BlediyeCRM.pages
             }
 
         }
+
         protected void Unnamed_ServerClick(object sender, EventArgs e)
         {
             Response.Redirect("BirimleriGoruntule.aspx?BELEDIYE_ID=" + Convert.ToInt32(Request.QueryString["BELEDIYE_ID"]));
@@ -231,6 +312,15 @@ namespace BlediyeCRM.pages
             txtNot.Enabled = true;
 
 
+            rdNumaratajVAR.Enabled = true;
+            rdNumaratajYOK.Enabled = true;
+            rdTabelaVAR.Enabled = true;
+            rdTabelaYOK.Enabled = true;
+            rdVAR.Enabled = true;
+            rdYOK.Enabled = true;
+            txtLisans.Enabled = true;
+
+
         }
 
         protected void btnIptal_Click(object sender, EventArgs e)
@@ -249,6 +339,15 @@ namespace BlediyeCRM.pages
                 txtGsm.Enabled = false;
                 txtEmail.Enabled = false;
                 txtNot.Enabled = false;
+
+                rdNumaratajVAR.Enabled = false;
+                rdNumaratajYOK.Enabled = false;
+                rdTabelaVAR.Enabled = false;
+                rdTabelaYOK.Enabled = false;
+                rdVAR.Enabled = false;
+                rdYOK.Enabled = false;
+                txtLisans.Enabled = false;
+
             }
         }
     }

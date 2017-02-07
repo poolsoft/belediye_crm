@@ -32,21 +32,29 @@ namespace BlediyeCRM
         {
             if (e.CommandName == "SIL")
             {
-                DB a = new DB();
-                int b = a.SilinenGorusmeSil(Convert.ToInt32(e.CommandArgument));
-                if (b > -1)
+                
+                string confirmValue = Request.Form["confirm_value"];
+                if (confirmValue == "Evet")
                 {
-                    Label1.Visible = true;
-                    Label1.ForeColor = Color.Green;
-                    Label1.Text = "Silindi";
-                    silinen_Gorusmeler();
+                    DB a = new DB();
+                    int b = a.SilinenGorusmeSil(Convert.ToInt32(e.CommandArgument));
+                    if (b > -1)
+                    {
+                        Label1.Visible = true;
+                        Label1.ForeColor = Color.Green;
+                        Label1.Text = "Silindi";
+                        silinen_Gorusmeler();
+                    }
+                    else
+                    {
+                        Label1.Visible = true;
+                        Label1.ForeColor = Color.Green;
+                        Label1.Text = "İnternet bağlantınızı kontrol ediniz.";
+                    }
                 }
-                else
-                {
-                    Label1.Visible = true;
-                    Label1.ForeColor = Color.Green;
-                    Label1.Text = "İnternet bağlantınızı kontrol ediniz.";
-                }
+                else { }
+
+
             }
         }
 

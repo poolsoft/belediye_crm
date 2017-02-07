@@ -27,6 +27,20 @@
     </div>
 
 
+     <script type="text/javascript">
+         function Confirm() {
+             var confirm_value = document.createElement("INPUT");
+             confirm_value.type = "hidden";
+             confirm_value.name = "confirm_value";
+             if (confirm("Silmek istediğinize eminmisiniz?")) {
+                 confirm_value.value = "Evet";
+             } else {
+                 confirm_value.value = "Hayır";
+             }
+             document.forms[0].appendChild(confirm_value);
+         }
+    </script>
+
 
     <div class="row">
         <div class="col-xs-12">
@@ -56,9 +70,7 @@
                         </HeaderTemplate>
                         <ItemTemplate>
                             <tr>
-                                <td>
-
-
+                                <td> 
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                                             Menu
@@ -70,16 +82,14 @@
                                             <li>
                                                 <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("BIRIM_ID") %>' Text="Birimi Görüntüle" /></li>
                                             <li>
-                                                <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server" Width="100%" CommandName="SIL" CommandArgument='<%# Eval("BIRIM_ID") %>' Text="Sil" /> 
+                                                <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server" Width="100%" CommandName="SIL" CommandArgument='<%# Eval("BIRIM_ID") %>' Text="Sil" OnClientClick = "Confirm()" /> 
                                             </li>
                                         </ul>
-                                    </div>
-
+                                    </div> 
                                 </td>
-                                <td>
-
-
-                                    <asp:Label ID="lblBELEDIYE_ID" runat="server" Text='<%# Eval("BELEDIYE_ID") %>' Visible="false"></asp:Label><%# Eval("BIRIM_ADI") %></td>
+                                <td> 
+                                    <asp:Label ID="lblBELEDIYE_ID" runat="server" Text='<%# Eval("BELEDIYE_ID") %>' Visible="false"></asp:Label><%# Eval("BIRIM_ADI") %> 
+                                </td>
                                 <td><%# Eval("YETKILI_ADI") %></td>
                                 <td><%# Eval("GOREVI") %></td>
                                 <td>0<%# Eval("TELEFON") %></td>
@@ -117,4 +127,8 @@
     </div>
 
     <asp:Label ID="Label1" runat="server" Text="Label" Visible="false"></asp:Label>
+
+
+    
+
 </asp:Content>

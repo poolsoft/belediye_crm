@@ -154,9 +154,9 @@ namespace BlediyeCRM.pages
                         txtBirimAdi.Text = "";
                         txtYetkiliAdi.Text = "";
                         txtGorevi.Text = "";
-                        txtTelefon.Text = "";
-                        txtDahili.Text = "";
-                        txtGsm.Text = "";
+                        txtTelefon.Text = "0";
+                        txtDahili.Text = "0";
+                        txtGsm.Text = "0";
                         txtEmail.Text = "";
                         txtTelefon.Text = "";
                         txtNot.Text = "";

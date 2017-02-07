@@ -49,51 +49,62 @@ namespace BlediyeCRM.pages
 
             if (e.CommandName == "SIL")
             {
-                DB a = new DB();
-                try
+                string confirmValue = Request.Form["confirm_value"];
+                if (confirmValue == "Evet")
                 {
-                    SqlDataReader dr = a.BelediyeGetirID(Convert.ToInt32(e.CommandArgument));
-                    dr.Read();
-                    if (dr.HasRows)
-                    { 
-                        SqlConnection con = null;
-                        SqlCommand cmd = null;
-                        con = new SqlConnection((a.ConnectionBelediye()));
-                        cmd = new SqlCommand("INSERT INTO [dbo].[SILINEN_BELEDIYELER] ([IL],[ILCE],[BELEDIYE_ADI], " +
-                                           " [BELEDIYE_BASKANI_ADI], " +
-                                           "  [KULLANICI_ADI],[SILME_TARIHI] )  VALUES(@IL,@ILCE,@BELEDIYE_ADI,@BELEDIYE_BASKANI_ADI,@KULLANICI_ADI,@SILME_TARIHI )", con);
 
-                        cmd.Parameters.AddWithValue("@IL", "" +dr["IL"]);
-                        cmd.Parameters.AddWithValue("@ILCE", "" + dr["ILCE"]);
-                        cmd.Parameters.AddWithValue("@BELEDIYE_ADI", "" + dr["BELEDIYE"]);
-                        cmd.Parameters.AddWithValue("@BELEDIYE_BASKANI_ADI", "" + dr["BELEDIYE_BASKANI_ADI"]); 
-                        cmd.Parameters.AddWithValue("@KULLANICI_ADI", "" + Session["ADSOYAD"]);
-                        cmd.Parameters.AddWithValue("@SILME_TARIHI", " " + DateTime.Now); 
-                        con.Open();
-                        cmd.ExecuteNonQuery();                        
-                        con.Close();
+
+                    DB a = new DB();
+                    try
+                    {
+                        SqlDataReader dr = a.BelediyeGetirID(Convert.ToInt32(e.CommandArgument));
+                        dr.Read();
+                        if (dr.HasRows)
+                        {
+                            SqlConnection con = null;
+                            SqlCommand cmd = null;
+                            con = new SqlConnection((a.ConnectionBelediye()));
+                            cmd = new SqlCommand("INSERT INTO [dbo].[SILINEN_BELEDIYELER] ([IL],[ILCE],[BELEDIYE_ADI], " +
+                                               " [BELEDIYE_BASKANI_ADI], " +
+                                               "  [KULLANICI_ADI],[SILME_TARIHI] )  VALUES(@IL,@ILCE,@BELEDIYE_ADI,@BELEDIYE_BASKANI_ADI,@KULLANICI_ADI,@SILME_TARIHI )", con);
+
+                            cmd.Parameters.AddWithValue("@IL", "" + dr["IL"]);
+                            cmd.Parameters.AddWithValue("@ILCE", "" + dr["ILCE"]);
+                            cmd.Parameters.AddWithValue("@BELEDIYE_ADI", "" + dr["BELEDIYE"]);
+                            cmd.Parameters.AddWithValue("@BELEDIYE_BASKANI_ADI", "" + dr["BELEDIYE_BASKANI_ADI"]);
+                            cmd.Parameters.AddWithValue("@KULLANICI_ADI", "" + Session["ADSOYAD"]);
+                            cmd.Parameters.AddWithValue("@SILME_TARIHI", " " + DateTime.Now);
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        lblMesaj.ForeColor = Color.Red;
+                        lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz. Beklenmedik bir hata oluştu.";
 
                     }
-                }
-                catch (Exception ex)
-                {
-                    lblMesaj.ForeColor = Color.Red;
-                    lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz. Beklenmedik bir hata oluştu.";
-                    
-                }
 
 
-                if (a.BelediyeSil(Convert.ToInt32(e.CommandArgument)) == 1)
-                {
-                    lblMesaj.ForeColor = Color.Green;
-                    lblMesaj.Text = "Silindi.";
-                    LOADING();
+                    if (a.BelediyeSil(Convert.ToInt32(e.CommandArgument)) == 1)
+                    {
+                        lblMesaj.ForeColor = Color.Green;
+                        lblMesaj.Text = "Silindi.";
+                        LOADING();
+                    }
+                    else
+                    {
+                        lblMesaj.ForeColor = Color.Red;
+                        lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz.";
+                    } 
                 }
                 else
                 {
-                    lblMesaj.ForeColor = Color.Red;
-                    lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz.";
+
                 }
+
 
             }
         }

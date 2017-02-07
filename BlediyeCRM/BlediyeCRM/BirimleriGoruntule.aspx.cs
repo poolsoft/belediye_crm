@@ -109,54 +109,68 @@ namespace BlediyeCRM.pages
 
             if (e.CommandName == "SIL")
             {
-                DB a = new DB();
 
-                try
+                string confirmValue = Request.Form["confirm_value"];
+                if (confirmValue == "Evet")
                 {
-                    SqlDataReader dr = a.BirimGetir(Convert.ToInt32(e.CommandArgument));
-                    dr.Read();
-                    if (dr.HasRows)
+
+                    DB a = new DB();
+
+                    try
                     {
-                        SqlConnection con = null;
-                        SqlCommand cmd = null;
-                        con = new SqlConnection((a.ConnectionBelediye()));
-                        cmd = new SqlCommand("INSERT INTO [dbo].[SILINEN_BIRIMLER] ([BIRIM_ADI],[YETKILI_ADI],[MAIL], " +
-                                           "  [KULLANICI_ADI],[SILME_TARIHI] )  VALUES(@BIRIM_ADI,@YETKILI_ADI,@MAIL ,@KULLANICI_ADI,@SILME_TARIHI )", con);
+                        SqlDataReader dr = a.BirimGetir(Convert.ToInt32(e.CommandArgument));
+                        dr.Read();
+                        if (dr.HasRows)
+                        {
+                            SqlConnection con = null;
+                            SqlCommand cmd = null;
+                            con = new SqlConnection((a.ConnectionBelediye()));
+                            cmd = new SqlCommand("INSERT INTO [dbo].[SILINEN_BIRIMLER] ([BIRIM_ADI],[YETKILI_ADI],[MAIL], " +
+                                               "  [KULLANICI_ADI],[SILME_TARIHI] )  VALUES(@BIRIM_ADI,@YETKILI_ADI,@MAIL ,@KULLANICI_ADI,@SILME_TARIHI )", con);
 
-                        cmd.Parameters.AddWithValue("@BIRIM_ADI", "" + dr["BIRIM_ADI"]);
-                        cmd.Parameters.AddWithValue("@YETKILI_ADI", "" + dr["YETKILI_ADI"]);
-                        cmd.Parameters.AddWithValue("@MAIL", "" + dr["MAIL"]);
-                        cmd.Parameters.AddWithValue("@KULLANICI_ADI", "" + Session["ADSOYAD"]);
-                        cmd.Parameters.AddWithValue("@SILME_TARIHI", " " + DateTime.Now);
+                            cmd.Parameters.AddWithValue("@BIRIM_ADI", "" + dr["BIRIM_ADI"]);
+                            cmd.Parameters.AddWithValue("@YETKILI_ADI", "" + dr["YETKILI_ADI"]);
+                            cmd.Parameters.AddWithValue("@MAIL", "" + dr["MAIL"]);
+                            cmd.Parameters.AddWithValue("@KULLANICI_ADI", "" + Session["ADSOYAD"]);
+                            cmd.Parameters.AddWithValue("@SILME_TARIHI", " " + DateTime.Now);
 
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        lblMesaj.ForeColor = Color.Red;
+                        lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz. Beklenmedik bir hata oluştu.";
 
                     }
-                }
-                catch (Exception ex)
-                {
-                    lblMesaj.ForeColor = Color.Red;
-                    lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz. Beklenmedik bir hata oluştu.";
-
-                }
 
 
-                if (a.BirimSil(Convert.ToInt32(e.CommandArgument), 0) == 1)
-                {
-                    lblMesaj.ForeColor = Color.Green;
-                    lblMesaj.Text = "Silindi.";
-                    if (Request.QueryString["BELEDIYE_ID"] == null)
-                        BirimleriCekHepsi();
-                    else if (TUM == 0)
-                        BirimleriCek();
+                    if (a.BirimSil(Convert.ToInt32(e.CommandArgument), 0) == 1)
+                    {
+                        lblMesaj.ForeColor = Color.Green;
+                        lblMesaj.Text = "Silindi.";
+                        if (Request.QueryString["BELEDIYE_ID"] == null)
+                            BirimleriCekHepsi();
+                        else if (TUM == 0)
+                            BirimleriCek();
+                    }
+                    else
+                    {
+                        lblMesaj.ForeColor = Color.Red;
+                        lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz.";
+                    }
+
                 }
                 else
                 {
-                    lblMesaj.ForeColor = Color.Red;
-                    lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz.";
+
                 }
+
+
+
 
             }
         }

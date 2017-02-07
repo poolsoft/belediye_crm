@@ -22,7 +22,21 @@
             </div>
         </div>
     </div>
-     
+
+    <script type="text/javascript">
+        function Confirm() {
+            var confirm_value = document.createElement("INPUT");
+            confirm_value.type = "hidden";
+            confirm_value.name = "confirm_value";
+            if (confirm("Silmek istediğinize eminmisiniz?")) {
+                confirm_value.value = "Evet";
+            } else {
+                confirm_value.value = "Hayır";
+            }
+            document.forms[0].appendChild(confirm_value);
+        }
+    </script>
+
 
     <div class="row">
         <div class="col-xs-12">
@@ -54,7 +68,7 @@
                         <ItemTemplate>
                             <tr>
                                 <td>
-                                     
+
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                                             Menu
@@ -66,7 +80,7 @@
                                             <li>
                                                 <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Belediyeyi Görüntüle" /></li>
                                             <li>
-                                                <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server" Width="100%" CommandName="SIL" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Sil" />
+                                                <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server" Width="100%" CommandName="SIL" CommandArgument='<%# Eval("BELEDIYE_ID") %>' Text="Sil" OnClientClick = "Confirm()" />
                                             </li>
                                         </ul>
                                     </div>
@@ -94,6 +108,5 @@
     </div>
 
 
-    <%--<script type="text/javascript" src="../assets/js/vendor.js"></script>
-    <script type="text/javascript" src="../assets/js/app.js"></script>--%>
+
 </asp:Content>

@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER.Master" AutoEventWireup="true" CodeBehind="Gorusmeleri_Goruntule.aspx.cs" Inherits="BlediyeCRM.pages.Gorusmeleri_Goruntule" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -27,6 +29,20 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        function Confirm() {
+            var confirm_value = document.createElement("INPUT");
+            confirm_value.type = "hidden";
+            confirm_value.name = "confirm_value";
+            if (confirm("Silmek istediğinize eminmisiniz?")) {
+                confirm_value.value = "Evet";
+            } else {
+                confirm_value.value = "Hayır";
+            }
+            document.forms[0].appendChild(confirm_value);
+        }
+    </script>
 
 
     <div class="row">
@@ -65,13 +81,12 @@
                                             <li>
                                                 <asp:Button ID="btnDETAY" CssClass="btn btn-default" runat="server" Width="100%" CommandName="DETAY" CommandArgument='<%# Eval("GORUSME_ID") %>' Text="Görüşmeyi Görüntüle" /></li>
                                             <li>
-                                                <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server" Width="100%" CommandName="SIL" CommandArgument='<%# Eval("GORUSME_ID") %>' Text="Sil" />
+                                                <asp:Button ID="btnSIL" CssClass="btn btn-default" runat="server" Width="100%" CommandName="SIL" CommandArgument='<%# Eval("GORUSME_ID") %>' Text="Sil" OnClientClick = "Confirm()" />
 
                                             </li>
                                         </ul>
                                     </div>
                                 </td>
-
 
                                 <td><%# Eval("GORUSME_KONUSU") %></td>
                                 <td><%# Eval("HATIRLATMA_TARIHI") %></td>

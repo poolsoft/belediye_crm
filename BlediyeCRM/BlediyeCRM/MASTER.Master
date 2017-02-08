@@ -63,7 +63,7 @@
                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>
                                         Belediye İşlemleri</li>
                                     <li>
-                                        <a href="Belediyeleri_Goruntule.aspx">Belediye Görüntüleme</a>
+                                        <a href="IlSecimi.aspx">Belediye Görüntüleme</a>
                                     </li>
                                     <li>
                                         <a href="Belediye_Ekle.aspx">Belediye Ekle</a>

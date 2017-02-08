@@ -13,46 +13,27 @@
 
 
 
-    <asp:Panel ID="pnlil" runat="server" Visible="true" CssClass="row">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div style="width: 300px">
-                           
-                            &nbsp;&nbsp;
-                    <asp:Label ID="lblMesaj" runat="server" Text="asd"></asp:Label>
-                        </div>
 
-                        <div style="width: 300px" class="selectpicker">
-                            İL :
-                            <asp:DropDownList ID="ddIl" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddIl_SelectedIndexChanged" OnDataBound="ddIl_DataBound">
-                            </asp:DropDownList>
-                        </div>
-                        <br />
-                        <br />
-                        <br />
-                        &nbsp;
-                        <div style="width: 300px">
-                            İLÇE :
-                            <asp:DropDownList ID="ddIlce" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddIlce_SelectedIndexChanged">
-                            </asp:DropDownList>
-                        </div>
-                        <div style="width: 500px">
-                            <br />
-                            <asp:Button ID="btnBilgileriGetir" runat="server" Text="Belediyeyi Getir" CssClass="btn btn-primary" OnClick="btnBilgileriGetir_Click" /> 
-                            <asp:Button ID="btnTumBelediyeGetir" runat="server" Text="Tüm Belediyeleri Getir" CssClass="btn btn-warning"  OnClick="btnTumBelediyeGetir_Click"/>
-                             <asp:Button ID="btnYeniBelediyeEkle" runat="server" CssClass="btn btn-success" Text="YENİ BELEDİYE EKLE" Visible="True" OnClick="btnYeniBelediyeEkle_Click" />
-                        </div>
+   
+
+    <asp:Panel ID="pnl" runat="server" Visible="true" CssClass="row">
+         
+         <div class="row">
+        <div class="col-xs-12">
+            <div class="card">
+                <div class="card-header" runat="server" id="geri">
+                    <div class="btn btn-primary">
+                        <a href="IlSecimi.aspx" style="color: white">
+                            <i class="fa fa-mail-reply"></i>
+                            Geri Dön 
+                        </a>
                     </div>
+                    &nbsp;&nbsp;
+                   <asp:Button ID="btnYeniBelediyeEkle" runat="server" CssClass="btn btn-success" Text="YENİ BELEDİYE EKLE" Visible="True" OnClick="btnYeniBelediyeEkle_Click" />
                 </div>
             </div>
         </div>
-    </asp:Panel>
-
-
-    <asp:Panel ID="pnl" runat="server" Visible="true" CssClass="row">
-
+    </div>
 
 
         <script type="text/javascript">
@@ -75,9 +56,8 @@
                     <div class="card-header">
                         <br />
                         <br />
-                        <asp:Label ID="Label1" runat="server" Text="" Visible="false"></asp:Label>
+                        <asp:Label ID="lblMesaj" runat="server" Text="asd"></asp:Label>
                     </div>
-
                     <div class="card-body no-padding">
                         <asp:Repeater ID="rptBELEDIYE" runat="server" OnItemCommand="rptYAPI_ItemCommand" Visible="true" OnDataBinding="rptBELEDIYE_DataBinding" OnInit="rptBELEDIYE_Init" OnLoad="rptBELEDIYE_Load" OnItemDataBound="rptBELEDIYE_ItemDataBound">
                             <HeaderTemplate>

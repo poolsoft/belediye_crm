@@ -7,54 +7,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BlediyeCRM.pages {
+namespace BlediyeCRM {
     
     
-    public partial class Belediyeleri_Goruntule {
+    public partial class IlSecimi {
         
         /// <summary>
-        /// pnl control.
+        /// pnlil control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnl;
+        protected global::System.Web.UI.WebControls.Panel pnlil;
         
         /// <summary>
-        /// geri control.
+        /// ddIl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl geri;
+        protected global::System.Web.UI.WebControls.DropDownList ddIl;
         
         /// <summary>
-        /// btnYeniBelediyeEkle control.
+        /// ddIlce control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnYeniBelediyeEkle;
+        protected global::System.Web.UI.WebControls.DropDownList ddIlce;
         
         /// <summary>
-        /// lblMesaj control.
+        /// btnBilgileriGetir control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMesaj;
+        protected global::System.Web.UI.WebControls.Button btnBilgileriGetir;
         
         /// <summary>
-        /// rptBELEDIYE control.
+        /// btnTumBelediyeGetir control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptBELEDIYE;
+        protected global::System.Web.UI.WebControls.Button btnTumBelediyeGetir;
     }
 }

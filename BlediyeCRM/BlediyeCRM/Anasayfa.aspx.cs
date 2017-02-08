@@ -35,6 +35,16 @@ namespace BlediyeCRM
 
         }
 
+        protected void rptUcGun_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
+        }
+
+        protected void rptUcGun_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+
+        }
+
 
 
     }

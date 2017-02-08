@@ -13,11 +13,24 @@ namespace BlediyeCRM.pages
 {
     public partial class Belediyeleri_Goruntule : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                LOADING();
+                if (!string.IsNullOrEmpty(Session["IL"] as string))
+                { 
+                    if (Session["IL"].ToString() != "0" & Session["ILCE"].ToString() != "0")
+                        BelediyeCek("" + Session["IL"].ToString(), "" + Session["ILCE"].ToString());
+                }
+
+                if (!string.IsNullOrEmpty(Session["TUM"] as string))
+                {
+                    if (Session["TUM"].ToString() == "1")
+                        TumBelediyeler();
+                    else
+                        Response.Redirect("Belediyeleri_Goruntule.aspx");
+                }
 
                 lblMesaj.Text = "";
             }
@@ -92,13 +105,13 @@ namespace BlediyeCRM.pages
                     {
                         lblMesaj.ForeColor = Color.Green;
                         lblMesaj.Text = "Silindi.";
-                        LOADING();
+                        BelediyeCek("" + Request.QueryString["IL"].ToString(), "" + Request.QueryString["ILCE"].ToString());
                     }
                     else
                     {
                         lblMesaj.ForeColor = Color.Red;
                         lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz.";
-                    } 
+                    }
                 }
                 else
                 {
@@ -109,28 +122,15 @@ namespace BlediyeCRM.pages
             }
         }
 
-        public void ilCek()
-        {
-            DB a = new DB();
-            SqlDataReader dr = a.IlGetir();
-            while (dr.Read())
-            {
-                ddIl.Items.Add(""+dr["IL"]);
-            } 
-        }
 
-        public void LOADING()
-        {
-
-            ilCek();
-        }
+ 
 
         public void BelediyeCek(string IL, string ILCE)
         {
             try
             {
                 DB a = new DB();
-                SqlDataReader dr = a.BelediyeGetir(IL,ILCE);
+                SqlDataReader dr = a.BelediyeGetir(IL, ILCE);
                 rptBELEDIYE.DataSource = dr;
                 rptBELEDIYE.DataBind();
             }
@@ -140,11 +140,7 @@ namespace BlediyeCRM.pages
             }
         }
 
-        protected void btnYeniBelediyeEkle_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Belediye_Ekle.aspx");
-        }
-
+       
 
         protected void btnKaydet_Click(object sender, EventArgs e)
         {
@@ -158,17 +154,18 @@ namespace BlediyeCRM.pages
 
         protected void rptBELEDIYE_Load(object sender, EventArgs e)
         {
-            ClientScript.RegisterStartupScript(GetType(), "hwa", "waitingDialog.show();setTimeout(function () {waitingDialog.hide();}, 5000);", true);
+            ClientScript.RegisterStartupScript(GetType(), "hwa", "waitingDialog.show();setTimeout(function () {waitingDialog.hide();}, 3000);", true);
         }
 
         protected void rptBELEDIYE_Init(object sender, EventArgs e)
         {
+            ClientScript.RegisterStartupScript(GetType(), "hwa", "waitingDialog.show();setTimeout(function () {waitingDialog.hide();}, 3000);", true);
 
         }
 
         protected void rptBELEDIYE_DataBinding(object sender, EventArgs e)
         {
-
+            ClientScript.RegisterStartupScript(GetType(), "hwa", "waitingDialog.show();setTimeout(function () {waitingDialog.hide();}, 3000);", true);
         }
 
         protected void rptBELEDIYE_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -176,40 +173,11 @@ namespace BlediyeCRM.pages
             ClientScript.RegisterStartupScript(GetType(), "hwa", "waitingDialog.show();setTimeout(function () {waitingDialog.hide();}, 3000);", true);
         }
 
-        protected void ddIl_SelectedIndexChanged(object sender, EventArgs e)
+         
+
+        public void TumBelediyeler()
         {
-
-            ddIlce.Items.Clear();
-            DB a = new DB();
-            SqlDataReader dr = a.IlceGetir(ddIl.SelectedItem.ToString());
-            while (dr.Read())
-            {
-                ddIlce.Items.Add("" + dr["ILCE"]);
-            } 
-        }
-
-        protected void ddIlce_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-          
-
-        }
-
-        protected void ddIl_DataBound(object sender, EventArgs e)
-        {
-          
-        }
-
-        protected void btnBilgileriGetir_Click(object sender, EventArgs e)
-        {
-
-            BelediyeCek("" + ddIl.SelectedItem.ToString(), "" + ddIlce.SelectedItem.ToString());
-            pnl.Visible = true; 
-
-        }
-
-        protected void btnTumBelediyeGetir_Click(object sender, EventArgs e)
-        {
+            
             try
             {
                 DB a = new DB();
@@ -223,6 +191,11 @@ namespace BlediyeCRM.pages
             }
         }
 
+
+        protected void btnYeniBelediyeEkle_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Belediye_Ekle.aspx");
+        }
 
 
 

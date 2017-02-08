@@ -78,6 +78,7 @@
     <Content Include="assets\js\Loading.js" />
     <Content Include="assets\js\MaxLength.min.js" />
     <Content Include="Default.aspx" />
+    <Content Include="IlSecimi.aspx" />
     <Content Include="MASTER.Master" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -645,6 +646,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IlSecimi.aspx.cs">
+      <DependentUpon>IlSecimi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IlSecimi.aspx.designer.cs">
+      <DependentUpon>IlSecimi.aspx</DependentUpon>
     </Compile>
     <Compile Include="MASTER.Master.cs">
       <DependentUpon>MASTER.Master</DependentUpon>

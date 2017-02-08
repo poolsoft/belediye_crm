@@ -109,18 +109,28 @@ namespace BlediyeCRM.pages
             }
         }
 
+        public void ilCek()
+        {
+            DB a = new DB();
+            SqlDataReader dr = a.IlGetir();
+            while (dr.Read())
+            {
+                ddIl.Items.Add(""+dr["IL"]);
+            } 
+        }
+
         public void LOADING()
         {
 
-            BelediyeCek();
+            ilCek();
         }
 
-        public void BelediyeCek()
+        public void BelediyeCek(string IL, string ILCE)
         {
             try
             {
                 DB a = new DB();
-                SqlDataReader dr = a.BelediyeGetir();
+                SqlDataReader dr = a.BelediyeGetir(IL,ILCE);
                 rptBELEDIYE.DataSource = dr;
                 rptBELEDIYE.DataBind();
             }
@@ -163,7 +173,54 @@ namespace BlediyeCRM.pages
 
         protected void rptBELEDIYE_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            ClientScript.RegisterStartupScript(GetType(), "hwa", "waitingDialog.show();setTimeout(function () {waitingDialog.hide();}, 5000);", true);
+            ClientScript.RegisterStartupScript(GetType(), "hwa", "waitingDialog.show();setTimeout(function () {waitingDialog.hide();}, 3000);", true);
+        }
+
+        protected void ddIl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            ddIlce.Items.Clear();
+            DB a = new DB();
+            SqlDataReader dr = a.IlceGetir(ddIl.SelectedItem.ToString());
+            while (dr.Read())
+            {
+                ddIlce.Items.Add("" + dr["ILCE"]);
+            } 
+        }
+
+        protected void ddIlce_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+          
+
+        }
+
+        protected void ddIl_DataBound(object sender, EventArgs e)
+        {
+          
+        }
+
+        protected void btnBilgileriGetir_Click(object sender, EventArgs e)
+        {
+
+            BelediyeCek("" + ddIl.SelectedItem.ToString(), "" + ddIlce.SelectedItem.ToString());
+            pnl.Visible = true; 
+
+        }
+
+        protected void btnTumBelediyeGetir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DB a = new DB();
+                SqlDataReader dr = a.BelediyeTumGetir();
+                rptBELEDIYE.DataSource = dr;
+                rptBELEDIYE.DataBind();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
 

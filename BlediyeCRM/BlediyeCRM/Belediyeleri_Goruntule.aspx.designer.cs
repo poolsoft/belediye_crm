@@ -13,13 +13,13 @@ namespace BlediyeCRM.pages {
     public partial class Belediyeleri_Goruntule {
         
         /// <summary>
-        /// btnYeniBelediyeEkle control.
+        /// pnlil control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnYeniBelediyeEkle;
+        protected global::System.Web.UI.WebControls.Panel pnlil;
         
         /// <summary>
         /// lblMesaj control.
@@ -29,6 +29,60 @@ namespace BlediyeCRM.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMesaj;
+        
+        /// <summary>
+        /// ddIl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddIl;
+        
+        /// <summary>
+        /// ddIlce control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddIlce;
+        
+        /// <summary>
+        /// btnBilgileriGetir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBilgileriGetir;
+        
+        /// <summary>
+        /// btnTumBelediyeGetir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnTumBelediyeGetir;
+        
+        /// <summary>
+        /// btnYeniBelediyeEkle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnYeniBelediyeEkle;
+        
+        /// <summary>
+        /// pnl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnl;
         
         /// <summary>
         /// Label1 control.

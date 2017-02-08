@@ -41,6 +41,50 @@ namespace BlediyeCRM
             }
         }
 
+        //Il  Getir
+        public SqlDataReader IlGetir()
+        {
+            SqlDataReader sonuc = null;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+                cmd = new SqlCommand("  SELECT IL FROM [BELEDIYE_CRM].[dbo].[BELEDIYE]  GROUP by IL order by IL ", con);
+                con.Open();
+                sonuc = cmd.ExecuteReader();
+                return sonuc;
+                con.Close();
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
+
+        //Ilce  Getir
+        public SqlDataReader IlceGetir(string IL)
+        {
+            SqlDataReader sonuc = null;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+                cmd = new SqlCommand("SELECT ILCE FROM [BELEDIYE_CRM].[dbo].[BELEDIYE] WHERE IL IN(SELECT IL FROM [BELEDIYE_CRM].[dbo].[BELEDIYE]  WHERE IL='"+IL+"'  GROUP by IL )order by IL", con);
+                con.Open();
+                sonuc = cmd.ExecuteReader();
+                return sonuc;
+                con.Close();
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
+
         //Belediye Türü Getir
         public SqlDataReader BelediyeTuruGetir()
         {
@@ -64,7 +108,7 @@ namespace BlediyeCRM
         }
 
         //Belediye  Getir
-        public SqlDataReader BelediyeGetir()
+        public SqlDataReader BelediyeGetir(string IL, string ILCE)
         {
             SqlDataReader sonuc = null;
             try
@@ -72,7 +116,29 @@ namespace BlediyeCRM
                 SqlConnection con = null;
                 SqlCommand cmd = null;
                 con = new SqlConnection(ConnectionBelediye());
-                cmd = new SqlCommand("select * from BELEDIYE order by KAYIT_ZAMANI desc ", con);
+                cmd = new SqlCommand("select * from BELEDIYE where IL='"+IL+"' and ILCE='"+ILCE+"' order by KAYIT_ZAMANI desc ", con);
+                con.Open();
+                sonuc = cmd.ExecuteReader();
+                return sonuc;
+                con.Close();
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
+
+        //Belediye tüm  Getir
+        public SqlDataReader BelediyeTumGetir()
+        {
+            SqlDataReader sonuc = null;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+                cmd = new SqlCommand("select * from BELEDIYE  order by KAYIT_ZAMANI desc ", con);
                 con.Open();
                 sonuc = cmd.ExecuteReader();
                 return sonuc;

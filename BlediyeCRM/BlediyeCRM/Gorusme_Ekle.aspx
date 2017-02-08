@@ -80,7 +80,7 @@
 
                                         <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"></asp:ScriptManager>
                                         <ajaxToolkit:CalendarExtender ID="CalendarExtender2" PopupButtonID="ImageButton1" runat="server" TargetControlID="txtTARIH"
-                                            Format="dd/MM/yyyy" />
+                                            Format="yyyy/MM/dd" />
                                         <div style="right: 0; width: 5%; z-index: 10; margin-right: 30px; margin-top: 5px; position: absolute">
                                             <asp:ImageButton ID="ImageButton1" ImageUrl="~/assets/images/calendar.png" ImageAlign="Bottom" runat="server" Width="30px" />
                                         </div>

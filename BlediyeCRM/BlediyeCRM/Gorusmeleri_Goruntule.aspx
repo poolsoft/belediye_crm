@@ -64,7 +64,7 @@
                                         <th>HATIRLATMA</th>
                                         <th>SON_DURUM</th>
                                         <th>GÖRÜŞMEYİ_YAPAN_KİŞİ</th>
-                                        <th>KAYIT_TARIHI </th>
+                                        <th>GÖRÜŞME_TARİHİ </th>
                                     </tr>
                                 </thead>
                                 <tbody>

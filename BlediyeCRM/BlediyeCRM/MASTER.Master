@@ -16,54 +16,13 @@
     <link rel="stylesheet" type="text/css" href="assets/css/theme/red.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/theme/yellow.css" />
 
-    <link rel="stylesheet" type="text/css" href="assets/css/lightbox.css" />
-
-    <link rel="Stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/lightbox.css" /> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
 
-    <style type="text/css">
-        .GridSrc td {
-            background-color: #A1DCF2;
-            color: black;
-            font-size: 10pt;
-            font-family: Arial;
-            line-height: 200%;
-            cursor: pointer;
-            width: 100px;
-        }
-
-        .GridSrc th {
-            background-color: #3AC0F2;
-            color: White;
-            font-family: Arial;
-            font-size: 10pt;
-            line-height: 200%;
-            width: 100px;
-        }
-
-        .GridDest td {
-            background-color: #eee !important;
-            color: black;
-            font-family: Arial;
-            font-size: 10pt;
-            line-height: 200%;
-            cursor: pointer;
-            width: 100px;
-        }
-
-        .GridDest th {
-            background-color: #6C6C6C !important;
-            color: White;
-            font-family: Arial;
-            font-size: 10pt;
-            line-height: 200%;
-            width: 100px;
-        }
-    </style>
-
+     
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -112,7 +71,7 @@
                                     <li>
                                         <a href="BirimleriGoruntule.aspx">Birimleri Görüntüle</a>
                                     </li>
-                                    <li>
+                                    <li id="Gorusme" runat="server" visible="true">
                                         <a href="Gorusmeleri_Goruntule.aspx">Görüşmeleri Görüntüle</a>
                                     </li>
                                 </ul>
@@ -238,23 +197,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $(".drag_drop_grid").sortable({
-                items: 'tr:not(tr:first-child)',
-                cursor: 'crosshair',
-                connectWith: '.drag_drop_grid',
-                axis: 'y',
-                dropOnEmpty: true,
-                receive: function (e, ui) {
-                    $(this).find("tbody").append(ui.item);
-                }
-            });
-            $("[id*=gvDest] tr:not(tr:first-child)").remove();
-        });
-    </script>
-
+    
 
 </body>
 </html>

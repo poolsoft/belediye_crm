@@ -22,9 +22,15 @@ namespace BlediyeCRM
                 else
                 {
                     if (Session["YETKILI"].ToString() == "1")
+                    {
                         Panel.Visible = true;
+                        Gorusme.Visible = true;
+                    }
                     else
+                    {
                         Panel.Visible = false;
+                        Gorusme.Visible = false;
+                    }
                 }       
                 
             }

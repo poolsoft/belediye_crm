@@ -18,25 +18,22 @@ namespace BlediyeCRM.pages
         {
             if (!IsPostBack)
             {
-                if (!string.IsNullOrEmpty(Session["IL"] as string))
-                { 
-                    if (Session["IL"].ToString() != "0" & Session["ILCE"].ToString() != "0")
-                        BelediyeCek("" + Session["IL"].ToString(), "" + Session["ILCE"].ToString());
-                }
 
-                if (!string.IsNullOrEmpty(Session["TUM"] as string))
-                {
-                    if (Session["TUM"].ToString() == "1")
-                        TumBelediyeler();
-                    else
-                        Response.Redirect("Belediyeleri_Goruntule.aspx");
-                }
+                ilCek(); 
+                ModalPopupExtender2.Show(); 
+                 
+                //if (!string.IsNullOrEmpty(Session["TUM"] as string))
+                //{
+                //    if (Session["TUM"].ToString() == "1")
+                //        TumBelediyeler();
+                //    else
+                //        Response.Redirect("Belediyeleri_Goruntule.aspx");
+                //}
 
-                lblMesaj.Text = "";
+               
             }
 
         }
-
 
 
         protected void rptYAPI_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -96,8 +93,7 @@ namespace BlediyeCRM.pages
                     catch (Exception ex)
                     {
                         lblMesaj.ForeColor = Color.Red;
-                        lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz. Beklenmedik bir hata oluştu.";
-
+                        lblMesaj.Text = "İnternet bağlantınızı kontrol ediniz. Beklenmedik bir hata oluştu."; 
                     }
 
 
@@ -105,7 +101,7 @@ namespace BlediyeCRM.pages
                     {
                         lblMesaj.ForeColor = Color.Green;
                         lblMesaj.Text = "Silindi.";
-                        BelediyeCek("" + Request.QueryString["IL"].ToString(), "" + Request.QueryString["ILCE"].ToString());
+                        BelediyeCek("" + ddIl.SelectedItem.ToString());
                     }
                     else
                     {
@@ -121,16 +117,13 @@ namespace BlediyeCRM.pages
 
             }
         }
-
-
- 
-
-        public void BelediyeCek(string IL, string ILCE)
+         
+        public void BelediyeCek(string IL)
         {
             try
             {
                 DB a = new DB();
-                SqlDataReader dr = a.BelediyeGetir(IL, ILCE);
+                SqlDataReader dr = a.BelediyeGetir(IL);
                 rptBELEDIYE.DataSource = dr;
                 rptBELEDIYE.DataBind();
             }
@@ -140,7 +133,6 @@ namespace BlediyeCRM.pages
             }
         }
 
-       
 
         protected void btnKaydet_Click(object sender, EventArgs e)
         {
@@ -173,8 +165,6 @@ namespace BlediyeCRM.pages
             ClientScript.RegisterStartupScript(GetType(), "hwa", "waitingDialog.show();setTimeout(function () {waitingDialog.hide();}, 3000);", true);
         }
 
-         
-
         public void TumBelediyeler()
         {
             
@@ -197,7 +187,38 @@ namespace BlediyeCRM.pages
             Response.Redirect("Belediye_Ekle.aspx");
         }
 
+        protected void ddIl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddIl.SelectedItem.ToString() == "IL_SECINIZ")
+            {
+                ilCek();
+                ModalPopupExtender2.Show(); 
+            }
+            else
+                BelediyeCek("" + ddIl.SelectedItem.ToString());
+        }
 
+        protected void ddIl_DataBound(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ilCek()
+        {
+            ddIl.Items.Add("IL SECINIZ");
+            DB a = new DB();
+            SqlDataReader dr = a.IlGetir();
+            while (dr.Read())
+            {
+                ddIl.Items.Add("" + dr["IL"]);
+            }
+        }
+
+        protected void btnIlSec_Click(object sender, EventArgs e)
+        {
+            ilCek();
+            ModalPopupExtender2.Show(); 
+        }
 
 
 

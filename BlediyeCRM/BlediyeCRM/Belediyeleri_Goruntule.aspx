@@ -14,26 +14,21 @@
 
 
 
-   
+
 
     <asp:Panel ID="pnl" runat="server" Visible="true" CssClass="row">
-         
-         <div class="row">
-        <div class="col-xs-12">
-            <div class="card">
-                <div class="card-header" runat="server" id="geri">
-                    <div class="btn btn-primary">
-                        <a href="IlSecimi.aspx" style="color: white">
-                            <i class="fa fa-mail-reply"></i>
-                            Geri Dön 
-                        </a>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card">
+                    <div class="card-header" runat="server" id="geri">
+                        <asp:Button ID="btnIlSec" runat="server" CssClass="btn btn-warning" Text="İL SEÇİNİZ" Visible="True" OnClick="btnIlSec_Click" />
+                        &nbsp; &nbsp;
+                       <asp:Button ID="btnYeniBelediyeEkle" runat="server" CssClass="btn btn-success" Text="YENİ BELEDİYE EKLE" Visible="True" OnClick="btnYeniBelediyeEkle_Click" />
                     </div>
-                    &nbsp;&nbsp;
-                   <asp:Button ID="btnYeniBelediyeEkle" runat="server" CssClass="btn btn-success" Text="YENİ BELEDİYE EKLE" Visible="True" OnClick="btnYeniBelediyeEkle_Click" />
                 </div>
             </div>
         </div>
-    </div>
 
 
         <script type="text/javascript">
@@ -56,7 +51,13 @@
                     <div class="card-header">
                         <br />
                         <br />
-                        <asp:Label ID="lblMesaj" runat="server" Text="asd"></asp:Label>
+                        <asp:Label ID="lblMesaj" runat="server" Text="Belediye Dataları"></asp:Label>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     </div>
                     <div class="card-body no-padding">
                         <asp:Repeater ID="rptBELEDIYE" runat="server" OnItemCommand="rptYAPI_ItemCommand" Visible="true" OnDataBinding="rptBELEDIYE_DataBinding" OnInit="rptBELEDIYE_Init" OnLoad="rptBELEDIYE_Load" OnItemDataBound="rptBELEDIYE_ItemDataBound">
@@ -120,6 +121,25 @@
         </div>
 
 
+    </asp:Panel>
+
+
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender2" runat="server" BackgroundCssClass="modalBackground" PopupControlID="Panel1" TargetControlID="Label1" CancelControlID="btnHide"></ajaxToolkit:ModalPopupExtender>
+
+    <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" Style="display: none; width: 250px; height: 140px">
+        <div class="header">
+            İl Seçiniz
+        </div>
+        <div class="body">
+            <asp:DropDownList ID="ddIl" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddIl_SelectedIndexChanged" OnDataBound="ddIl_DataBound" Font-Bold="True" Font-Size="15px" Height="50px" Width="200px" BackColor="White"></asp:DropDownList>
+            <br />
+            <br />
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+        </div>
+        <div class="footer" align="right">
+            <asp:Button ID="btnHide" runat="server" CssClass="no" Text="Kapat" />
+        </div>
     </asp:Panel>
 
 </asp:Content>

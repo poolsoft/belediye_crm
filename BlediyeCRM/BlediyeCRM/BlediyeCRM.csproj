@@ -78,7 +78,6 @@
     <Content Include="assets\js\Loading.js" />
     <Content Include="assets\js\MaxLength.min.js" />
     <Content Include="Default.aspx" />
-    <Content Include="IlSecimi.aspx" />
     <Content Include="MASTER.Master" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -625,6 +624,7 @@
     <Content Include="Gorusme_Ekle.aspx" />
     <Content Include="Kullanicilari_Goruntule.aspx" />
     <Content Include="Kullanici_Ekle.aspx" />
+    <Content Include="Raporlama.aspx" />
     <Content Include="SifreGuncelle.aspx" />
     <Content Include="Silinen_Belediyeler.aspx" />
     <Content Include="Silinen_Birimler.aspx" />
@@ -646,13 +646,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="IlSecimi.aspx.cs">
-      <DependentUpon>IlSecimi.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="IlSecimi.aspx.designer.cs">
-      <DependentUpon>IlSecimi.aspx</DependentUpon>
     </Compile>
     <Compile Include="MASTER.Master.cs">
       <DependentUpon>MASTER.Master</DependentUpon>
@@ -730,6 +723,13 @@
     </Compile>
     <Compile Include="Kullanici_Ekle.aspx.designer.cs">
       <DependentUpon>Kullanici_Ekle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Raporlama.aspx.cs">
+      <DependentUpon>Raporlama.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Raporlama.aspx.designer.cs">
+      <DependentUpon>Raporlama.aspx</DependentUpon>
     </Compile>
     <Compile Include="SifreGuncelle.aspx.cs">
       <DependentUpon>SifreGuncelle.aspx</DependentUpon>

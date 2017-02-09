@@ -72,7 +72,7 @@ namespace BlediyeCRM
                 SqlConnection con = null;
                 SqlCommand cmd = null;
                 con = new SqlConnection(ConnectionBelediye());
-                cmd = new SqlCommand("SELECT ILCE FROM [BELEDIYE_CRM].[dbo].[BELEDIYE] WHERE IL IN(SELECT IL FROM [BELEDIYE_CRM].[dbo].[BELEDIYE]  WHERE IL='"+IL+"'  GROUP by IL )order by IL", con);
+                cmd = new SqlCommand("SELECT ILCE FROM [BELEDIYE_CRM].[dbo].[BELEDIYE] WHERE IL IN(SELECT IL FROM [BELEDIYE_CRM].[dbo].[BELEDIYE]  WHERE IL='" + IL + "'  GROUP by IL )order by IL", con);
                 con.Open();
                 sonuc = cmd.ExecuteReader();
                 return sonuc;
@@ -108,7 +108,7 @@ namespace BlediyeCRM
         }
 
         //Belediye  Getir
-        public SqlDataReader BelediyeGetir(string IL, string ILCE)
+        public SqlDataReader BelediyeGetir(string IL)
         {
             SqlDataReader sonuc = null;
             try
@@ -116,7 +116,7 @@ namespace BlediyeCRM
                 SqlConnection con = null;
                 SqlCommand cmd = null;
                 con = new SqlConnection(ConnectionBelediye());
-                cmd = new SqlCommand("select * from BELEDIYE where IL='"+IL+"' and ILCE='"+ILCE+"' order by KAYIT_ZAMANI desc ", con);
+                cmd = new SqlCommand("select * from BELEDIYE where IL='" + IL + "'   order by KAYIT_ZAMANI desc ", con);
                 con.Open();
                 sonuc = cmd.ExecuteReader();
                 return sonuc;
@@ -385,6 +385,43 @@ namespace BlediyeCRM
                 SqlCommand cmd = null;
                 con = new SqlConnection(ConnectionBelediye());
                 cmd = new SqlCommand("select * from BIRIMLER where BIRIM_ID=" + BIRIM_ID, con);
+                con.Open();
+                sonuc = cmd.ExecuteReader();
+                return sonuc;
+                con.Close();
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
+
+        //Birimleri  Getir
+        public SqlDataReader BirimleriRaporla(int CBS, int numarataj, int tabela)
+        {
+            SqlDataReader sonuc = null;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+
+                if (numarataj == -1 & tabela == -1)
+                    cmd = new SqlCommand("select * from BIRIMLER where CBS_YAZILIMI=" + CBS, con);
+                else if (CBS == -1 && tabela == -1)
+                    cmd = new SqlCommand("select * from BIRIMLER where NUMARATAJ=" + numarataj, con);
+                else if (CBS == -1 && numarataj == -1)
+                    cmd = new SqlCommand("select * from BIRIMLER where NUMARATAJ_TABELASI=" + tabela, con);
+                else if (tabela == -1)
+                    cmd = new SqlCommand("select * from BIRIMLER where CBS_YAZILIMI=" + CBS + "and NUMARATAJ=" + numarataj, con);
+                else if (numarataj == -1)
+                    cmd = new SqlCommand("select * from BIRIMLER where CBS_YAZILIMI=" + CBS + "and NUMARATAJ_TABELASI=" + tabela, con);
+                else if (CBS == -1)
+                    cmd = new SqlCommand("select * from BIRIMLER where NUMARATAJ_TABELASI=" + tabela + "and NUMARATAJ=" + numarataj, con);
+                else
+                    cmd = new SqlCommand("select * from BIRIMLER where CBS_YAZILIMI=" + CBS + "and NUMARATAJ=" + numarataj + "and NUMARATAJ_TABELASI=" + tabela, con);
+
                 con.Open();
                 sonuc = cmd.ExecuteReader();
                 return sonuc;
@@ -724,8 +761,8 @@ namespace BlediyeCRM
             {
                 SqlConnection con = null;
                 SqlCommand cmd = null;
-                con = new SqlConnection(ConnectionBelediye()); 
-                cmd = new SqlCommand("delete from SILINEN_GORUSMELER where  GORUSME_ID=" + GORUSME_ID, con); 
+                con = new SqlConnection(ConnectionBelediye());
+                cmd = new SqlCommand("delete from SILINEN_GORUSMELER where  GORUSME_ID=" + GORUSME_ID, con);
                 con.Open();
                 sonuc = cmd.ExecuteNonQuery();
                 return sonuc;
@@ -737,8 +774,6 @@ namespace BlediyeCRM
                 Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
             }
         }
-
-
 
         //SilinenBirimleriGetir  Getir
         public SqlDataReader SilinenBirimleriGetir()
@@ -784,8 +819,6 @@ namespace BlediyeCRM
             }
         }
 
-
-
         //SilinenBelediyelerGetir  Getir
         public SqlDataReader SilinenBelediyelerGetir()
         {
@@ -807,7 +840,7 @@ namespace BlediyeCRM
                 Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
             }
         }
-      
+
         //Silinen BELEDIYE  Sil
         public int SilinenBelediyeSil(int BELEDIYE_ID)
         {

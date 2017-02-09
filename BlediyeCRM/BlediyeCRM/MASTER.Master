@@ -18,10 +18,51 @@
 
     <link rel="stylesheet" type="text/css" href="assets/css/lightbox.css" />
 
+    <link rel="Stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+
+    <style type="text/css">
+        .GridSrc td {
+            background-color: #A1DCF2;
+            color: black;
+            font-size: 10pt;
+            font-family: Arial;
+            line-height: 200%;
+            cursor: pointer;
+            width: 100px;
+        }
+
+        .GridSrc th {
+            background-color: #3AC0F2;
+            color: White;
+            font-family: Arial;
+            font-size: 10pt;
+            line-height: 200%;
+            width: 100px;
+        }
+
+        .GridDest td {
+            background-color: #eee !important;
+            color: black;
+            font-family: Arial;
+            font-size: 10pt;
+            line-height: 200%;
+            cursor: pointer;
+            width: 100px;
+        }
+
+        .GridDest th {
+            background-color: #6C6C6C !important;
+            color: White;
+            font-family: Arial;
+            font-size: 10pt;
+            line-height: 200%;
+            width: 100px;
+        }
+    </style>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -29,7 +70,7 @@
 
 </head>
 <body style="background-color: #f1f1f1">
-     
+
     <div class="app app-default">
         <form id="form1" runat="server">
             <aside class="app-sidebar" id="sidebar">
@@ -63,12 +104,12 @@
                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>
                                         Belediye İşlemleri</li>
                                     <li>
-                                        <a href="IlSecimi.aspx">Belediye Görüntüleme</a>
+                                        <a href="Belediyeleri_Goruntule.aspx">Belediye Görüntüleme</a>
                                     </li>
                                     <li>
                                         <a href="Belediye_Ekle.aspx">Belediye Ekle</a>
                                     </li>
-                                     <li>
+                                    <li>
                                         <a href="BirimleriGoruntule.aspx">Birimleri Görüntüle</a>
                                     </li>
                                     <li>
@@ -90,8 +131,8 @@
                                 <div class="title">Yönetim Paneli</div>
                             </a>
                             <div class="dropdown-menu">
-                                <ul> 
-                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Silinen Veriler</li>
+                                <ul>
+                                    <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Silinen Veriler</li>
                                     <li><a href="Silinen_Belediyeler.aspx">Silinen Belediyeler</a></li>
                                     <li><a href="Silinen_Birimler.aspx">Silinen Birimler</a></li>
                                     <li><a href="Silinen_Gorusmeler.aspx">Silinen Görüşmeler</a></li>
@@ -103,7 +144,7 @@
                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Admin</li>
                                     <li><a href="Bilgilerimi_Guncelle.aspx">Bilgilerimi Güncelle</a></li>
                                     <li><a href="SifreGuncelle.aspx">Şifremi Güncelle</a></li>
-                                    <li><a href="Guvenli_Cikis.aspx">Güvenli Çıkış</a></li>  
+                                    <li><a href="Guvenli_Cikis.aspx">Güvenli Çıkış</a></li>
                                 </ul>
                             </div>
 
@@ -116,7 +157,7 @@
 
             </aside>
 
-            <div class="app-container"> 
+            <div class="app-container">
                 <nav class="navbar navbar-default" id="navbar">
                     <div class="container-fluid">
                         <div class="navbar-collapse collapse in">
@@ -197,7 +238,22 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".drag_drop_grid").sortable({
+                items: 'tr:not(tr:first-child)',
+                cursor: 'crosshair',
+                connectWith: '.drag_drop_grid',
+                axis: 'y',
+                dropOnEmpty: true,
+                receive: function (e, ui) {
+                    $(this).find("tbody").append(ui.item);
+                }
+            });
+            $("[id*=gvDest] tr:not(tr:first-child)").remove();
+        });
+    </script>
 
 
 </body>

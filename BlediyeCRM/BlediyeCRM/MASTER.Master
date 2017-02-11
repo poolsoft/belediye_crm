@@ -91,6 +91,9 @@
                             </a>
                             <div class="dropdown-menu">
                                 <ul>
+                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Raporlar</li>
+                                    <li><a href="Raporlama.aspx">Rapor Oluştur</a></li> 
+                                    <li class="line"></li>
                                     <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i>Silinen Veriler</li>
                                     <li><a href="Silinen_Belediyeler.aspx">Silinen Belediyeler</a></li>
                                     <li><a href="Silinen_Birimler.aspx">Silinen Birimler</a></li>

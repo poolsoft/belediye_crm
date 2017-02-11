@@ -144,9 +144,9 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th></th>
-                                                                    <th>GÖRÜŞME_KONUSU</th> 
+                                                                    <th>GÖRÜŞME_KONUSU</th>
                                                                     <th>SON_DURUM</th>
-                                                                    <th>GÖRÜŞMEYİ_YAPAN_KİŞİ</th> 
+                                                                    <th>GÖRÜŞMEYİ_YAPAN_KİŞİ</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -170,9 +170,9 @@
                                                                 </div>
                                                             </td>
 
-                                                            <td><%# Eval("GORUSME_KONUSU") %></td> 
+                                                            <td><%# Eval("GORUSME_KONUSU") %></td>
                                                             <td><%# Eval("SON_DURUMU") %></td>
-                                                            <td><%# Eval("KULLANICI_ADI") %></td> 
+                                                            <td><%# Eval("KULLANICI_ADI") %></td>
                                                         </tr>
                                                     </ItemTemplate>
                                                     <FooterTemplate>

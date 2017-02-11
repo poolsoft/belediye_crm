@@ -53,11 +53,7 @@
                         <br />
                         <asp:Label ID="lblMesaj" runat="server" Text="Belediye Dataları"></asp:Label>
                         <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
+                        
                     </div>
                     <div class="card-body no-padding">
                         <asp:Repeater ID="rptBELEDIYE" runat="server" OnItemCommand="rptYAPI_ItemCommand" Visible="true" OnDataBinding="rptBELEDIYE_DataBinding" OnInit="rptBELEDIYE_Init" OnLoad="rptBELEDIYE_Load" OnItemDataBound="rptBELEDIYE_ItemDataBound">

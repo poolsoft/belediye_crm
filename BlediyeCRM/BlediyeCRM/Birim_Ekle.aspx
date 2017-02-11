@@ -192,7 +192,7 @@
                     <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="Panel1" TargetControlID="Label1" BackgroundCssClass="modalBackground" CancelControlID="btnHide">
                     </ajaxToolkit:ModalPopupExtender>
 
-                    <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" Style="display: none; width: 200px">
+                    <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" Style="display: none; width: 200px; height:200px">
                         <div class="header">
                             Bilgi
                         </div>

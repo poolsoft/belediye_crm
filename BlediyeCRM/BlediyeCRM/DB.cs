@@ -62,7 +62,29 @@ namespace BlediyeCRM
                 Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
             }
         }
-
+         
+        //Kullanıcı  Getir
+        public SqlDataReader KullaniciGetir()
+        {
+            SqlDataReader sonuc = null;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+                cmd = new SqlCommand("  SELECT ADSOYAD FROM [BELEDIYE_CRM].[dbo].[KULLANICILAR]  GROUP by ADSOYAD order by ADSOYAD ", con);
+                con.Open();
+                sonuc = cmd.ExecuteReader();
+                return sonuc;
+                con.Close();
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
+         
         //Ilce  Getir
         public SqlDataReader IlceGetir(string IL)
         {
@@ -397,7 +419,7 @@ namespace BlediyeCRM
             }
         }
 
-        //Birimleri  Getir
+        //Birimleri rapor  Getir
         public SqlDataReader BirimleriRaporla(int CBS, int numarataj, int tabela)
         {
             SqlDataReader sonuc = null;
@@ -408,19 +430,19 @@ namespace BlediyeCRM
                 con = new SqlConnection(ConnectionBelediye());
 
                 if (numarataj == -1 & tabela == -1)
-                    cmd = new SqlCommand("select * from BIRIMLER where CBS_YAZILIMI=" + CBS, con);
+                    cmd = new SqlCommand("select * from BIRIMLER b inner join BELEDIYE e on b.BELEDIYE_ID=e.BELEDIYE_ID  where CBS_YAZILIMI=" + CBS, con);
                 else if (CBS == -1 && tabela == -1)
-                    cmd = new SqlCommand("select * from BIRIMLER where NUMARATAJ=" + numarataj, con);
+                    cmd = new SqlCommand("select * from BIRIMLER b inner join BELEDIYE e on b.BELEDIYE_ID=e.BELEDIYE_ID  where NUMARATAJ=" + numarataj, con);
                 else if (CBS == -1 && numarataj == -1)
-                    cmd = new SqlCommand("select * from BIRIMLER where NUMARATAJ_TABELASI=" + tabela, con);
+                    cmd = new SqlCommand("select * from BIRIMLER b inner join BELEDIYE e on b.BELEDIYE_ID=e.BELEDIYE_ID  where NUMARATAJ_TABELASI=" + tabela, con);
                 else if (tabela == -1)
-                    cmd = new SqlCommand("select * from BIRIMLER where CBS_YAZILIMI=" + CBS + "and NUMARATAJ=" + numarataj, con);
+                    cmd = new SqlCommand("select * from BIRIMLER b inner join BELEDIYE e on b.BELEDIYE_ID=e.BELEDIYE_ID  where CBS_YAZILIMI=" + CBS + "and NUMARATAJ=" + numarataj, con);
                 else if (numarataj == -1)
-                    cmd = new SqlCommand("select * from BIRIMLER where CBS_YAZILIMI=" + CBS + "and NUMARATAJ_TABELASI=" + tabela, con);
+                    cmd = new SqlCommand("select * from BIRIMLER b inner join BELEDIYE e on b.BELEDIYE_ID=e.BELEDIYE_ID  where CBS_YAZILIMI=" + CBS + "and NUMARATAJ_TABELASI=" + tabela, con);
                 else if (CBS == -1)
-                    cmd = new SqlCommand("select * from BIRIMLER where NUMARATAJ_TABELASI=" + tabela + "and NUMARATAJ=" + numarataj, con);
+                    cmd = new SqlCommand("select * from BIRIMLER b inner join BELEDIYE e on b.BELEDIYE_ID=e.BELEDIYE_ID   where NUMARATAJ_TABELASI=" + tabela + "and NUMARATAJ=" + numarataj, con);
                 else
-                    cmd = new SqlCommand("select * from BIRIMLER where CBS_YAZILIMI=" + CBS + "and NUMARATAJ=" + numarataj + "and NUMARATAJ_TABELASI=" + tabela, con);
+                    cmd = new SqlCommand("select * from BIRIMLER b inner join BELEDIYE e on b.BELEDIYE_ID=e.BELEDIYE_ID  where CBS_YAZILIMI=" + CBS + "and NUMARATAJ=" + numarataj + "and NUMARATAJ_TABELASI=" + tabela, con);
 
                 con.Open();
                 sonuc = cmd.ExecuteReader();
@@ -853,6 +875,44 @@ namespace BlediyeCRM
                 cmd = new SqlCommand("delete from SILINEN_BELEDIYELER where  BELEDIYE_ID=" + BELEDIYE_ID, con);
                 con.Open();
                 sonuc = cmd.ExecuteNonQuery();
+                return sonuc;
+                con.Close();
+            }
+            catch (Exception exception)
+            {
+                return sonuc;
+                Console.Write("'{0}' ", String.IsNullOrEmpty("hata") ? "<>" : "hata olustu");
+            }
+        }
+
+
+        //Görüşme raporla  Getir
+        public SqlDataReader GorusmeleriRaporla(string basTar, string bitTar, string IL, string adsoyad)
+        {
+            SqlDataReader sonuc = null;
+            try
+            {
+                SqlConnection con = null;
+                SqlCommand cmd = null;
+                con = new SqlConnection(ConnectionBelediye());
+
+                if (IL == "IL_SECINIZ" && adsoyad == "KULLANICI_SEC")
+                    cmd = new SqlCommand("select bel.IL, bel.ILCE, b.[GORUSME_KONUSU], b.KAYIT_ZAMANI, b.KULLANICI_ADI,b.SON_DURUMU from GORUSMELER b inner join BIRIMLER e on b.BIRIM_ID=e.BIRIM_ID inner join BELEDIYE bel on e.BELEDIYE_ID=bel.BELEDIYE_ID  where b.KAYIT_ZAMANI BETWEEN '" + basTar + "'  and  '" + bitTar + "'", con);
+                //else if (CBS == -1 && tabela == -1)
+                //    cmd = new SqlCommand("select * from BIRIMLER b inner join BELEDIYE e on b.BELEDIYE_ID=e.BELEDIYE_ID  where NUMARATAJ=" + numarataj, con);
+                //else if (CBS == -1 && numarataj == -1)
+                //    cmd = new SqlCommand("select * from BIRIMLER b inner join BELEDIYE e on b.BELEDIYE_ID=e.BELEDIYE_ID  where NUMARATAJ_TABELASI=" + tabela, con);
+                //else if (tabela == -1)
+                //    cmd = new SqlCommand("select * from BIRIMLER b inner join BELEDIYE e on b.BELEDIYE_ID=e.BELEDIYE_ID  where CBS_YAZILIMI=" + CBS + "and NUMARATAJ=" + numarataj, con);
+                //else if (numarataj == -1)
+                //    cmd = new SqlCommand("select * from BIRIMLER b inner join BELEDIYE e on b.BELEDIYE_ID=e.BELEDIYE_ID  where CBS_YAZILIMI=" + CBS + "and NUMARATAJ_TABELASI=" + tabela, con);
+                //else if (CBS == -1)
+                //    cmd = new SqlCommand("select * from BIRIMLER b inner join BELEDIYE e on b.BELEDIYE_ID=e.BELEDIYE_ID   where NUMARATAJ_TABELASI=" + tabela + "and NUMARATAJ=" + numarataj, con);
+                //else
+                //    cmd = new SqlCommand("select * from BIRIMLER b inner join BELEDIYE e on b.BELEDIYE_ID=e.BELEDIYE_ID  where CBS_YAZILIMI=" + CBS + "and NUMARATAJ=" + numarataj + "and NUMARATAJ_TABELASI=" + tabela, con);
+
+                con.Open();
+                sonuc = cmd.ExecuteReader();
                 return sonuc;
                 con.Close();
             }

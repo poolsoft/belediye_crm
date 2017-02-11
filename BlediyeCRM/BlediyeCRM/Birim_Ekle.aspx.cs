@@ -219,7 +219,6 @@ namespace BlediyeCRM.pages
                         txtDahili.Text = "0";
                         txtGsm.Text = "0";
                         txtEmail.Text = "";
-                        txtTelefon.Text = "";
                         txtNot.Text = "";
  
                         txtLisans.Text = "";
@@ -350,5 +349,7 @@ namespace BlediyeCRM.pages
 
             }
         }
+  
+    
     }
 }
